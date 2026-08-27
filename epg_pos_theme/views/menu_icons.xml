@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Override POS menu icon -->
+    <record id="point_of_sale.menu_point_root" model="ir.ui.menu">
+        <field name="web_icon">epg_pos_theme,static/description/pos.svg</field>
+    </record>
+
+    <!-- Override Inventory menu icon -->
+    <record id="stock.menu_stock_root" model="ir.ui.menu">
+        <field name="web_icon">epg_pos_theme,static/description/inventario.svg</field>
+    </record>
+</odoo>

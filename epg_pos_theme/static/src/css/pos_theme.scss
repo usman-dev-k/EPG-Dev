@@ -1,0 +1,611 @@
+/** 
+ * EPG CRM Point of Sale Theme
+ * Heavily customized for a clean, white, modern layout.
+ */
+
+:root {
+    /* Main Branding Colors */
+    --epg-primary-green: #34A853;
+    --epg-secondary-blue: #1A365D;
+    --epg-border-blue: #1976D2;
+    --epg-border-orange: #F57C00;
+    --epg-border-purple: #7B1FA2;
+    --epg-border-green: #388E3C;
+
+    /* Backgrounds & Borders */
+    --epg-bg-light: #F8FAFC;
+    --epg-bg-white: #FFFFFF;
+    --epg-border-color: #E2E8F0;
+
+    /* Text Colors */
+    --epg-text-dark: #1E293B;
+    --epg-text-muted: #64748B;
+    --epg-danger-red: #DC2626;
+
+    /* Override Odoo's global purple variables at root level */
+    --color-text-action: #1A365D;
+    --color-action: #1A365D;
+    --o-main-primary-color: #1A365D;
+}
+
+/* =========================================
+   GLOBAL: Override ALL Bootstrap btn-primary in POS to EPG Dark Blue
+   This single rule fixes: Search more, Close Register, Open Register,
+   Confirm (Cash In/Out), Proceed Anyway, Create, Invoice checkbox, etc.
+   ========================================= */
+.pos .btn-primary,
+.pos .btn.btn-primary,
+.pos button.btn-primary {
+    --bs-btn-bg: #1A365D !important;
+    --bs-btn-border-color: #1A365D !important;
+    --bs-btn-hover-bg: #152C4E !important;
+    --bs-btn-hover-border-color: #152C4E !important;
+    --bs-btn-active-bg: #0F1F38 !important;
+    --bs-btn-active-border-color: #0F1F38 !important;
+    background-color: #1A365D !important;
+    border-color: #1A365D !important;
+    color: white !important;
+}
+.pos .btn-primary:hover,
+.pos .btn.btn-primary:hover,
+.pos button.btn-primary:hover {
+    background-color: #152C4E !important;
+    border-color: #152C4E !important;
+}
+
+/* Keep the PAYMENT / Validate button GREEN - it uses a custom class not btn-primary */
+.pos .payment-screen .button.next,
+.pos .payment-screen .btn-validate,
+.pos .payment-screen button[class*="validate"],
+.pos .payment-screen .btn.btn-success {
+    background-color: var(--epg-primary-green) !important;
+    border-color: var(--epg-primary-green) !important;
+}
+
+/* Invoice checkbox — active state color */
+.pos .payment-screen .invoice-checkbox .checkmark,
+.pos .payment-screen input[type="checkbox"]:checked,
+.pos .payment-screen .checkbox-widget.checked {
+    accent-color: var(--epg-secondary-blue) !important;
+    border-color: var(--epg-secondary-blue) !important;
+    background-color: var(--epg-secondary-blue) !important;
+}
+
+/* Hide "Install App" from POS burger menu — it is always the first item */
+.pos .pos-burger-menu-items span.o-dropdown-item:first-child,
+.pos .pos-burger-menu-items .dropdown-item:first-child {
+    display: none !important;
+}
+
+/* Override standard dark themes if any */
+.pos {
+    background-color: var(--epg-bg-light) !important;
+
+    /* =============================================
+       MASTER COLOR OVERRIDE — Replace ALL Odoo purple
+       with EPG Dark Blue via CSS variables
+       ============================================= */
+    --color-text-action: #1A365D;         /* text-action class (customer name, icons) */
+    --color-action: #1A365D;              /* general action color */
+    --o-main-primary-color: #1A365D;      /* Odoo 18 primary */
+    --bs-primary: #1A365D;               /* Bootstrap primary */
+    --bs-primary-rgb: 26, 54, 93;        /* Bootstrap primary RGB */
+    --bs-link-color: #1A365D;
+    --bs-link-hover-color: #152C4E;
+
+    /* Checkbox and radio accent */
+    accent-color: #1A365D;
+
+    /* Input focus / active underline */
+    --input-focus-border-color: #1A365D;
+    --input-active-color: #1A365D;
+}
+
+/* Selected partner row — uses .selected class (not .highlight) */
+tr.partner-line.selected,
+tr.partner-line.partner-info.selected {
+    background-color: rgba(26, 54, 93, 0.07) !important;
+    border: 2px solid rgba(26, 54, 93, 0.3) !important;
+}
+
+/* The check tick icon on selected partner row */
+tr.partner-line.selected .fa-check,
+.partner-line .unselect-tag .fa-check {
+    color: #1A365D !important;
+}
+
+/* The three-lines ≡ dropdown button on each row — hide it */
+.partner-line .o-dropdown.dropdown-toggle,
+.partner-line button.o-dropdown,
+td.edit-partner-button-cell .dropdown {
+    display: none !important;
+}
+
+/* Search dropdown term text — uses Bootstrap text-primary class */
+.pos .term.text-primary,
+.pos span.text-primary,
+.pos .text-primary {
+    color: #1A365D !important;
+}
+
+/* text-action anywhere in the app */
+.text-action {
+    color: #1A365D !important;
+}
+
+/* Search autocomplete highlighted match text (Orders screen / ticket search) */
+.pos .search-list mark,
+.pos .autocomplete mark,
+.pos .o-autocomplete mark,
+.pos [class*="search"] mark,
+mark {
+    color: #1A365D !important;
+    background: rgba(26, 54, 93, 0.1) !important;
+    font-weight: bold !important;
+}
+
+/* Global checkbox accent for all POS modals */
+body input[type="checkbox"] {
+    accent-color: #1A365D !important;
+}
+
+/* Hide the three-lines (detail) button on each customer row */
+.partner-line .partner-line-edit,
+.partner-line button.fa-bars,
+.partner-line button[class*="detail"],
+.partner-line .btn-light.d-flex,
+.partner-line > button:last-child {
+    display: none !important;
+}
+
+/* Input fields — focus bottom border */
+.pos input:focus,
+.pos textarea:focus,
+.pos select:focus,
+.pos .form-control:focus,
+.pos .o-field-widget input:focus {
+    border-color: var(--epg-secondary-blue) !important;
+    box-shadow: 0 0 0 0.2rem rgba(26, 54, 93, 0.15) !important;
+    outline-color: var(--epg-secondary-blue) !important;
+}
+
+/* Checkboxes — all of them */
+.pos input[type="checkbox"],
+.pos input[type="radio"] {
+    accent-color: var(--epg-secondary-blue) !important;
+}
+
+/* Invoice and customer buttons in payment screen — highlight/active state */
+.pos .payment-screen .partner-button.highlight,
+.pos .payment-screen .js_invoice.highlight,
+.pos .payment-screen .js_invoice.active,
+.pos .payment-screen .button.highlight:not(.payment-method-button) {
+    border-color: var(--epg-secondary-blue) !important;
+    color: var(--epg-secondary-blue) !important;
+}
+.pos .payment-screen .js_invoice.active i.fa-check-square,
+.pos .payment-screen .button.highlight .text-action {
+    color: var(--epg-secondary-blue) !important;
+}
+
+
+/* =========================================
+   1. NAVBAR OVERRIDES (White Theme)
+   ========================================= */
+.pos .pos-topheader {
+    background-color: var(--epg-bg-white) !important;
+    color: var(--epg-text-dark) !important;
+    border-bottom: 1px solid var(--epg-border-color) !important;
+    height: 60px !important;
+}
+
+/* Reset all navbar buttons to dark text */
+.pos .pos-topheader div,
+.pos .pos-topheader button,
+.pos .pos-topheader .button,
+.pos .pos-topheader .header-button,
+.pos .pos-topheader .oe_status,
+.pos .pos-topheader i,
+.pos .pos-topheader .epg-custom-logo {
+    color: var(--epg-text-dark) !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+.pos .pos-topheader .epg-custom-logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Hide Odoo logo */
+.pos .o_main_logo,
+.pos .o_logo,
+.pos .pos-branding {
+    display: none !important;
+}
+
+/* =========================================
+   2. MAIN PANELS (Left & Right)
+   ========================================= */
+.pos .product-screen.epg-4-zone-layout {
+    flex-direction: row-reverse !important; /* Ticket on right, products on left */
+    padding: 10px !important;
+    gap: 10px !important;
+}
+
+/* The two main panes */
+.pos .product-screen .leftpane { /* Products (left visual) */
+    background-color: transparent !important;
+    border: none !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    flex: 1 1 55% !important;
+    max-width: 60% !important;
+}
+.pos .product-screen .rightpane { /* Ticket & Payment (right visual) */
+    background-color: transparent !important;
+    border: none !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    flex: 1 1 45% !important;
+    max-width: 45% !important;
+}
+
+/* =========================================
+   3. RIGHT PANE (TICKET & PAYMENT)
+   ========================================= */
+/* Make the ticket container look like the blue border box */
+.pos .order-container {
+    background-color: var(--epg-bg-white) !important;
+    border: 2px solid var(--epg-border-blue) !important;
+    border-radius: 8px !important;
+    margin-bottom: 10px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
+}
+
+/* Orderline styling (table row look) */
+.pos .order-container .orderline {
+    border-bottom: 1px solid var(--epg-border-color) !important;
+    padding: 12px 16px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+.pos .order-container .orderline.selected {
+    background-color: #F0FDF4 !important; /* very light green */
+}
+.pos .order-container .orderline .product-name {
+    font-weight: 600 !important;
+    color: var(--epg-text-dark) !important;
+}
+.pos .order-container .orderline .price {
+    font-weight: 600 !important;
+}
+
+/* Bottom summary box (Orange border) */
+.pos .pads {
+    background-color: var(--epg-bg-white) !important;
+    border: 2px solid var(--epg-border-orange) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
+    padding: 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+}
+
+/* =========================================
+   4. NUMPAD & ACTIONPAD (Inside Orange Box)
+   ========================================= */
+.pos .numpad {
+    background: transparent !important;
+    border: none !important;
+}
+.pos .numpad button {
+    background-color: var(--epg-bg-white) !important;
+    border: 1px solid var(--epg-border-color) !important;
+    border-radius: 6px !important;
+    color: var(--epg-text-dark) !important;
+    font-weight: 500 !important;
+    margin: 2px !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02) !important;
+}
+.pos .numpad button:hover {
+    background-color: #F1F5F9 !important;
+}
+
+/* The giant Payment button */
+.pos .pay-order-button, 
+.pos .actionpad .button.pay {
+    background-color: var(--epg-primary-green) !important;
+    color: white !important;
+    border-radius: 8px !important;
+    font-weight: 700 !important;
+    font-size: 1.4rem !important;
+    text-transform: uppercase !important;
+    height: 70px !important;
+    border: none !important;
+    box-shadow: 0 4px 6px rgba(52, 168, 83, 0.3) !important;
+    width: 100% !important;
+    margin-top: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+}
+.pos .pay-order-button:hover,
+.pos .actionpad .button.pay:hover {
+    background-color: #2E7D32 !important;
+    transform: translateY(-1px);
+}
+
+/* Other Actionpad buttons (Customer) */
+.pos .actionpad .button.set-customer {
+    background-color: var(--epg-bg-white) !important;
+    border: 1px solid var(--epg-border-color) !important;
+    color: var(--epg-text-dark) !important;
+    border-radius: 6px !important;
+}
+
+/* =========================================
+   5. LEFT PANE (PRODUCTS & SEARCH)
+   ========================================= */
+/* Wrapper for products (Green border) */
+.pos .product-screen .leftpane { /* Since row-reverse puts leftpane visually on left */
+    background-color: var(--epg-bg-white) !important;
+    border: 2px solid var(--epg-border-green) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
+    padding: 15px !important;
+}
+
+/* Search bar styling */
+.pos .search-bar-container input,
+.pos .product-screen .search-box input {
+    background-color: var(--epg-bg-white) !important;
+    border: 1px solid var(--epg-border-color) !important;
+    border-radius: 6px !important;
+    color: var(--epg-text-dark) !important;
+    padding: 10px 15px !important;
+    width: 100% !important;
+}
+.pos .search-bar-container input::placeholder {
+    color: var(--epg-text-muted) !important;
+}
+
+/* Products Grid */
+.pos .product-list .product {
+    background-color: var(--epg-bg-white) !important;
+    border: 1px solid var(--epg-border-color) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+    overflow: hidden !important;
+    transition: all 0.2s ease;
+    height: 170px !important; 
+    display: flex !important;
+    flex-direction: column !important;
+}
+.pos .product-list .product:hover {
+    border-color: var(--epg-border-green) !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;
+    transform: translateY(-2px);
+}
+.pos .product-list .product img,
+.pos .product-list .product .product-img,
+.pos .product-list .product .product-image {
+    position: relative !important;
+    height: 90px !important;
+    width: 100% !important;
+    object-fit: contain !important;
+    background-color: var(--epg-bg-white) !important;
+    padding: 5px !important;
+    margin: 0 !important;
+}
+.pos .product-list .product .product-content {
+    position: relative !important;
+    bottom: auto !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    background: transparent !important;
+    padding: 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    height: 80px !important;
+}
+
+/* Search More Button - override Bootstrap btn-primary */
+.pos .product-list .search-more-button,
+.pos .product-screen .search-more-button,
+.pos button.search-more-button,
+.pos .search-more-button,
+.pos .search-more-button.btn,
+.pos .search-more-button.btn-primary {
+    background-color: var(--epg-secondary-blue) !important;
+    background: var(--epg-secondary-blue) !important;
+    color: white !important;
+    border: none !important;
+    border-color: var(--epg-secondary-blue) !important;
+    box-shadow: none !important;
+}
+.pos .product-list .product .product-name {
+    position: relative !important;
+    color: var(--epg-text-dark) !important;
+    font-weight: 500 !important;
+    font-size: 0.9rem !important;
+    min-height: 2.8rem !important;
+    line-height: 1.4rem !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    margin-bottom: auto !important;
+}
+.pos .product-list .product .price-tag {
+    background-color: transparent !important;
+    color: var(--epg-text-dark) !important;
+    font-weight: 700 !important;
+    padding: 0 !important;
+    margin-top: 5px !important;
+}
+
+/* Selected Quantity Badge */
+.pos .product-list .product .product-qty,
+.pos .product-list .product .qty-tag,
+.pos .product-list .product .order-qty,
+.pos .product-list .product [class*="qty"],
+.pos .product-list .product [class*="badge"],
+.pos .product-list .product > span:not(.price-tag):not(.product-name) {
+    position: absolute !important;
+    top: 8px !important;
+    right: 8px !important;
+    bottom: auto !important;
+    left: auto !important;
+    background-color: var(--epg-primary-green) !important;
+    color: white !important;
+    font-size: 0.85rem !important;
+    font-weight: bold !important;
+    padding: 3px 8px !important;
+    border-radius: 12px !important;
+    z-index: 10 !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+    line-height: normal !important;
+    min-width: unset !important;
+    min-height: unset !important;
+    display: inline-block !important;
+}
+
+/* Categories */
+.pos .category-list .category-button {
+    background-color: var(--epg-bg-white) !important;
+    border: 1px solid var(--epg-border-color) !important;
+    border-radius: 20px !important;
+    color: var(--epg-text-dark) !important;
+    box-shadow: none !important;
+    font-weight: 500 !important;
+}
+.pos .category-list .category-button.selected {
+    background-color: #E8F5E9 !important;
+    border-color: var(--epg-primary-green) !important;
+    color: var(--epg-primary-green) !important;
+}
+
+/* =========================================
+   6. PAYMENT SCREEN & RECEIPT
+   ========================================= */
+.pos .payment-screen,
+.pos .receipt-screen {
+    background-color: var(--epg-bg-light) !important;
+}
+.pos .payment-screen .main-content,
+.pos .receipt-screen .main-content {
+    background-color: var(--epg-bg-white) !important;
+    border: 1px solid var(--epg-border-color) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
+}
+
+.pos .payment-screen .paymentmethods .button {
+    background-color: var(--epg-bg-white) !important;
+    border: 1px solid var(--epg-border-color) !important;
+    border-radius: 8px !important;
+    color: var(--epg-text-dark) !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02) !important;
+}
+.pos .payment-screen .paymentmethods .button.highlight {
+    border-color: var(--epg-primary-green) !important;
+    background-color: #E8F5E9 !important;
+}
+.pos .payment-screen .button.next {
+    background-color: var(--epg-primary-green) !important;
+    color: white !important;
+}
+
+.pos .receipt-screen .button.next {
+    background-color: var(--epg-primary-green) !important;
+    color: white !important;
+}
+
+/* Send Email Button (Receipt Screen) */
+.pos .receipt-screen .button.send,
+.pos .receipt-screen .send-email button,
+.pos .receipt-screen form button {
+    background-color: var(--epg-secondary-blue) !important;
+    color: white !important;
+    border: none !important;
+}
+
+/* =========================================
+   7. TICKET SCREEN (ORDERS LIST)
+   ========================================= */
+.pos .ticket-screen .orders .header-row {
+    background-color: var(--epg-secondary-blue) !important;
+    color: white !important;
+}
+.pos .ticket-screen button.highlight,
+.pos .ticket-screen .button.highlight,
+.pos .ticket-screen .buttons .button.highlight,
+.pos .ticket-screen .buttons button,
+.pos .ticket-screen .rightpane button,
+.pos .ticket-screen [class*="details"] button,
+.pos .ticket-screen .action-buttons button,
+.pos .ticket-screen footer button,
+.pos .ticket-screen button.load-order-button,
+.pos .ticket-screen .load-order-button {
+    background-color: var(--epg-primary-green) !important;
+    color: white !important;
+    border: none !important;
+}
+.pos .ticket-screen .buttons button.discard,
+.pos .ticket-screen .buttons .button.discard,
+.pos .ticket-screen .rightpane button.discard,
+.pos .ticket-screen [class*="details"] button.discard,
+.pos .ticket-screen .action-buttons button.discard,
+.pos .ticket-screen footer button.discard {
+    background-color: transparent !important;
+    color: var(--epg-text-dark) !important;
+    border: 1px solid var(--epg-border-color) !important;
+}
+.pos .ticket-screen .orders .order-row {
+    background-color: var(--epg-bg-white) !important;
+    color: var(--epg-text-dark) !important;
+    border-bottom: 1px solid var(--epg-border-color) !important;
+}
+.pos .ticket-screen .orders .order-row.selected,
+.pos .ticket-screen .orders .order-row.highlight {
+    background-color: var(--epg-secondary-blue) !important;
+    color: white !important;
+}
+.pos .ticket-screen .orders .order-row:nth-child(even) {
+    background-color: var(--epg-bg-light) !important;
+}
+.pos .ticket-screen .orders .order-row:hover {
+    background-color: #F1F5F9 !important;
+}
+
+/* =========================================
+   8. PARTNER / CUSTOMER SCREEN
+   ========================================= */
+/* Hide Create Customer Button - target the exact button Bootstrap classes */
+.pos .modal .modal-dialog .top-content .btn.btn-primary,
+.pos .modal-dialog .modal-content .top-content .btn.btn-primary,
+.pos-customer-list-screen .top-content .btn.btn-primary,
+.pos .o_dialog .top-content .btn-primary,
+.pos .partnerlist-screen .top-content .btn-primary,
+/* Also target it by text content in case bootstrap fails */
+.pos-customer-list .header .btn.btn-primary:first-child {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+

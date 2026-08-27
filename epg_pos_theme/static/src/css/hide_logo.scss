@@ -1,0 +1,18 @@
+/* Completely hide the 'Powered by' badges in Customer Display */
+div.bottom-0.mb-4.align-items-center {
+    display: none !important;
+}
+
+/* Receipt screen: hide "Powered by Odoo" p tag and replace with EPG CRM */
+.pos-receipt-order-data p {
+    font-size: 0 !important;
+    line-height: 0 !important;
+    color: transparent !important;
+}
+.pos-receipt-order-data p::after {
+    content: "Powered by EPG CRM" !important;
+    font-size: 12px !important;
+    line-height: normal !important;
+    color: #555 !important;
+    display: block !important;
+}

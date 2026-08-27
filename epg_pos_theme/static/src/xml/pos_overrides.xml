@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <!-- 
+        Note: Odoo 18 uses Owl components. 
+        We are patching the core Chrome/ProductScreen layouts.
+        This XML acts as a structural override base. 
+    -->
+
+    <!-- Remove Odoo Logo from the top Navbar -->
+    <t t-name="epg_pos_theme.Navbar" t-inherit="point_of_sale.Navbar" t-inherit-mode="extension">
+        <xpath expr="//img[hasclass('pos-logo')]" position="replace">
+            <div class="epg-custom-logo" style="font-weight: bold; font-size: 20px; color: var(--epg-secondary-blue); padding: 0 15px;">
+                EPG <span style="font-weight: 300;">CRM</span>
+            </div>
+        </xpath>
+    </t>
+
+    <!-- 
+        Override ProductScreen layout to swap panels if necessary 
+        In Odoo default, leftpane is the cart (Ticket), rightpane is products.
+        If we want to match the 4-zone mockup exactly (Ticket on the right), 
+        we will need to reverse their CSS flex order via SCSS or rearrange them here.
+    -->
+    <t t-name="epg_pos_theme.ProductScreen" t-inherit="point_of_sale.ProductScreen" t-inherit-mode="extension">
+        <!-- We add a class to the main wrapper to easily target our SCSS grid overrides -->
+        <xpath expr="//div[hasclass('product-screen')]" position="attributes">
+            <attribute name="class" add="epg-4-zone-layout" separator=" "/>
+        </xpath>
+    </t>
+
+
+
+
+
+</templates>
