@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="web_client_template" inherit_id="web.layout" name="Custom Title">
+        <xpath expr="//title" position="replace">
+            <title>EPG</title>
+        </xpath>
+    </template>
+</odoo>
