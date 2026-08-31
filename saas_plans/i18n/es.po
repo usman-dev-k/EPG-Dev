@@ -1,0 +1,996 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* saas_plans
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-21 21:07+0000\n"
+"PO-Revision-Date: 2026-05-21 21:07+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "(+€7.00/mo/user)"
+msgstr "(+7,00 €/mes/usuario)"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "(+€84.00/yr/user)"
+msgstr "(+84,00 €/año/usuario)"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "+10GB (€9)"
+msgstr "+10GB (9 €)"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "+25GB (€19)"
+msgstr "+25GB (19 €)"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "+5GB (€5)"
+msgstr "+5GB (5 €)"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_order_info
+msgid ".abc.com"
+msgstr ".abc.com"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "/month"
+msgstr "/mes"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "120.00/yr"
+msgstr "120,00 €/año"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "14.00/mo"
+msgstr "14,00 €/mes"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "3 users included in base plan. +1GB storage bonus per extra user."
+msgstr "3 usuarios incluidos en el plan base. +1GB de almacenamiento adicional por usuario extra."
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "3GB included in base plan."
+msgstr "3GB incluidos en el plan base."
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.portal_my_subscription
+msgid ""
+"<br/>\n"
+"                                        Extra:"
+msgstr ""
+"<br/>\n"
+"                                        Extra:"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid ""
+"<i class=\"fa fa-check\"/> <span class=\"highlight\">Accounting Module "
+"included for life</span>"
+msgstr ""
+"<i class=\"fa fa-check\"/> <span class=\"highlight\">Módulo de Contabilidad "
+"incluido de por vida</span>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.custom_promo_code_ui
+msgid "<i class=\"fa fa-check\"/> Apply"
+msgstr "<i class=\"fa fa-check\"/> Aplicar"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "<i class=\"fa fa-check\"/> Automatic Daily Backups"
+msgstr "<i class=\"fa fa-check\"/> Copias de Seguridad Automáticas Diarias"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "<i class=\"fa fa-check\"/> CRM Module"
+msgstr "<i class=\"fa fa-check\"/> Módulo CRM"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_order_info
+msgid "<i class=\"fa fa-cloud\"/> SaaS Subscription Details"
+msgstr "<i class=\"fa fa-cloud\"/> Detalles de la Suscripción SaaS"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.portal_my_subscription
+msgid "<i class=\"fa fa-external-link\"/> Access Database"
+msgstr "<i class=\"fa fa-external-link\"/> Acceder a la Base de Datos"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.portal_my_subscription
+msgid "<i class=\"fa fa-hdd-o\"/> Storage"
+msgstr "<i class=\"fa fa-hdd-o\"/> Almacenamiento"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "<i class=\"fa fa-headphones\"/> Standard Support"
+msgstr "<i class=\"fa fa-headphones\"/> Soporte Estándar"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.custom_promo_code_ui_payment
+msgid "<i class=\"fa fa-info-circle\"/> No promo code applied."
+msgstr "<i class=\"fa fa-info-circle\"/> No se ha aplicado ningún código promocional."
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid ""
+"<i class=\"fa fa-lock\"/> <span class=\"highlight\">Price locked while "
+"active</span>"
+msgstr ""
+"<i class=\"fa fa-lock\"/> <span class=\"highlight\">Precio bloqueado mientras "
+"esté activo</span>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.portal_my_subscription
+msgid "<i class=\"fa fa-rocket\"/> Upgrade / Add-ons"
+msgstr "<i class=\"fa fa-rocket\"/> Mejorar / Complementos"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "<i class=\"fa fa-shield\"/> Priority Support"
+msgstr "<i class=\"fa fa-shield\"/> Soporte Prioritario"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.custom_promo_code_ui
+#: model_terms:ir.ui.view,arch_db:saas_plans.custom_promo_code_ui_payment
+msgid "<i class=\"fa fa-tag\"/> Promo Code"
+msgstr "<i class=\"fa fa-tag\"/> Código Promocional"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.custom_promo_code_ui
+msgid "<i class=\"fa fa-times\"/> Remove"
+msgstr "<i class=\"fa fa-times\"/> Eliminar"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.portal_my_subscription
+msgid "<i class=\"fa fa-users\"/> Users"
+msgstr "<i class=\"fa fa-users\"/> Usuarios"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.portal_my_subscription
+msgid ""
+"<select name=\"add_storage\" class=\"form-select\">\n"
+"                                        <option value=\"0\">No change</option>\n"
+"                                        <option value=\"5\">+5 GB (€10/mo)</option>\n"
+"                                        <option value=\"10\">+10 GB (€18/mo)</option>\n"
+"                                        <option value=\"25\">+25 GB (€40/mo)</option>\n"
+"                                    </select>"
+msgstr ""
+"<select name=\"add_storage\" class=\"form-select\">\n"
+"                                        <option value=\"0\">Sin cambios</option>\n"
+"                                        <option value=\"5\">+5 GB (10 €/mes)</option>\n"
+"                                        <option value=\"10\">+10 GB (18 €/mes)</option>\n"
+"                                        <option value=\"25\">+25 GB (40 €/mes)</option>\n"
+"                                    </select>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.portal_my_subscription
+msgid "<small class=\"fs-6\">GB</small>"
+msgstr "<small class=\"fs-6\">GB</small>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_order_info
+msgid ""
+"<small class=\"text-muted mt-2 d-block\">\n"
+"                            <i class=\"fa fa-info-circle\"/> After payment, your tenant will be automatically provisioned at this subdomain.\n"
+"                        </small>"
+msgstr ""
+"<small class=\"text-muted mt-2 d-block\">\n"
+"                            <i class=\"fa fa-info-circle\"/> Tras el pago, su cliente será aprovisionado automáticamente en este subdominio.\n"
+"                        </small>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.custom_promo_code_ui_payment
+msgid ""
+"<small class=\"text-muted\">\n"
+"                                        <i class=\"fa fa-info-circle\"/> Return to checkout to remove or change promo code\n"
+"                                    </small>"
+msgstr ""
+"<small class=\"text-muted\">\n"
+"                                        <i class=\"fa fa-info-circle\"/> Vuelva al pago para eliminar o cambiar el código promocional\n"
+"                                    </small>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "<span class=\"badge bg-success\">INCLUDED FREE</span> for Early Adopters"
+msgstr "<span class=\"badge bg-success\">INCLUIDO GRATIS</span> para Primeros Usuarios"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "<span class=\"ea-badge\">🔥 LIMITED</span>"
+msgstr "<span class=\"ea-badge\">🔥 LIMITADO</span>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.portal_my_subscription
+msgid "<span class=\"input-group-text\">+€12/user/mo</span>"
+msgstr "<span class=\"input-group-text\">+12 €/usuario/mes</span>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "<span class=\"plan-badge\">Early Adopter</span>"
+msgstr "<span class=\"plan-badge\">Primer Usuario</span>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "<strong style=\"color: #cbd5e1;\">Accounting / Management Module</strong>"
+msgstr "<strong style=\"color: #cbd5e1;\">Módulo de Contabilidad / Gestión</strong>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "<strong>Accounting / Management Module</strong>"
+msgstr "<strong>Módulo de Contabilidad / Gestión</strong>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "<strong>Additional Users</strong>"
+msgstr "<strong>Usuarios Adicionales</strong>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid ""
+"<strong>Annual</strong><br/>\n"
+"                                                            <span style=\"color: #94a3b8;\">Pay 12 months now</span>"
+msgstr ""
+"<strong>Anual</strong><br/>\n"
+"                                                            <span style=\"color: #94a3b8;\">Pague 12 meses ahora</span>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "<strong>Billing Cycle for Add-ons</strong>"
+msgstr "<strong>Ciclo de Facturación para Complementos</strong>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_order_info
+msgid "<strong>Billing:</strong>"
+msgstr "<strong>Facturación:</strong>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_order_info
+msgid "<strong>Company Name:</strong>"
+msgstr "<strong>Nombre de la Empresa:</strong>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid ""
+"<strong>Monthly</strong><br/>\n"
+"                                                            <span style=\"color: #94a3b8;\">Pay monthly separately</span>"
+msgstr ""
+"<strong>Mensual</strong><br/>\n"
+"                                                            <span style=\"color: #94a3b8;\">Pague mensualmente por separado</span>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_order_info
+msgid "<strong>Plan:</strong>"
+msgstr "<strong>Plan:</strong>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "<strong>Storage Expansion</strong>"
+msgstr "<strong>Expansión de Almacenamiento</strong>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_order_info
+msgid "<strong>Your Subdomain:</strong>"
+msgstr "<strong>Su Subdominio:</strong>"
+
+#. module: saas_plans
+#. odoo-python
+#: code:addons/saas_plans/models/sale_order.py:0
+msgid "A promo code is already applied. Remove it first to apply a new one."
+msgstr "Ya hay un código promocional aplicado. Elimínelo primero para aplicar uno nuevo."
+
+#. module: saas_plans
+#: model:product.template,name:saas_plans.product_accounting_annual_product_template
+msgid "Accounting / Management Module (Annual)"
+msgstr "Módulo de Contabilidad / Gestión (Anual)"
+
+#. module: saas_plans
+#: model:product.template,name:saas_plans.product_accounting_monthly_product_template
+msgid "Accounting / Management Module (Monthly)"
+msgstr "Módulo de Contabilidad / Gestión (Mensual)"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.portal_my_subscription
+msgid "Add Extra Users"
+msgstr "Añadir Usuarios Extra"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.portal_my_subscription
+msgid "Add Storage"
+msgstr "Añadir Almacenamiento"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.portal_my_subscription
+msgid "Add more resources to your subscription immediately."
+msgstr "Añada más recursos a su suscripción inmediatamente."
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid ""
+"Add more team members beyond the 3 included.\n"
+"                                            Each additional user adds +1 GB storage bonus."
+msgstr ""
+"Añada más miembros al equipo más allá de los 3 incluidos.\n"
+"                                            Cada usuario adicional añade +1 GB de almacenamiento adicional."
+
+#. module: saas_plans
+#: model:ir.model.fields,field_description:saas_plans.field_sale_order_line__saas_addon_billing_cycle
+msgid "Add-on Billing Cycle"
+msgstr "Ciclo de Facturación del Complemento"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "Add-ons &amp; Extras"
+msgstr "Complementos y Extras"
+
+#. module: saas_plans
+#: model_terms:product.template,description:saas_plans.product_storage_10gb_product_template
+msgid "Additional 10GB of storage. Cumulative with other storage expansions."
+msgstr "10GB adicionales de almacenamiento. Acumulable con otras expansiones de almacenamiento."
+
+#. module: saas_plans
+#: model_terms:product.template,description:saas_plans.product_storage_25gb_product_template
+msgid "Additional 25GB of storage. Cumulative with other storage expansions."
+msgstr "25GB adicionales de almacenamiento. Acumulable con otras expansiones de almacenamiento."
+
+#. module: saas_plans
+#: model_terms:product.template,description:saas_plans.product_storage_5gb_product_template
+msgid "Additional 5GB of storage. Cumulative with other storage expansions."
+msgstr "5GB adicionales de almacenamiento. Acumulable con otras expansiones de almacenamiento."
+
+#. module: saas_plans
+#: model:product.template,name:saas_plans.product_extra_user_product_template
+msgid "Additional User"
+msgstr "Usuario Adicional"
+
+#. module: saas_plans
+#: model:product.template,name:saas_plans.product_extra_user_annual_product_template
+msgid "Additional User (Annual)"
+msgstr "Usuario Adicional (Anual)"
+
+#. module: saas_plans
+#: model_terms:product.template,description:saas_plans.product_extra_user_product_template
+msgid ""
+"Additional user beyond the 3 included. Each additional user includes +1GB "
+"extra storage."
+msgstr ""
+"Usuario adicional más allá de los 3 incluidos. Cada usuario adicional incluye +1GB "
+"de almacenamiento extra."
+
+#. module: saas_plans
+#: model_terms:product.template,description:saas_plans.product_extra_user_annual_product_template
+msgid ""
+"Additional user beyond the 3 included. Each additional user includes +1GB "
+"extra storage. Annual billing."
+msgstr ""
+"Usuario adicional más allá de los 3 incluidos. Cada usuario adicional incluye +1GB "
+"de almacenamiento extra. Facturación anual."
+
+#. module: saas_plans
+#: model_terms:product.template,description:saas_plans.product_accounting_annual_product_template
+msgid ""
+"Advanced Accounting / Management module add-on - Annual billing. Free for "
+"Early Adopter customers."
+msgstr ""
+"Complemento del módulo avanzado de Contabilidad / Gestión - Facturación anual. Gratuito para "
+"clientes Primeros Usuarios."
+
+#. module: saas_plans
+#: model_terms:product.template,description:saas_plans.product_accounting_monthly_product_template
+msgid ""
+"Advanced Accounting / Management module add-on - Monthly billing. Free for "
+"Early Adopter customers."
+msgstr ""
+"Complemento del módulo avanzado de Contabilidad / Gestión - Facturación mensual. Gratuito para "
+"clientes Primeros Usuarios."
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "Advanced accounting and management tools."
+msgstr "Herramientas avanzadas de contabilidad y gestión."
+
+#. module: saas_plans
+#. odoo-python
+#: code:addons/saas_plans/controllers/saas_plan_controller.py:0
+msgid "An error occurred while removing the promo code"
+msgstr "Se produjo un error al eliminar el código promocional"
+
+#. module: saas_plans
+#: model:ir.model.fields.selection,name:saas_plans.selection__sale_order__saas_billing_cycle__annual
+#: model:ir.model.fields.selection,name:saas_plans.selection__sale_order_line__saas_addon_billing_cycle__annual
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "Annual"
+msgstr "Anual"
+
+#. module: saas_plans
+#: model:ir.model.fields,field_description:saas_plans.field_sale_order__promo_code_id
+msgid "Applied Promo Code"
+msgstr "Código Promocional Aplicado"
+
+#. module: saas_plans
+#: model:ir.model.fields,field_description:saas_plans.field_sale_order__auto_renew
+msgid "Auto-Renew Subscription"
+msgstr "Renovación Automática de Suscripción"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "Automatically renew my subscription"
+msgstr "Renovar mi suscripción automáticamente"
+
+#. module: saas_plans
+#: model:ir.model.fields,help:saas_plans.field_sale_order__auto_renew
+msgid "Automatically renew subscription when it expires"
+msgstr "Renovar la suscripción automáticamente cuando caduque"
+
+#. module: saas_plans
+#: model:ir.model.fields,field_description:saas_plans.field_sale_order__saas_billing_cycle
+msgid "Billing Cycle"
+msgstr "Ciclo de Facturación"
+
+#. module: saas_plans
+#: model:product.template,name:saas_plans.product_crm_early_adopter_annual_product_template
+msgid "CRM Early Adopter (Annual)"
+msgstr "Primer Usuario CRM (Anual)"
+
+#. module: saas_plans
+#: model:product.template,name:saas_plans.product_crm_early_adopter_monthly_product_template
+msgid "CRM Early Adopter (Monthly)"
+msgstr "Primer Usuario CRM (Mensual)"
+
+#. module: saas_plans
+#: model_terms:product.template,description:saas_plans.product_crm_early_adopter_annual_product_template
+msgid ""
+"CRM Early Adopter plan with annual billing at special early adopter pricing."
+" Save 10%!"
+msgstr ""
+"Plan de Primer Usuario CRM con facturación anual a precio especial de Primer Usuario."
+" ¡Ahorre un 10%!"
+
+#. module: saas_plans
+#: model_terms:product.template,description:saas_plans.product_crm_early_adopter_monthly_product_template
+msgid ""
+"CRM Early Adopter plan with monthly billing at special early adopter "
+"pricing."
+msgstr ""
+"Plan de Primer Usuario CRM con facturación mensual a precio especial de Primer "
+"Usuario."
+
+#. module: saas_plans
+#: model:product.template,name:saas_plans.product_crm_official_annual_product_template
+msgid "CRM Official (Annual)"
+msgstr "CRM Oficial (Anual)"
+
+#. module: saas_plans
+#: model:product.template,name:saas_plans.product_crm_official_monthly_product_template
+msgid "CRM Official (Monthly)"
+msgstr "CRM Oficial (Mensual)"
+
+#. module: saas_plans
+#: model_terms:product.template,description:saas_plans.product_crm_official_annual_product_template
+msgid "CRM Official plan with annual billing. Save 10%!"
+msgstr "Plan CRM Oficial con facturación anual. ¡Ahorre un 10%!"
+
+#. module: saas_plans
+#: model_terms:product.template,description:saas_plans.product_crm_official_monthly_product_template
+msgid "CRM Official plan with monthly billing."
+msgstr "Plan CRM Oficial con facturación mensual."
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "Choose Your CRM Plan"
+msgstr "Elija su Plan CRM"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "Choose Your Plan"
+msgstr "Elija su Plan"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.portal_my_subscription
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "Company Name"
+msgstr "Nombre de la Empresa"
+
+#. module: saas_plans
+#: model:ir.model.fields,field_description:saas_plans.field_sale_order__saas_company_name
+msgid "Company Name (for SaaS)"
+msgstr "Nombre de la Empresa (para SaaS)"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "Complete real estate management. Requires active Base CRM."
+msgstr "Gestión inmobiliaria completa. Requiere CRM Base activo."
+
+#. module: saas_plans
+#: model:ir.model,name:saas_plans.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "Continue to Checkout"
+msgstr "Continuar al Pago"
+
+#. module: saas_plans
+#: model:ir.model.fields,field_description:saas_plans.field_sale_order__saas_subscription_id
+msgid "Created Subscription"
+msgstr "Suscripción Creada"
+
+#. module: saas_plans
+#: model:ir.model.fields,help:saas_plans.field_sale_order__promo_code_discount
+msgid "Discount amount from promo code"
+msgstr "Importe del descuento del código promocional"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.custom_promo_code_ui
+#: model_terms:ir.ui.view,arch_db:saas_plans.custom_promo_code_ui_payment
+msgid "Discount: -€"
+msgstr "Descuento: -€"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "Early Adopter spots remaining!"
+msgstr "¡Quedan plazas de Primer Usuario!"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.custom_promo_code_ui
+msgid "Enter promo code..."
+msgstr "Introduzca el código promocional..."
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "Enter your company name"
+msgstr "Introduzca el nombre de su empresa"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "Equivalent to €"
+msgstr "Equivalente a €"
+
+#. module: saas_plans
+#. odoo-python
+#: code:addons/saas_plans/controllers/saas_plan_controller.py:0
+msgid "Error verifying availability."
+msgstr "Error al verificar la disponibilidad."
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.portal_my_subscription
+msgid "GB"
+msgstr "GB"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "GB Base Storage"
+msgstr "GB de Almacenamiento Base"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.portal_my_subscription
+msgid ""
+"GB<br/>\n"
+"                                        Extra:"
+msgstr ""
+"GB<br/>\n"
+"                                        Extra:"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "Get Started —"
+msgstr "Comenzar —"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.portal_my_subscription
+msgid "Included:"
+msgstr "Incluido:"
+
+#. module: saas_plans
+#. odoo-python
+#: code:addons/saas_plans/controllers/saas_plan_controller.py:0
+msgid "Invalid or expired subscription token."
+msgstr "Token de suscripción inválido o caducado."
+
+#. module: saas_plans
+#. odoo-python
+#: code:addons/saas_plans/models/sale_order.py:0
+msgid "Invalid promo code"
+msgstr "Código promocional inválido"
+
+#. module: saas_plans
+#. odoo-python
+#: code:addons/saas_plans/models/sale_order.py:0
+msgid "Invalid promo code type"
+msgstr "Tipo de código promocional inválido"
+
+#. module: saas_plans
+#: model:ir.model.fields,field_description:saas_plans.field_sale_order_line__is_promo_line
+msgid "Is Promo Line"
+msgstr "Es Línea Promocional"
+
+#. module: saas_plans
+#: model:ir.model.fields,help:saas_plans.field_sale_order_line__saas_renewed_addon_id
+msgid "Link to an existing add-on being renewed by this line"
+msgstr "Enlace a un complemento existente que está siendo renovado por esta línea"
+
+#. module: saas_plans
+#: model:ir.model.fields.selection,name:saas_plans.selection__sale_order__saas_billing_cycle__monthly
+#: model:ir.model.fields.selection,name:saas_plans.selection__sale_order_line__saas_addon_billing_cycle__monthly
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "Monthly"
+msgstr "Mensual"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.portal_my_home_menu_saas
+#: model_terms:ir.ui.view,arch_db:saas_plans.portal_my_home_saas
+msgid "My Subscription"
+msgstr "Mi Suscripción"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.portal_my_subscription
+msgid "Next Billing:"
+msgstr "Próxima Facturación:"
+
+#. module: saas_plans
+#. odoo-python
+#: code:addons/saas_plans/controllers/saas_plan_controller.py:0
+msgid "No active order found"
+msgstr "No se encontró ningún pedido activo"
+
+#. module: saas_plans
+#. odoo-python
+#: code:addons/saas_plans/models/sale_order.py:0
+msgid "No promo code applied"
+msgstr "No se ha aplicado ningún código promocional"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "None"
+msgstr "Ninguno"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "Official Pricing"
+msgstr "Precio Oficial"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "Only"
+msgstr "Solo"
+
+#. module: saas_plans
+#. odoo-python
+#: code:addons/saas_plans/controllers/saas_plan_controller.py:0
+msgid "Order not found"
+msgstr "Pedido no encontrado"
+
+#. module: saas_plans
+#: model:ir.model,name:saas_plans.model_payment_transaction
+msgid "Payment Transaction"
+msgstr "Transacción de Pago"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.portal_my_subscription
+msgid "Plan:"
+msgstr "Plan:"
+
+#. module: saas_plans
+#. odoo-javascript
+#: code:addons/saas_plans/static/src/js/saas_registration.js:0
+msgid ""
+"Please use a different email address to continue. This one is already "
+"registered."
+msgstr ""
+"Por favor, utilice una dirección de correo electrónico diferente para continuar. Esta ya está "
+"registrada."
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "Powerful CRM platform to grow your business"
+msgstr "Potente plataforma CRM para hacer crecer su negocio"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "Price maintained while subscription is active"
+msgstr "Precio mantenido mientras la suscripción esté activa"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.portal_my_subscription
+msgid "Price:"
+msgstr "Precio:"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.portal_my_subscription
+msgid "Proceed to Checkout"
+msgstr "Proceder al Pago"
+
+#. module: saas_plans
+#: model:ir.model.fields,field_description:saas_plans.field_sale_order__promo_code_discount
+msgid "Promo Discount"
+msgstr "Descuento Promocional"
+
+#. module: saas_plans
+#. odoo-python
+#: code:addons/saas_plans/models/sale_order.py:0
+msgid "Promo code removed"
+msgstr "Código promocional eliminado"
+
+#. module: saas_plans
+#. odoo-python
+#: code:addons/saas_plans/models/sale_order.py:0
+msgid ""
+"Promo codes cannot be applied to Early Adopter plans (already at Early "
+"Adopter pricing)."
+msgstr ""
+"No se pueden aplicar códigos promocionales a los planes de Primer Usuario (ya están a precio de "
+"Primer Usuario)."
+
+#. module: saas_plans
+#: model:product.template,name:saas_plans.product_real_estate_annual_product_template
+msgid "Real Estate Module (Annual)"
+msgstr "Módulo Inmobiliario (Anual)"
+
+#. module: saas_plans
+#: model:product.template,name:saas_plans.product_real_estate_monthly_product_template
+msgid "Real Estate Module (Monthly)"
+msgstr "Módulo Inmobiliario (Mensual)"
+
+#. module: saas_plans
+#: model_terms:product.template,description:saas_plans.product_real_estate_annual_product_template
+msgid ""
+"Real Estate module add-on - Annual billing. Requires active Base CRM "
+"subscription."
+msgstr ""
+"Complemento del módulo Inmobiliario - Facturación anual. Requiere suscripción activa de CRM "
+"Base."
+
+#. module: saas_plans
+#: model_terms:product.template,description:saas_plans.product_real_estate_monthly_product_template
+msgid ""
+"Real Estate module add-on - Monthly billing. Requires active Base CRM "
+"subscription."
+msgstr ""
+"Complemento del módulo Inmobiliario - Facturación mensual. Requiere suscripción activa de CRM "
+"Base."
+
+#. module: saas_plans
+#: model:ir.model.fields,help:saas_plans.field_sale_order__saas_subscription_origin_id
+msgid "Reference to the subscription being renewed or upgraded"
+msgstr "Referencia a la suscripción que se está renovando o mejorando"
+
+#. module: saas_plans
+#: model:ir.model.fields,field_description:saas_plans.field_sale_order_line__saas_renewed_addon_id
+msgid "Renewed SaaS Add-on"
+msgstr "Complemento SaaS Renovado"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.custom_promo_code_ui_payment
+msgid "Return to checkout"
+msgstr "Volver al pago"
+
+#. module: saas_plans
+#: model:ir.model.fields,field_description:saas_plans.field_sale_order__saas_plan_id
+msgid "SaaS Plan"
+msgstr "Plan SaaS"
+
+#. module: saas_plans
+#: model:ir.model,name:saas_plans.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de Venta"
+
+#. module: saas_plans
+#: model:ir.model,name:saas_plans.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea de Pedido de Venta"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.portal_my_subscription
+msgid "Status:"
+msgstr "Estado:"
+
+#. module: saas_plans
+#: model:product.template,name:saas_plans.product_storage_10gb_product_template
+msgid "Storage Expansion +10GB"
+msgstr "Expansión de Almacenamiento +10GB"
+
+#. module: saas_plans
+#: model:product.template,name:saas_plans.product_storage_10gb_annual_product_template
+msgid "Storage Expansion +10GB (Annual)"
+msgstr "Expansión de Almacenamiento +10GB (Anual)"
+
+#. module: saas_plans
+#: model:product.template,name:saas_plans.product_storage_25gb_product_template
+msgid "Storage Expansion +25GB"
+msgstr "Expansión de Almacenamiento +25GB"
+
+#. module: saas_plans
+#: model:product.template,name:saas_plans.product_storage_25gb_annual_product_template
+msgid "Storage Expansion +25GB (Annual)"
+msgstr "Expansión de Almacenamiento +25GB (Anual)"
+
+#. module: saas_plans
+#: model:product.template,name:saas_plans.product_storage_5gb_product_template
+msgid "Storage Expansion +5GB"
+msgstr "Expansión de Almacenamiento +5GB"
+
+#. module: saas_plans
+#: model:product.template,name:saas_plans.product_storage_5gb_annual_product_template
+msgid "Storage Expansion +5GB (Annual)"
+msgstr "Expansión de Almacenamiento +5GB (Anual)"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "Subscribe"
+msgstr "Suscribirse"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "Subscribe to"
+msgstr "Suscribirse a"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.portal_my_subscription
+msgid "Subscription Details"
+msgstr "Detalles de la Suscripción"
+
+#. module: saas_plans
+#: model:ir.model.fields,field_description:saas_plans.field_sale_order__saas_subscription_origin_id
+msgid "Subscription to Renew/Upgrade"
+msgstr "Suscripción a Renovar/Mejorar"
+
+#. module: saas_plans
+#. odoo-python
+#: code:addons/saas_plans/controllers/saas_plan_controller.py:0
+msgid ""
+"This email address is already registered in our system. Please log in to "
+"your account first."
+msgstr ""
+"Esta dirección de correo electrónico ya está registrada en nuestro sistema. Por favor, inicie sesión en "
+"su cuenta primero."
+
+#. module: saas_plans
+#. odoo-python
+#: code:addons/saas_plans/controllers/saas_plan_controller.py:0
+msgid "This email is already registered. Please log in to continue."
+msgstr "Este correo electrónico ya está registrado. Por favor, inicie sesión para continuar."
+
+#. module: saas_plans
+#. odoo-python
+#: code:addons/saas_plans/models/sale_order.py:0
+msgid "This plan is already at or below Early Adopter pricing"
+msgstr "Este plan ya está al precio de Primer Usuario o por debajo"
+
+#. module: saas_plans
+#. odoo-python
+#: code:addons/saas_plans/models/sale_order.py:0
+msgid "This promo code has expired or reached its usage limit"
+msgstr "Este código promocional ha caducado o ha alcanzado su límite de uso"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.custom_promo_code_ui
+#: model_terms:ir.ui.view,arch_db:saas_plans.custom_promo_code_ui_payment
+msgid "Type:"
+msgstr "Tipo:"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.portal_my_subscription
+msgid "Upgrade Subscription"
+msgstr "Mejorar Suscripción"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "Users included"
+msgstr "Usuarios incluidos"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "month"
+msgstr "mes"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "of"
+msgstr "de"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.custom_promo_code_ui_payment
+msgid "to add one."
+msgstr "para añadir uno."
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+#: model_terms:ir.ui.view,arch_db:saas_plans.subscribe_form
+msgid "year"
+msgstr "año"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "€14<small>/month</small> · €120<small>/year</small>"
+msgstr "14 €<small>/mes</small> · 120 €<small>/año</small>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "€19<small>/month</small>"
+msgstr "19 €<small>/mes</small>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "€24<small>/month</small> · €199<small>/year</small>"
+msgstr "24 €<small>/mes</small> · 199 €<small>/año</small>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "€5<small>/month</small>"
+msgstr "5 €<small>/mes</small>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "€7<small>/month per user</small>"
+msgstr "7 €<small>/mes por usuario</small>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "€9<small>/month</small>"
+msgstr "9 €<small>/mes</small>"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "✨ Included FREE for life for Early Adopters"
+msgstr "✨ Incluido GRATIS de por vida para Primeros Usuarios"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "⭐ Pre-Launch Promotion — First 1,000 Customers"
+msgstr "⭐ Promoción de Pre-Lanzamiento — Primeros 1.000 Clientes"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "🏠 Real Estate Module"
+msgstr "🏠 Módulo Inmobiliario"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "👥 Additional Users"
+msgstr "👥 Usuarios Adicionales"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "💾 Storage +10 GB"
+msgstr "💾 Almacenamiento +10 GB"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "💾 Storage +25 GB"
+msgstr "💾 Almacenamiento +25 GB"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "💾 Storage +5 GB"
+msgstr "💾 Almacenamiento +5 GB"
+
+#. module: saas_plans
+#: model_terms:ir.ui.view,arch_db:saas_plans.saas_plans_page
+msgid "📊 Accounting / Management"
+msgstr "📊 Contabilidad / Gestión"

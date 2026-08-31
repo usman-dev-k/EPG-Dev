@@ -1,0 +1,146 @@
+<odoo>
+    <data>
+
+        <!-- 1. SaaS Welcome Email (on tenant provisioning) -->
+        <record id="email_template_saas_welcome" model="mail.template">
+            <field name="name">Correo de Bienvenida SaaS</field>
+            <field name="model_id" ref="saas_management.model_saas_subscription"/>
+            <field name="subject">Bienvenido a EPG CRM - Acceso activado con éxito 🎉</field>
+            <field name="email_from">{{ (object.company_id.email or object.env.company.email or 'soporte@epgcrm.com') }}</field>
+            <field name="email_to">{{ object.partner_id.email }}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p>Hola <t t-out="object.partner_id.name or ''"/>,</p>
+
+                    <p>Confirmamos que tu suscripción a EPG CRM ha sido activada con éxito.</p>
+                    <p>Tu cuenta ha sido adherida a la siguiente condición comercial:</p>
+                    <p>Condición preferencial de lanzamiento limitada a los primeros 1.000 clientes.</p>
+                    <p>Esta condición mantiene sus ventajas activas mientras tu suscripción permanezca activa y al corriente de pago.</p>
+                    <p>Acceso a tu plataforma:</p>
+
+                    <ul>
+                        <li><strong>URL:</strong> https://<t t-out="object.subdomain or ''"/>.epgcrm.com</li>
+                        <li><strong>Usuario:</strong> <t t-out="object.partner_id.email or ''"/></li>
+                        <li><strong>Contraseña:</strong> <t t-out="ctx.get('admin_password', '')"/></li>
+                        <li>Por seguridad, te recomendamos cambiar tu contraseña tras el primer inicio de sesión.</li>
+                    </ul>
+
+                    <p><strong>Condiciones activas en tu cuenta:</strong></p>
+                    <ul>
+                        <li>50% de descuento permanente sobre el precio oficial</li>
+                        <li>CRM completo (gestión de clientes y comercial)</li>
+                        <li>Módulo de contabilidad/gestión incluido sin coste</li>
+                        <li>Acceso en la nube 24/7</li>
+                    </ul>
+
+                    <p><strong>Soporte:</strong> soporte@epgcrm.com</p>
+                    <p>Gracias por confiar en EPG CRM.</p>
+                    <p>EPG CRM.</p>
+                </div>
+            </field>
+        </record>
+
+
+        <!-- 2. Payment Confirmation / Invoice Issued — SaaS Subscriptions -->
+        <record id="email_template_saas_invoice_payment_confirmation" model="mail.template">
+            <field name="name">Confirmación de Pago SaaS</field>
+            <field name="model_id" ref="account.model_account_move"/>
+            <field name="subject">Confirmación de pago — EPG CRM</field>
+            <field name="email_from">{{ (object.company_id.email or 'soporte@epgcrm.com') }}</field>
+            <field name="email_to">{{ object.partner_id.email }}</field>
+            <field name="partner_to">{{ object.partner_id.id }}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 20px; font-family: Arial, sans-serif; color: #333333;">
+
+                    <!-- Greeting -->
+                    <p>Hello <t t-out="object.partner_id.name or ''"/>,</p>
+
+                    <p>
+                        We have successfully received the payment corresponding to your
+                        <strong>EPG CRM</strong> subscription.
+                    </p>
+
+                    <!-- Resolve linked subscription and sale order -->
+                    <t t-set="subscription" t-value="object.invoice_line_ids.mapped('sale_line_ids.order_id.saas_subscription_id')[:1]"/>
+                    <t t-set="sale_order"   t-value="object.invoice_line_ids.mapped('sale_line_ids.order_id')[:1]"/>
+
+                    <!-- Billing cycle label: Annual or Monthly -->
+                    <t t-set="billing_cycle_raw" t-value="(subscription.billing_cycle if subscription and subscription.billing_cycle else (sale_order.saas_billing_cycle if sale_order and sale_order.saas_billing_cycle else 'monthly'))"/>
+                    <t t-set="billing_cycle_label" t-value="'Annual' if billing_cycle_raw == 'annual' else 'Monthly'"/>
+
+                    <!-- Plan name -->
+                    <t t-set="plan_name" t-value="(subscription.plan_id.name if subscription and subscription.plan_id else (sale_order.saas_plan_id.name if sale_order and sale_order.saas_plan_id else (object.invoice_line_ids[:1].name or 'EPG CRM')))"/>
+
+                    <!-- Next renewal date -->
+                    <t t-set="next_renewal" t-value="subscription.expiration_date if subscription and subscription.expiration_date else False"/>
+
+                    <!-- Operation Details -->
+                    <p><strong>Operation details:</strong></p>
+                    <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                        <tr style="border-bottom: 1px solid #eeeeee;">
+                            <td style="padding: 8px 12px; width: 40%; color: #666666; font-weight: bold;">Plan:</td>
+                            <td style="padding: 8px 12px;"><t t-out="plan_name"/></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #eeeeee;">
+                            <td style="padding: 8px 12px; color: #666666; font-weight: bold;">Billed period:</td>
+                            <td style="padding: 8px 12px;"><t t-out="billing_cycle_label"/></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #eeeeee;">
+                            <td style="padding: 8px 12px; color: #666666; font-weight: bold;">Amount:</td>
+                            <td style="padding: 8px 12px;"><t t-out="format_amount(object.amount_total, object.currency_id)"/></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #eeeeee;">
+                            <td style="padding: 8px 12px; color: #666666; font-weight: bold;">Invoice number:</td>
+                            <td style="padding: 8px 12px;"><t t-out="object.name or ''"/></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #eeeeee;">
+                            <td style="padding: 8px 12px; color: #666666; font-weight: bold;">Issue date:</td>
+                            <td style="padding: 8px 12px;"><t t-out="object.invoice_date or ''"/></td>
+                        </tr>
+                    </table>
+
+                    <!-- Invoice Download Link -->
+                    <p>Your invoice is attached below.</p>
+                    <!-- <p>
+                        <a t-attf-href="{{ object.get_portal_url() }}"
+                           style="display: inline-block; background-color: #1a73e8; color: #ffffff; padding: 10px 20px; text-decoration: none; border-radius: 4px; font-weight: bold;">
+                            Download Invoice
+                        </a>
+                    </p> -->
+
+                    <!-- Next Renewal (only shown if we have the date) -->
+                    <t t-if="next_renewal">
+                        <p>
+                            <strong>Next renewal scheduled:</strong>
+                            <t t-out="next_renewal.strftime('%d/%m/%Y')"/>
+                        </p>
+                    </t>
+
+                    <br/>
+                    <p>Thank you for your trust.</p>
+
+                    <!-- Signature -->
+                    <p>
+                        <strong>EPG CRM</strong><br/>
+                        Eficiencia y Productividad Global S.L.
+                    </p>
+
+                    <!-- Legal Footer -->
+                    <hr style="border: none; border-top: 1px solid #dddddd; margin: 20px 0;"/>
+                    <p style="font-size: 11px; color: #999999; line-height: 1.5;">
+                        This email is sent automatically by EPG CRM (Eficiencia y Productividad Global S.L.).
+                        The information contained in this message is confidential and intended solely for the
+                        addressee. If you have received this email in error, please notify us immediately and
+                        delete it. This communication does not constitute a legally binding contract unless
+                        explicitly stated. For questions about your subscription, please contact us at
+                        <t t-out="object.company_id.email or object.env.company.email or 'soporte@epgcrm.com'"/>.
+                    </p>
+
+                </div>
+            </field>
+            <!-- Attach the invoice PDF automatically -->
+            <field name="report_template_ids" eval="[(4, ref('account.account_invoices'))]"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="saas_onboarding_template" name="SaaS Client Onboarding">
+        <html>
+            <head>
+                <meta charset="utf-8"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <title>Onboarding EPG CRM</title>
+                <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+                <style>
+                    :root {
+                        --bg-dark: #0f172a;
+                        --bg-card: rgba(30, 41, 59, 0.7);
+                        --border-color: rgba(255, 255, 255, 0.1);
+                        --primary: #6366f1;
+                        --primary-hover: #4f46e5;
+                        --success: #10b981;
+                        --text-main: #f8fafc;
+                        --text-muted: #94a3b8;
+                        --input-bg: rgba(15, 23, 42, 0.6);
+                    }
+                    
+                    * {
+                        box-sizing: border-box;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    
+                    body {
+                        font-family: 'Inter', sans-serif;
+                        background-color: var(--bg-dark);
+                        color: var(--text-main);
+                        min-height: 100vh;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        background-image: 
+                            radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+                            radial-gradient(at 50% 0%, hsla(225,39%,30%,0.2) 0, transparent 50%), 
+                            radial-gradient(at 100% 0%, hsla(339,49%,30%,0.2) 0, transparent 50%);
+                        background-attachment: fixed;
+                    }
+
+                    .wizard-container {
+                        width: 100%;
+                        max-width: 800px;
+                        background: var(--bg-card);
+                        backdrop-filter: blur(16px);
+                        -webkit-backdrop-filter: blur(16px);
+                        border: 1px solid var(--border-color);
+                        border-radius: 24px;
+                        padding: 40px;
+                        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+                        margin: 40px 20px;
+                    }
+
+                    /* Progress Bar */
+                    .progress-container {
+                        margin-bottom: 40px;
+                    }
+                    .progress-header {
+                        display: flex;
+                        justify-content: space-between;
+                        margin-bottom: 10px;
+                        font-size: 14px;
+                        color: var(--text-muted);
+                        font-weight: 500;
+                    }
+                    .progress-bar-bg {
+                        width: 100%;
+                        height: 8px;
+                        background: var(--input-bg);
+                        border-radius: 4px;
+                        overflow: hidden;
+                    }
+                    .progress-bar-fill {
+                        height: 100%;
+                        background: linear-gradient(90deg, #818cf8, var(--primary));
+                        width: 0%;
+                        transition: width 0.4s ease;
+                        border-radius: 4px;
+                    }
+
+                    /* Steps */
+                    .step-section {
+                        display: none;
+                        animation: fadeIn 0.4s ease;
+                    }
+                    .step-section.active {
+                        display: block;
+                    }
+
+                    .step-title {
+                        font-size: 28px;
+                        font-weight: 700;
+                        margin-bottom: 8px;
+                        color: white;
+                    }
+                    .step-subtitle {
+                        color: var(--text-muted);
+                        font-size: 15px;
+                        margin-bottom: 30px;
+                    }
+
+                    /* Selection Cards (Radio alternative) */
+                    .card-grid {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                        gap: 16px;
+                        margin-bottom: 24px;
+                    }
+                    
+                    .selection-card {
+                        border: 2px solid var(--border-color);
+                        background: var(--input-bg);
+                        border-radius: 16px;
+                        padding: 24px;
+                        cursor: pointer;
+                        transition: all 0.2s ease;
+                        text-align: center;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        min-height: 110px;
+                    }
+                    .selection-card:hover {
+                        border-color: #818cf8;
+                        background: rgba(99, 102, 241, 0.1);
+                    }
+                    .selection-card.selected {
+                        border-color: var(--primary);
+                        background: rgba(99, 102, 241, 0.15);
+                        box-shadow: 0 0 0 1px var(--primary);
+                    }
+                    .selection-card h3 {
+                        font-size: 18px;
+                        font-weight: 600;
+                        margin-bottom: 8px;
+                    }
+                    
+                    /* Form Controls */
+                    .form-group {
+                        margin-bottom: 20px;
+                    }
+                    .form-row {
+                        display: flex;
+                        gap: 20px;
+                    }
+                    .form-col {
+                        flex: 1;
+                    }
+                    label {
+                        display: block;
+                        font-size: 14px;
+                        font-weight: 500;
+                        margin-bottom: 8px;
+                        color: #e2e8f0;
+                    }
+                    .form-control {
+                        width: 100%;
+                        padding: 12px 16px;
+                        background-color: var(--input-bg);
+                        border: 1px solid var(--border-color);
+                        border-radius: 12px;
+                        color: var(--text-main);
+                        font-family: 'Inter', sans-serif;
+                        font-size: 15px;
+                        transition: all 0.2s ease;
+                    }
+                    .form-control:focus {
+                        outline: none;
+                        border-color: var(--primary);
+                        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+                    }
+
+                    /* Toggles */
+                    .toggle-row {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 16px;
+                        background: var(--input-bg);
+                        border: 1px solid var(--border-color);
+                        border-radius: 12px;
+                        margin-bottom: 16px;
+                        cursor: pointer;
+                    }
+                    .toggle-row:hover {
+                        border-color: #818cf8;
+                    }
+                    .toggle-label {
+                        font-weight: 600;
+                        font-size: 16px;
+                    }
+                    .toggle-switch {
+                        position: relative;
+                        width: 50px;
+                        height: 26px;
+                        background: rgba(255, 255, 255, 0.1);
+                        border-radius: 13px;
+                        transition: 0.3s;
+                    }
+                    .toggle-switch::after {
+                        content: '';
+                        position: absolute;
+                        top: 3px;
+                        left: 3px;
+                        width: 20px;
+                        height: 20px;
+                        background: white;
+                        border-radius: 50%;
+                        transition: 0.3s;
+                    }
+                    .toggle-row.active .toggle-switch {
+                        background: var(--primary);
+                    }
+                    .toggle-row.active .toggle-switch::after {
+                        transform: translateX(24px);
+                    }
+
+                    /* Dynamic Users Table */
+                    .user-row {
+                        display: flex;
+                        gap: 12px;
+                        margin-bottom: 12px;
+                        align-items: center;
+                    }
+                    .btn-add {
+                        background: rgba(99, 102, 241, 0.2);
+                        color: #a5b4fc;
+                        border: 1px dashed #6366f1;
+                        padding: 10px 16px;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        font-weight: 500;
+                        width: 100%;
+                        transition: 0.2s;
+                    }
+                    .btn-add:hover {
+                        background: rgba(99, 102, 241, 0.3);
+                    }
+                    .btn-remove {
+                        background: transparent;
+                        color: #ef4444;
+                        border: none;
+                        cursor: pointer;
+                        padding: 8px;
+                        font-size: 18px;
+                    }
+
+                    /* Buttons */
+                    .wizard-footer {
+                        display: flex;
+                        justify-content: space-between;
+                        margin-top: 40px;
+                        padding-top: 24px;
+                        border-top: 1px solid var(--border-color);
+                    }
+                    .btn {
+                        padding: 12px 24px;
+                        border-radius: 12px;
+                        font-size: 16px;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: all 0.2s ease;
+                        font-family: 'Inter', sans-serif;
+                    }
+                    .btn-back {
+                        background: transparent;
+                        color: var(--text-muted);
+                        border: 1px solid var(--border-color);
+                    }
+                    .btn-back:hover {
+                        background: rgba(255, 255, 255, 0.05);
+                        color: white;
+                    }
+                    .btn-next {
+                        background: var(--primary);
+                        color: white;
+                        border: none;
+                        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+                    }
+                    .btn-next:hover {
+                        background: var(--primary-hover);
+                        transform: translateY(-2px);
+                    }
+
+                    /* Checklist */
+                    .checklist-item {
+                        display: flex;
+                        align-items: center;
+                        gap: 12px;
+                        padding: 12px 0;
+                        color: var(--text-muted);
+                        transition: color 0.3s;
+                    }
+                    .checklist-item.done {
+                        color: white;
+                    }
+                    .check-circle {
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50%;
+                        border: 2px solid var(--border-color);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: all 0.3s;
+                    }
+                    .checklist-item.done .check-circle {
+                        background: var(--success);
+                        border-color: var(--success);
+                    }
+                    .checklist-item.done .check-circle::after {
+                        content: '✓';
+                        color: white;
+                        font-size: 14px;
+                        font-weight: bold;
+                    }
+
+                    /* Loading Overlay */
+                    .loading-overlay {
+                        display: none;
+                        position: fixed;
+                        top: 0; left: 0; width: 100%; height: 100%;
+                        background: rgba(15, 23, 42, 0.9);
+                        z-index: 9999;
+                        align-items: center;
+                        justify-content: center;
+                        flex-direction: column;
+                    }
+                    .spinner {
+                        width: 50px;
+                        height: 50px;
+                        border: 4px solid rgba(255,255,255,0.1);
+                        border-top-color: var(--primary);
+                        border-radius: 50%;
+                        animation: spin 1s linear infinite;
+                        margin-bottom: 20px;
+                    }
+                    
+                    @keyframes fadeIn {
+                        from { opacity: 0; transform: translateY(10px); }
+                        to { opacity: 1; transform: translateY(0); }
+                    }
+                    @keyframes spin {
+                        to { transform: rotate(360deg); }
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="loading-overlay" id="loadingOverlay">
+                    <div class="spinner"></div>
+                    <h2>Configurando su entorno...</h2>
+                    <p style="color: var(--text-muted); margin-top: 10px;">Esto puede tardar unos momentos.</p>
+                </div>
+
+                <div class="wizard-container">
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span id="stepIndicator">Paso 1 de 11</span>
+                            <span id="stepTitleHint">Tipo de Cliente</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" id="progressBar"></div>
+                        </div>
+                    </div>
+
+                    <form id="onboardingForm" action="/saas/onboarding/process" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <input type="hidden" name="payload_json" id="payloadJson" value="{}"/>
+                        
+                        <!-- STEP 1: TYPE OF CLIENT -->
+                        <div class="step-section active" data-step="1" data-title="Tipo de Cliente">
+                            <h2 class="step-title">¿Qué tipo de negocio es usted?</h2>
+                            <p class="step-subtitle">Seleccione cómo está constituido su negocio.</p>
+                            
+                            <div class="card-grid" id="clientTypeGrid">
+                                <div class="selection-card" data-value="self_employed" onclick="selectCard(this, 'client_type')">
+                                    <h3>Autónomo</h3>
+                                    <p style="color: var(--text-muted); font-size: 14px;">Profesional independiente</p>
+                                </div>
+                                <div class="selection-card" data-value="company" onclick="selectCard(this, 'client_type')">
+                                    <h3>Empresa</h3>
+                                    <p style="color: var(--text-muted); font-size: 14px;">Sociedad (SL, SA, etc.)</p>
+                                </div>
+                            </div>
+                            <input type="hidden" id="client_type" name="client_type" required="required"/>
+                        </div>
+
+                        <!-- STEP 2: TAX DATA -->
+                        <div class="step-section" data-step="2" data-title="Datos Fiscales">
+                            <h2 class="step-title">Datos Fiscales</h2>
+                            <p class="step-subtitle">Introduce los datos de facturación de tu negocio.</p>
+                            
+                            <!-- Dynamic fields depending on Step 1 will be handled by JS. But we just show them all and change labels -->
+                            <div class="form-group">
+                                <label id="label_legal_name">Nombre Legal / Razón Social *</label>
+                                <input type="text" class="form-control" id="legal_name" name="legal_name" required="required"/>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group form-col">
+                                    <label>Nombre Comercial (Opcional)</label>
+                                    <input type="text" class="form-control" id="commercial_name" name="commercial_name"/>
+                                </div>
+                                <div class="form-group form-col">
+                                    <label id="label_vat">CIF / NIF / DNI *</label>
+                                    <input type="text" class="form-control" id="vat" name="vat" required="required"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Dirección Fiscal *</label>
+                                <input type="text" class="form-control" id="street" name="street" required="required"/>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group form-col">
+                                    <label>Código Postal *</label>
+                                    <input type="text" class="form-control" id="zip" name="zip" required="required"/>
+                                </div>
+                                <div class="form-group form-col">
+                                    <label>Ciudad *</label>
+                                    <input type="text" class="form-control" id="city" name="city" required="required"/>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group form-col">
+                                    <label>Provincia *</label>
+                                    <input type="text" class="form-control" id="state_name" name="state_name" required="required"/>
+                                </div>
+                                <div class="form-group form-col">
+                                    <label>País *</label>
+                                    <select class="form-control" id="country_id" name="country_id" required="required">
+                                        <option value="" disabled="disabled" t-att-selected="not company.country_id">Seleccione su país...</option>
+                                        <t t-foreach="countries" t-as="c">
+                                            <!-- Default to Spain (code 'ES') if company has no country -->
+                                            <option t-att-value="c.id" t-att-selected="(company.country_id and company.country_id.id == c.id) or (not company.country_id and c.code == 'ES')">
+                                                <t t-esc="c.name"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group form-col">
+                                    <label>Teléfono *</label>
+                                    <input type="tel" class="form-control" id="phone" name="phone" required="required"/>
+                                </div>
+                                <div class="form-group form-col">
+                                    <label>Sitio Web (Opcional)</label>
+                                    <input type="url" class="form-control" id="website" name="website"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group" id="logo_upload_group" style="display: none;">
+                                <label>Logotipo (Solo para empresas)</label>
+                                <input type="file" class="form-control" id="company_logo" name="company_logo" accept="image/*"/>
+                            </div>
+                        </div>
+
+                        <!-- STEP 3: ACTIVITY -->
+                        <div class="step-section" data-step="3" data-title="Actividad">
+                            <h2 class="step-title">¿A qué se dedica?</h2>
+                            <p class="step-subtitle">Seleccione su sector para configurar su pipeline recomendado.</p>
+                            
+                            <div class="card-grid">
+                                <div class="selection-card" data-value="services" onclick="selectCard(this, 'activity_type')"><h3>Servicios</h3></div>
+                                <div class="selection-card" data-value="consulting" onclick="selectCard(this, 'activity_type')"><h3>Consultoría</h3></div>
+                                <div class="selection-card" data-value="accounting" onclick="selectCard(this, 'activity_type')"><h3>Gestoría / Contabilidad</h3></div>
+                                <div class="selection-card" data-value="construction" onclick="selectCard(this, 'activity_type')"><h3>Construcción</h3></div>
+                                <div class="selection-card" data-value="real_estate" onclick="selectCard(this, 'activity_type')"><h3>Inmobiliaria</h3></div>
+                                <div class="selection-card" data-value="transport" onclick="selectCard(this, 'activity_type')"><h3>Transporte</h3></div>
+                                <div class="selection-card" data-value="commerce" onclick="selectCard(this, 'activity_type')"><h3>Comercio</h3></div>
+                                <div class="selection-card" data-value="other" onclick="selectCard(this, 'activity_type')"><h3>Otro</h3></div>
+                            </div>
+                            <input type="hidden" id="activity_type" name="activity_type" required="required"/>
+                        </div>
+
+                        <!-- STEP 4: MAIN OBJECTIVE -->
+                        <div class="step-section" data-step="4" data-title="Objetivo Principal">
+                            <h2 class="step-title">¿Qué desea lograr con EPG CRM?</h2>
+                            <p class="step-subtitle">Esto nos ayudará a personalizar su dashboard.</p>
+                            
+                            <div class="card-grid">
+                                <div class="selection-card" data-value="more_clients" onclick="selectCard(this, 'main_objective')"><h3>Conseguir más clientes</h3></div>
+                                <div class="selection-card" data-value="save_time" onclick="selectCard(this, 'main_objective')"><h3>Ahorrar tiempo</h3></div>
+                                <div class="selection-card" data-value="automate" onclick="selectCard(this, 'main_objective')"><h3>Automatizar tareas</h3></div>
+                                <div class="selection-card" data-value="manage_invoicing" onclick="selectCard(this, 'main_objective')"><h3>Gestionar facturación</h3></div>
+                                <div class="selection-card" data-value="organize_docs" onclick="selectCard(this, 'main_objective')"><h3>Organizar documentos</h3></div>
+                            </div>
+                            <input type="hidden" id="main_objective" name="main_objective" required="required"/>
+                        </div>
+
+                        <!-- STEP 5: USERS -->
+                        <div class="step-section" data-step="5" data-title="Usuarios">
+                            <h2 class="step-title">¿Cuántos usuarios usarán el CRM?</h2>
+                            <p class="step-subtitle">Seleccione el rango esperado e invite a su equipo (Opcional).</p>
+                            
+                            <div class="card-grid" style="grid-template-columns: repeat(4, 1fr);">
+                                <div class="selection-card" data-value="1" onclick="selectCard(this, 'user_count')"><h3>1</h3></div>
+                                <div class="selection-card" data-value="2_5" onclick="selectCard(this, 'user_count')"><h3>2-5</h3></div>
+                                <div class="selection-card" data-value="6_10" onclick="selectCard(this, 'user_count')"><h3>6-10</h3></div>
+                                <div class="selection-card" data-value="10_plus" onclick="selectCard(this, 'user_count')"><h3>Más de 10</h3></div>
+                            </div>
+                            <input type="hidden" id="user_count" name="user_count" required="required"/>
+
+                            <div style="margin-top: 30px;">
+                                <h3>Invitar Usuarios</h3>
+                                <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 16px;">Las invitaciones se enviarán automáticamente y funcionarán desde el primer día.</p>
+                                
+                                <div id="usersContainer">
+                                    <!-- Dynamic rows added here -->
+                                </div>
+                                <button type="button" class="btn-add" onclick="addUserRow()">+ Añadir Usuario</button>
+                            </div>
+                        </div>
+
+                        <!-- STEP 6: SALES -->
+                        <div class="step-section" data-step="6" data-title="Ventas">
+                            <h2 class="step-title">Configuración de Ventas</h2>
+                            <p class="step-subtitle">Active los módulos necesarios para sus procesos de venta.</p>
+                            
+                            <div class="toggle-row" onclick="toggleSwitch(this, 'use_quotations')">
+                                <div class="toggle-label">¿Utiliza presupuestos?</div>
+                                <div class="toggle-switch"></div>
+                            </div>
+                            <input type="hidden" id="use_quotations" name="use_quotations" value="false"/>
+
+                            <div class="toggle-row" onclick="toggleSwitch(this, 'use_sales_followup')">
+                                <div class="toggle-label">¿Realiza seguimiento comercial?</div>
+                                <div class="toggle-switch"></div>
+                            </div>
+                            <input type="hidden" id="use_sales_followup" name="use_sales_followup" value="false"/>
+                        </div>
+
+                        <!-- STEP 7: ACCOUNTING -->
+                        <div class="step-section" data-step="7" data-title="Contabilidad">
+                            <h2 class="step-title">Configuración de Contabilidad</h2>
+                            <p class="step-subtitle">El sistema configurará automáticamente el Plan General Contable y los diarios por usted.</p>
+                            
+                            <div class="toggle-row" onclick="toggleSwitch(this, 'issue_invoices')">
+                                <div class="toggle-label">¿Emitirá facturas de venta?</div>
+                                <div class="toggle-switch"></div>
+                            </div>
+                            <input type="hidden" id="issue_invoices" name="issue_invoices" value="false"/>
+
+                            <div class="toggle-row" onclick="toggleSwitch(this, 'record_supplier_invoices')">
+                                <div class="toggle-label">¿Registrará facturas de proveedores?</div>
+                                <div class="toggle-switch"></div>
+                            </div>
+                            <input type="hidden" id="record_supplier_invoices" name="record_supplier_invoices" value="false"/>
+
+                            <div class="toggle-row" onclick="toggleSwitch(this, 'use_accounting')">
+                                <div class="toggle-label">¿Llevará la contabilidad integrada?</div>
+                                <div class="toggle-switch"></div>
+                            </div>
+                            <input type="hidden" id="use_accounting" name="use_accounting" value="false"/>
+
+                            <div class="form-group" style="margin-top: 20px;">
+                                <label>¿Quién gestionará la contabilidad?</label>
+                                <select class="form-control" id="accounting_handler" name="accounting_handler">
+                                    <option value="" disabled="disabled" selected="selected">Seleccione una opción...</option>
+                                    <option value="myself">Yo mismo</option>
+                                    <option value="firm">Mi gestoría / asesoría</option>
+                                    <option value="both">Ambos</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- STEP 8: EMAIL -->
+                        <div class="step-section" data-step="8" data-title="Correo Electrónico">
+                            <h2 class="step-title">Correo Electrónico Principal</h2>
+                            <p class="step-subtitle">Este correo se usará para envíos del sistema (presupuestos, facturas, etc.) de forma automática.</p>
+                            
+                            <div class="form-group">
+                                <label>¿Qué correo electrónico utilizará principalmente?</label>
+                                <input type="email" class="form-control" id="main_email" name="main_email" required="required" placeholder="ej. info@miempresa.com"/>
+                            </div>
+                        </div>
+
+                        <!-- STEP 9: AI -->
+                        <div class="step-section" data-step="9" data-title="Inteligencia Artificial">
+                            <h2 class="step-title">Asistente de IA</h2>
+                            <p class="step-subtitle">¿Desea habilitar nuestro asistente inteligente para redactar correos y analizar datos?</p>
+                            
+                            <div class="toggle-row" onclick="toggleSwitch(this, 'wants_ai')">
+                                <div class="toggle-label">Activar Asistente de IA</div>
+                                <div class="toggle-switch"></div>
+                            </div>
+                            <input type="hidden" id="wants_ai" name="wants_ai" value="false"/>
+                        </div>
+
+                        <!-- STEP 10: IMPORT -->
+                        <div class="step-section" data-step="10" data-title="Importación">
+                            <h2 class="step-title">¿Ya tiene cartera de clientes?</h2>
+                            <p class="step-subtitle">Seleccione cómo desea comenzar en su base de datos.</p>
+                            
+                            <div class="card-grid">
+                                <div class="selection-card" data-value="excel" onclick="selectCard(this, 'import_strategy', false); document.getElementById('importInstructions').style.display='block';">
+                                    <h3>Importar Excel</h3>
+                                    <p style="color: var(--text-muted); font-size: 14px; margin-top: 8px;">Tengo datos que quiero traer</p>
+                                </div>
+                                <div class="selection-card" data-value="scratch" onclick="selectCard(this, 'import_strategy', false); document.getElementById('importInstructions').style.display='none';">
+                                    <h3>Empezar desde cero</h3>
+                                    <p style="color: var(--text-muted); font-size: 14px; margin-top: 8px;">Crearé los datos manualmente</p>
+                                </div>
+                            </div>
+                            
+                            <div id="importInstructions" style="display: none; margin-top: 20px; padding: 15px; background: rgba(99, 102, 241, 0.1); border-left: 4px solid var(--primary); border-radius: 8px;">
+                                <h4 style="margin-bottom: 8px; color: #a5b4fc;">Instrucciones de Importación</h4>
+                                <p style="font-size: 14px; line-height: 1.5; color: var(--text-main); margin-bottom: 12px;">
+                                    Una vez que finalice la configuración, podrá importar sus datos rápidamente utilizando nuestras plantillas prediseñadas. 
+                                    <br/><br/>
+                                    <strong style="color: #fca5a5;">IMPORTANTE:</strong> Por favor, rellene los datos en las plantillas descargables pero <strong>no modifique ni elimine los nombres de las columnas (cabeceras)</strong> para que el sistema los reconozca automáticamente.
+                                </p>
+                                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                    <a href="/saas_client/static/src/files/plantilla_ventas.xlsx" download="Plantilla_Ventas.xlsx" style="background: rgba(99, 102, 241, 0.2); color: #a5b4fc; padding: 8px 12px; font-size: 13px; border-radius: 6px; text-decoration: none; border: 1px dashed #6366f1; transition: 0.2s;">
+                                        ⬇ Descargar Plantilla Ventas
+                                    </a>
+                                    <a href="/saas_client/static/src/files/plantilla_asientos.xlsx" download="Plantilla_Asientos.xlsx" style="background: rgba(99, 102, 241, 0.2); color: #a5b4fc; padding: 8px 12px; font-size: 13px; border-radius: 6px; text-decoration: none; border: 1px dashed #6366f1; transition: 0.2s;">
+                                        ⬇ Descargar Plantilla Contabilidad
+                                    </a>
+                                    <a href="/saas_client/static/src/files/plantilla_contactos.csv" download="Plantilla_Contactos.csv" style="background: rgba(99, 102, 241, 0.2); color: #a5b4fc; padding: 8px 12px; font-size: 13px; border-radius: 6px; text-decoration: none; border: 1px dashed #6366f1; transition: 0.2s;">
+                                        ⬇ Descargar Plantilla Contactos
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <input type="hidden" id="import_strategy" name="import_strategy" required="required"/>
+                        </div>
+
+                        <!-- STEP 11: VERIFICATION -->
+                        <div class="step-section" data-step="11" data-title="Verificación">
+                            <h2 class="step-title">Comprobación Final</h2>
+                            <p class="step-subtitle">Todo está listo para ser configurado automáticamente.</p>
+                            
+                            <div class="checklist" id="verificationChecklist">
+                                <div class="checklist-item"><div class="check-circle"></div><span>Empresa y Datos Fiscales</span></div>
+                                <div class="checklist-item"><div class="check-circle"></div><span>Dashboard recomendado</span></div>
+                                <div class="checklist-item"><div class="check-circle"></div><span>Pipeline de ventas</span></div>
+                                <div class="checklist-item"><div class="check-circle"></div><span>Configuración Contable y Plan General</span></div>
+                                <div class="checklist-item"><div class="check-circle"></div><span>Motor de Correos</span></div>
+                                <div class="checklist-item"><div class="check-circle"></div><span>Invitaciones a Usuarios</span></div>
+                                <div class="checklist-item"><div class="check-circle"></div><span>Motor de Inteligencia Artificial</span></div>
+                            </div>
+                            
+                            <div style="margin-top: 30px; text-align: center; padding: 20px; background: rgba(16, 185, 129, 0.1); border: 1px solid var(--success); border-radius: 12px; display: none;" id="readyMessage">
+                                <h3 style="color: var(--success); margin-bottom: 8px;">¡Su empresa está lista para trabajar con EPG CRM!</h3>
+                                <p style="color: white; font-size: 14px;">Haga clic en finalizar para aplicar toda la configuración.</p>
+                            </div>
+                        </div>
+
+                        <!-- Footer Navigation -->
+                        <div class="wizard-footer">
+                            <button type="button" class="btn btn-back" id="btnBack" onclick="changeStep(-1)" style="display: none;">Volver</button>
+                            <div style="flex-grow: 1;"></div>
+                            <button type="button" class="btn btn-next" id="btnNext" onclick="changeStep(1)">Siguiente</button>
+                            <button type="submit" class="btn btn-next" id="btnSubmit" style="display: none;">Finalizar Configuración</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <script>
+                    const totalSteps = 11;
+                    let currentStep = 1;
+                    let usersList = [];
+
+                    function updateUI() {
+                        // Update Progress Bar
+                        const progress = ((currentStep - 1) / (totalSteps - 1)) * 100;
+                        document.getElementById('progressBar').style.width = progress + '%';
+                        
+                        // Update Step Indicator
+                        const currentSection = document.querySelector(`.step-section[data-step="${currentStep}"]`);
+                        document.getElementById('stepIndicator').innerText = `Paso ${currentStep} de ${totalSteps}`;
+                        document.getElementById('stepTitleHint').innerText = currentSection.getAttribute('data-title');
+                        
+                        // Hide/Show sections
+                        document.querySelectorAll('.step-section').forEach(s => s.classList.remove('active'));
+                        currentSection.classList.add('active');
+                        
+                        // Buttons
+                        document.getElementById('btnBack').style.display = currentStep > 1 ? 'block' : 'none';
+                        if (currentStep === totalSteps) {
+                            document.getElementById('btnNext').style.display = 'none';
+                            document.getElementById('btnSubmit').style.display = 'block';
+                            animateChecklist();
+                        } else {
+                            document.getElementById('btnNext').style.display = 'block';
+                            document.getElementById('btnSubmit').style.display = 'none';
+                        }
+
+                        // Special UI handling for Step 1 -> 2
+                        if (currentStep === 2) {
+                            const cType = document.getElementById('client_type').value;
+                            if (cType === 'self_employed') {
+                                document.getElementById('label_legal_name').innerText = "Nombre y Apellidos *";
+                                document.getElementById('label_vat').innerText = "DNI / NIF *";
+                                document.getElementById('logo_upload_group').style.display = 'none';
+                            } else {
+                                document.getElementById('label_legal_name').innerText = "Razón Social *";
+                                document.getElementById('label_vat').innerText = "CIF *";
+                                document.getElementById('logo_upload_group').style.display = 'block';
+                            }
+                        }
+                    }
+
+                    function validateStep(step) {
+                        const section = document.querySelector(`.step-section[data-step="${step}"]`);
+                        const inputs = section.querySelectorAll('input[required], select[required]');
+                        for (let el of inputs) {
+                            if (!el.value) {
+                                // Basic native validation trigger
+                                el.reportValidity();
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+
+                    function changeStep(dir) {
+                        if (dir === 1 &amp;&amp; !validateStep(currentStep)) return;
+                        
+                        currentStep += dir;
+                        if (currentStep &lt; 1) currentStep = 1;
+                        if (currentStep > totalSteps) currentStep = totalSteps;
+                        
+                        updateUI();
+                    }
+
+                    function selectCard(el, hiddenId, autoAdvance = true) {
+                        // Remove selected from siblings
+                        const siblings = el.parentElement.querySelectorAll('.selection-card');
+                        siblings.forEach(s => s.classList.remove('selected'));
+                        
+                        // Select current
+                        el.classList.add('selected');
+                        
+                        // Update hidden input
+                        document.getElementById(hiddenId).value = el.getAttribute('data-value');
+                        
+                        // Auto-advance
+                        if (autoAdvance) {
+                            setTimeout(() => {
+                                if (currentStep &lt; totalSteps) changeStep(1);
+                            }, 300);
+                        }
+                    }
+
+                    function toggleSwitch(row, hiddenId) {
+                        row.classList.toggle('active');
+                        const isActive = row.classList.contains('active');
+                        document.getElementById(hiddenId).value = isActive ? 'true' : 'false';
+                    }
+
+                    function addUserRow() {
+                        const container = document.getElementById('usersContainer');
+                        const row = document.createElement('div');
+                        row.className = 'user-row';
+                        row.innerHTML = `
+                            <input type="text" class="form-control" placeholder="Nombre" required="required"/>
+                            <input type="email" class="form-control" placeholder="Correo electrónico" required="required"/>
+                            <select class="form-control" required="required">
+                                <option value="user">Usuario Básico</option>
+                                <option value="manager">Mánager / Ventas</option>
+                                <option value="admin">Administrador</option>
+                            </select>
+                            <button type="button" class="btn-remove" onclick="this.parentElement.remove()">×</button>
+                        `;
+                        container.appendChild(row);
+                    }
+
+                    function animateChecklist() {
+                        const items = document.querySelectorAll('.checklist-item');
+                        items.forEach(i => i.classList.remove('done'));
+                        document.getElementById('readyMessage').style.display = 'none';
+                        
+                        let delay = 0;
+                        items.forEach((item, index) => {
+                            setTimeout(() => {
+                                item.classList.add('done');
+                                if (index === items.length - 1) {
+                                    setTimeout(() => {
+                                        document.getElementById('readyMessage').style.display = 'block';
+                                    }, 400);
+                                }
+                            }, delay);
+                            delay += 300; // 300ms per check
+                        });
+                    }
+
+                    // Form Submission Intercept to build JSON Payload
+                    document.getElementById('onboardingForm').addEventListener('submit', function(e) {
+                        e.preventDefault(); // Stop standard submit temporarily
+                        
+                        // Build JSON from users
+                        const usersData = [];
+                        document.querySelectorAll('.user-row').forEach(row => {
+                            const inputs = row.querySelectorAll('input, select');
+                            usersData.push({
+                                name: inputs[0].value,
+                                email: inputs[1].value,
+                                role: inputs[2].value
+                            });
+                        });
+                        
+                        // Build general JSON payload
+                        const payload = {
+                            client_type: document.getElementById('client_type').value,
+                            legal_name: document.getElementById('legal_name').value,
+                            commercial_name: document.getElementById('commercial_name').value,
+                            vat: document.getElementById('vat').value,
+                            street: document.getElementById('street').value,
+                            zip: document.getElementById('zip').value,
+                            city: document.getElementById('city').value,
+                            state_name: document.getElementById('state_name').value,
+                            country_id: document.getElementById('country_id').value,
+                            phone: document.getElementById('phone').value,
+                            website: document.getElementById('website').value,
+                            activity_type: document.getElementById('activity_type').value,
+                            main_objective: document.getElementById('main_objective').value,
+                            user_count: document.getElementById('user_count').value,
+                            invited_users: usersData,
+                            use_quotations: document.getElementById('use_quotations').value === 'true',
+                            use_sales_followup: document.getElementById('use_sales_followup').value === 'true',
+                            issue_invoices: document.getElementById('issue_invoices').value === 'true',
+                            record_supplier_invoices: document.getElementById('record_supplier_invoices').value === 'true',
+                            use_accounting: document.getElementById('use_accounting').value === 'true',
+                            accounting_handler: document.getElementById('accounting_handler').value,
+                            main_email: document.getElementById('main_email').value,
+                            wants_ai: document.getElementById('wants_ai').value === 'true',
+                            import_strategy: document.getElementById('import_strategy').value
+                        };
+                        
+                        document.getElementById('payloadJson').value = JSON.stringify(payload);
+                        
+                        // Show loading screen
+                        document.getElementById('loadingOverlay').style.display = 'flex';
+                        
+                        // Proceed with actual form submission
+                        this.submit();
+                    });
+
+                    // Init UI
+                    updateUI();
+                </script>
+            </body>
+        </html>
+    </template>
+</odoo>

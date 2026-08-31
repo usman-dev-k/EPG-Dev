@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Show Technical Settings (base.module_category_hidden) to SaaS Tenants without developer mode -->
+    <record id="view_users_form_show_technical_saas" model="ir.ui.view">
+        <field name="name">res.users.form.show.technical.saas</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            
+            <!-- Target the dynamically generated group containing all hidden/technical categories -->
+            <xpath expr="//group[@class='o_label_nowrap'][@groups='base.group_no_one']" position="attributes">
+                <attribute name="groups" remove="1" />
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

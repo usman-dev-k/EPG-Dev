@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- Backup Directory (for localhost) -->
+        <record id="saas_backup_directory" model="ir.config_parameter">
+            <field name="key">saas.backup_directory</field>
+            <field name="value">/tmp/odoo_backups</field>
+        </record>
+        
+    </data>
+</odoo>

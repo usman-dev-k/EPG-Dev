@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- Daily Subscription Expiry Check (Active -> Grace -> Suspended) -->
+        <record id="cron_subscription_expiry" model="ir.cron">
+            <field name="name">SaaS: Procesar Caducidad de Suscripciones</field>
+            <field name="model_id" ref="model_saas_subscription"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_process_subscription_expiry()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 01:00:00')"/>
+            <field name="active">True</field>
+            <field name="priority">5</field>
+        </record>
+
+        <!-- Daily cron: remove cancelled add-ons after next_renewal_date -->
+        <record id="cron_expire_cancelled_addons" model="ir.cron">
+            <field name="name">SaaS: Caducar Complementos Cancelados</field>
+            <field name="model_id" ref="model_saas_subscription"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_expire_cancelled_addons()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 02:00:00')"/>
+            <field name="active">True</field>
+            <field name="priority">10</field>
+        </record>
+
+        <!-- Daily cron: auto renew subscriptions and charge saved cards -->
+        <record id="cron_auto_renew_subscriptions" model="ir.cron">
+            <field name="name">SaaS: Renovación Automática de Suscripciones</field>
+            <field name="model_id" ref="model_saas_subscription"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_auto_renew_subscriptions()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 03:00:00')"/>
+            <field name="active">True</field>
+            <field name="priority">15</field>
+        </record>
+
+        <!-- Daily cron: auto renew monthly add-ons (independent cycle) -->
+        <record id="cron_auto_renew_addons" model="ir.cron">
+            <field name="name">SaaS: Renovación Automática de Complementos Mensuales</field>
+            <field name="model_id" ref="model_saas_subscription"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_auto_renew_addons()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 04:00:00')"/>
+            <field name="active">True</field>
+            <field name="priority">20</field>
+        </record>
+
+        <!-- Daily cron: process expired grace periods and schedule deletion -->
+        <record id="cron_process_grace_period_expiration" model="ir.cron">
+            <field name="name">SaaS: Procesar Caducidad del Período de Gracia</field>
+            <field name="model_id" ref="model_saas_subscription"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_process_grace_period_expiration()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 01:30:00')"/>
+            <field name="active">True</field>
+            <field name="priority">6</field>
+        </record>
+
+        <!-- Daily cron: process trial expiration -->
+        <record id="cron_process_trial_expiration" model="ir.cron">
+            <field name="name">SaaS: Process Trial Expiration</field>
+            <field name="model_id" ref="model_saas_subscription"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_process_trial_expiration()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 01:45:00')"/>
+            <field name="active">True</field>
+            <field name="priority">7</field>
+        </record>
+
+        <!-- Daily cron: process trial expiration warning -->
+        <record id="cron_process_trial_warning" model="ir.cron">
+            <field name="name">SaaS: Process Trial Expiration Warning</field>
+            <field name="model_id" ref="model_saas_subscription"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_process_trial_warning()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 01:40:00')"/>
+            <field name="active">True</field>
+            <field name="priority">7</field>
+        </record>
+
+        <!-- Daily cron: mass sync modules across all active subscriptions -->
+        <record id="cron_mass_sync_modules" model="ir.cron">
+            <field name="name">SaaS: Mass Sync Modules</field>
+            <field name="model_id" ref="model_saas_subscription"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_sync_modules()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 05:00:00')"/>
+            <field name="active">True</field>
+            <field name="priority">25</field>
+        </record>
+
+        <!-- Daily cron: pull AI usage from tenants -->
+        <record id="cron_sync_ai_usage" model="ir.cron">
+            <field name="name">SaaS: Sync AI Usage from Tenants</field>
+            <field name="model_id" ref="saas_management.model_saas_subscription"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_sync_ai_usage()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="active" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

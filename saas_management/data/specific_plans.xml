@@ -1,0 +1,103 @@
+<!-- <?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+
+        <record id="plan_crm_early_adopter_monthly" model="saas.plan">
+            <field name="name">Primer Usuario CRM (Mensual)</field>
+            <field name="plan_type">crm_early</field>
+            <field name="billing_cycle">monthly</field>
+            <field name="price_monthly">34.90</field>
+            <field name="price_annual">0.00</field>
+            <field name="early_adopter_price">34.90</field>
+            <field name="is_early_adopter" eval="True"/>
+            <field name="early_adopter_limit">1000</field>
+            <field name="included_users">3</field>
+            <field name="included_storage_gb">3</field>
+            <field name="module_names">crm,sale,mail,account</field>
+            <field name="active" eval="True"/>
+            <field name="sequence">1</field>
+            <field name="description">&lt;p&gt;Early Adopter special pricing for CRM platform - Monthly billing. Includes Advanced Accounting/Management Module for life.&lt;/p&gt;</field>
+            <field name="features">3 Users included
+3 GB Base Storage
+CRM Module
+Advanced Accounting Module (included for life)
+Automatic Daily Backups
+Priority Support
+Price Protection (locked while active)</field>
+        </record>
+
+
+        <record id="plan_crm_early_adopter_annual" model="saas.plan">
+            <field name="name">Primer Usuario CRM (Anual)</field>
+            <field name="plan_type">crm_early</field>
+            <field name="billing_cycle">annual</field>
+            <field name="price_monthly">0.00</field>
+            <field name="price_annual">358.00</field>
+            <field name="early_adopter_price">29.90</field>
+            <field name="is_early_adopter" eval="True"/>
+            <field name="early_adopter_limit">1000</field>
+            <field name="included_users">3</field>
+            <field name="included_storage_gb">3</field>
+            <field name="module_names">crm,sale,mail,account</field>
+            <field name="active" eval="True"/>
+            <field name="sequence">2</field>
+            <field name="description">&lt;p&gt;Early Adopter special pricing for CRM platform - Annual billing (equivalent to €29.90/month). Includes Advanced Accounting/Management Module for life.&lt;/p&gt;</field>
+            <field name="features">3 Users included
+3 GB Base Storage
+CRM Module
+Advanced Accounting Module (included for life)
+Automatic Daily Backups
+Priority Support
+Price Protection (locked while active)
+Save vs Monthly billing</field>
+        </record>
+
+
+        <record id="plan_crm_official_monthly" model="saas.plan">
+            <field name="name">Base CRM (Monthly)</field>
+            <field name="plan_type">crm_official</field>
+            <field name="billing_cycle">monthly</field>
+            <field name="price_monthly">59.90</field>
+            <field name="price_annual">0.00</field>
+            <field name="early_adopter_price">34.90</field>
+            <field name="is_early_adopter" eval="False"/>
+            <field name="included_users">3</field>
+            <field name="included_storage_gb">3</field>
+            <field name="module_names">crm,sale,mail</field>
+            <field name="active" eval="True"/>
+            <field name="sequence">3</field>
+            <field name="description">&lt;p&gt;Official Base CRM platform pricing - Monthly billing.&lt;/p&gt;</field>
+            <field name="features">3 Users included
+3 GB Base Storage
+CRM Module
+Automatic Daily Backups
+Standard Support</field>
+        </record>
+
+
+        <record id="plan_crm_official_annual" model="saas.plan">
+            <field name="name">Base CRM (Annual)</field>
+            <field name="plan_type">crm_official</field>
+            <field name="billing_cycle">annual</field>
+            <field name="price_monthly">0.00</field>
+            <field name="price_annual">598.00</field>
+            <field name="early_adopter_price">29.90</field>
+            <field name="is_early_adopter" eval="False"/>
+            <field name="included_users">3</field>
+            <field name="included_storage_gb">3</field>
+            <field name="module_names">crm,sale,mail</field>
+            <field name="active" eval="True"/>
+            <field name="sequence">4</field>
+            <field name="description">&lt;p&gt;Official Base CRM platform pricing - Annual billing.&lt;/p&gt;</field>
+            <field name="features">3 Users included
+3 GB Base Storage
+CRM Module
+Automatic Daily Backups
+Standard Support
+Save vs Monthly billing</field>
+        </record>
+
+    </data>
+</odoo>
+ -->

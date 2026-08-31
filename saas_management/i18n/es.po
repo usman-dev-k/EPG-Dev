@@ -1,0 +1,1628 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* saas_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-21 21:07+0000\n"
+"PO-Revision-Date: 2026-05-21 21:07+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid "(incl."
+msgstr "(incl."
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_promo_code__max_uses
+msgid "0 = unlimited"
+msgstr "0 = ilimitado"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid ""
+"<br/>\n"
+"                                        <strong>Cycle:</strong>"
+msgstr ""
+"<br/>\n"
+"                                        <strong>Ciclo:</strong>"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid ""
+"<br/>\n"
+"                                        <strong>Expiration:</strong>"
+msgstr ""
+"<br/>\n"
+"                                        <strong>Caducidad:</strong>"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid ""
+"<br/>\n"
+"                                        <strong>Next Billing:</strong>"
+msgstr ""
+"<br/>\n"
+"                                        <strong>Próxima Facturación:</strong>"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid ""
+"<br/>\n"
+"                                        <strong>Price:</strong>"
+msgstr ""
+"<br/>\n"
+"                                        <strong>Precio:</strong>"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid ""
+"<br/>\n"
+"                                        <strong>Tenant URL:</strong>"
+msgstr ""
+"<br/>\n"
+"                                        <strong>URL del Cliente:</strong>"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_subscription_upgrade
+msgid ""
+"<select name=\"add_storage\" class=\"form-control\">\n"
+"                                            <option value=\"0\">None</option>\n"
+"                                            <option value=\"5\">5 GB (€5.00/mo)</option>\n"
+"                                            <option value=\"10\">10 GB (€9.00/mo)</option>\n"
+"                                            <option value=\"25\">25 GB (€19.00/mo)</option>\n"
+"                                        </select>"
+msgstr ""
+"<select name=\"add_storage\" class=\"form-control\">\n"
+"                                            <option value=\"0\">Ninguno</option>\n"
+"                                            <option value=\"5\">5 GB (5,00 €/mes)</option>\n"
+"                                            <option value=\"10\">10 GB (9,00 €/mes)</option>\n"
+"                                            <option value=\"25\">25 GB (19,00 €/mes)</option>\n"
+"                                        </select>"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_subscription_upgrade
+msgid "<small class=\"text-muted\">€7.00/user/month</small>"
+msgstr "<small class=\"text-muted\">7,00 €/usuario/mes</small>"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_subscription_upgrade
+msgid ""
+"<strong>Align with Plan</strong> – Pay for the remainder of the year "
+"(Prorated). Renew with your annual plan."
+msgstr ""
+"<strong>Alinear con el Plan</strong> – Pague el resto del año "
+"(prorrateado). Renueve con su plan anual."
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid "<strong>Auto-Renew:</strong>"
+msgstr "<strong>Renovación Automática:</strong>"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_subscription_upgrade
+msgid ""
+"<strong>Monthly Billing</strong> – Pay only 1 full month now. Renew every "
+"month."
+msgstr ""
+"<strong>Facturación Mensual</strong> – Pague solo 1 mes completo ahora. Renueve cada "
+"mes."
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid "<strong>Plan:</strong>"
+msgstr "<strong>Plan:</strong>"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid "<strong>Status:</strong>"
+msgstr "<strong>Estado:</strong>"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid "<strong>Storage:</strong>"
+msgstr "<strong>Almacenamiento:</strong>"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid "<strong>Users:</strong>"
+msgstr "<strong>Usuarios:</strong>"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__access_token
+msgid "Access Token"
+msgstr "Token de Acceso"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__access_warning
+msgid "Access warning"
+msgstr "Advertencia de acceso"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__accounting_module
+msgid "Accounting Module"
+msgstr "Módulo de Contabilidad"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__message_needaction
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__message_needaction
+msgid "Action Needed"
+msgstr "Acción Requerida"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid "Actions"
+msgstr "Acciones"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__activation_date
+msgid "Activation Date"
+msgstr "Fecha de Activación"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__active
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code__active
+#: model:ir.model.fields.selection,name:saas_management.selection__saas_addon__state__active
+#: model:ir.model.fields.selection,name:saas_management.selection__saas_subscription__state__active
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscriptions
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_plan_form
+msgid "Active"
+msgstr "Activo"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid "Active Add-ons"
+msgstr "Complementos Activos"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__active_subscription_count
+msgid "Active Subscriptions"
+msgstr "Suscripciones Activas"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__activity_ids
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Decoración de Excepción de Actividad"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__activity_state
+msgid "Activity State"
+msgstr "Estado de Actividad"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Icono de Tipo de Actividad"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_subscription_upgrade
+msgid "Add Extra Storage"
+msgstr "Añadir Almacenamiento Extra"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_subscription_upgrade
+msgid "Add Extra Users"
+msgstr "Añadir Usuarios Extra"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_subscription_upgrade
+msgid "Add Storage Pack"
+msgstr "Añadir Paquete de Almacenamiento"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_subscription_upgrade
+msgid "Add Users"
+msgstr "Añadir Usuarios"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_addon_form
+msgid "Add-on"
+msgstr "Complemento"
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_addon.py:0
+msgid ""
+"Add-on <b>%(name)s</b> cancelled by customer. It will remain active until "
+"the next renewal date: <b>%(date)s</b>."
+msgstr ""
+"Complemento <b>%(name)s</b> cancelado por el cliente. Permanecerá activo hasta "
+"la próxima fecha de renovación: <b>%(date)s</b>."
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_subscription.py:0
+msgid "Add-on <b>%s</b> has been revoked due to %s status."
+msgstr "El complemento <b>%s</b> ha sido revocado debido al estado %s."
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_addon.py:0
+msgid "Add-on <b>%s</b> reactivated."
+msgstr "Complemento <b>%s</b> reactivado."
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_subscription_upgrade
+msgid "Add-on Billing Cycle"
+msgstr "Ciclo de Facturación del Complemento"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_addon_form
+msgid "Add-on Details"
+msgstr "Detalles del Complemento"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_subscription_form
+msgid "Add-on Records"
+msgstr "Registros de Complementos"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__addon_type
+msgid "Add-on Type"
+msgstr "Tipo de Complemento"
+
+#. module: saas_management
+#: model:ir.actions.act_window,name:saas_management.action_saas_addon
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__addon_ids
+msgid "Add-ons"
+msgstr "Complementos"
+
+#. module: saas_management
+#: model:ir.ui.menu,name:saas_management.menu_saas_addon
+msgid "All Add-ons"
+msgstr "Todos los Complementos"
+
+#. module: saas_management
+#: model:ir.ui.menu,name:saas_management.menu_saas_subscription
+msgid "All Subscriptions"
+msgstr "Todas las Suscripciones"
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_promo_code__grant_early_adopter
+msgid "Allow early adopter pricing even after 1000 limit reached"
+msgstr "Permitir precios para primeros usuarios incluso después de alcanzar el límite de 1000"
+
+#. module: saas_management
+#: model:ir.model.fields.selection,name:saas_management.selection__saas_addon__billing_cycle__annual
+#: model:ir.model.fields.selection,name:saas_management.selection__saas_plan__billing_cycle__annual
+#: model:ir.model.fields.selection,name:saas_management.selection__saas_subscription__billing_cycle__annual
+msgid "Annual"
+msgstr "Anual"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__annual_price
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__price_annual
+msgid "Annual Price (€)"
+msgstr "Precio Anual (€)"
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_plan.py:0
+msgid "Annual price must be greater than 0 for annual billing"
+msgstr "El precio anual debe ser mayor que 0 para la facturación anual"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__message_attachment_count
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__message_attachment_count
+msgid "Attachment Count"
+msgstr "Cantidad de Adjuntos"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__auto_renew
+msgid "Auto-Renew"
+msgstr "Renovación Automática"
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/controllers/portal.py:0
+msgid "Auto-Renew disabled from portal."
+msgstr "Renovación automática desactivada desde el portal."
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/controllers/portal.py:0
+msgid "Auto-Renew enabled from portal."
+msgstr "Renovación automática activada desde el portal."
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_promo_code_form
+msgid "Auto-generated if left empty"
+msgstr "Autogenerado si se deja vacío"
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_subscription.py:0
+msgid "Auto-renewal encountered an error: %s"
+msgstr "La renovación automática encontró un error: %s"
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_subscription.py:0
+msgid "Auto-renewal failed. Payment transaction %s resulted in state: %s"
+msgstr "Error en la renovación automática. La transacción de pago %s resultó en el estado: %s"
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_subscription.py:0
+msgid "Auto-renewal successful. Charged order %s via saved card."
+msgstr "Renovación automática exitosa. Pedido %s cargado mediante tarjeta guardada."
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_addon_form
+msgid "Billing"
+msgstr "Facturación"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__billing_cycle
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__billing_cycle
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__billing_cycle
+msgid "Billing Cycle"
+msgstr "Ciclo de Facturación"
+
+#. module: saas_management
+#: model:ir.model.fields.selection,name:saas_management.selection__saas_plan__plan_type__crm_early
+msgid "CRM Early Adopter"
+msgstr "Primer Usuario CRM"
+
+#. module: saas_management
+#: model:ir.model.fields.selection,name:saas_management.selection__saas_plan__plan_type__crm_official
+msgid "CRM Official"
+msgstr "CRM Oficial"
+
+#. module: saas_management
+#: model:res.groups,comment:saas_management.group_saas_manager
+msgid "Can manage subscriptions and plans"
+msgstr "Puede gestionar suscripciones y planes"
+
+#. module: saas_management
+#: model:res.groups,comment:saas_management.group_saas_user
+msgid "Can view own subscription"
+msgstr "Puede ver su propia suscripción"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_subscription_upgrade
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_addon_list
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_subscription_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_addon_form
+msgid "Cancel Add-on"
+msgstr "Cancelar Complemento"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid "Cancel Addon"
+msgstr "Cancelar Complemento"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__cancel_date
+msgid "Cancelled On"
+msgstr "Cancelado el"
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_subscription.py:0
+msgid "Cancelled add-on(s) have been removed after billing cycle end."
+msgstr "Los complementos cancelados han sido eliminados después del fin del ciclo de facturación."
+
+#. module: saas_management
+#: model:ir.model.fields.selection,name:saas_management.selection__saas_addon__state__cancelled
+msgid "Cancelled – Pending Removal"
+msgstr "Cancelado – Pendiente de Eliminación"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid "Cancelled – runs until renewal"
+msgstr "Cancelado – funciona hasta la renovación"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code__code
+msgid "Code"
+msgstr "Código"
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_plan__module_names
+msgid ""
+"Comma-separated list of module technical names to install (e.g., "
+"crm,account)"
+msgstr ""
+"Lista separada por comas de nombres técnicos de módulos a instalar (ej., "
+"crm,account)"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__company_id
+msgid "Company"
+msgstr "Empresa"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__company_name
+msgid "Company Name"
+msgstr "Nombre de la Empresa"
+
+#. module: saas_management
+#: model:ir.model,name:saas_management.model_res_config_settings
+msgid "Config Settings"
+msgstr "Ajustes de configuración"
+
+#. module: saas_management
+#: model:ir.ui.menu,name:saas_management.menu_saas_config
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_subscription_upgrade
+msgid "Create Upgrade Order"
+msgstr "Crear Pedido de Mejora"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code__created_by_id
+msgid "Created By"
+msgstr "Creado Por"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__create_uid
+#: model:ir.model.fields,field_description:saas_management.field_saas_limit_wizard__create_uid
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__create_uid
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code__create_uid
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code_usage__create_uid
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__create_date
+#: model:ir.model.fields,field_description:saas_management.field_saas_limit_wizard__create_date
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__create_date
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code__create_date
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code_usage__create_date
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_subscription_upgrade
+msgid "Current Extra Storage:"
+msgstr "Almacenamiento Extra Actual:"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_subscription_upgrade
+msgid "Current Extra Users:"
+msgstr "Usuarios Extra Actuales:"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_limit_wizard__current_limit
+msgid "Current Limit"
+msgstr "Límite Actual"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code__current_uses
+msgid "Current Uses"
+msgstr "Usos Actuales"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code_usage__partner_id
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__partner_id
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_subscription__access_url
+msgid "Customer Portal URL"
+msgstr "URL del Portal del Cliente"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__database_name
+msgid "Database Name"
+msgstr "Nombre de la Base de Datos"
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_addon__cancel_date
+msgid "Date the customer requested cancellation."
+msgstr "Fecha en que el cliente solicitó la cancelación."
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_addon__next_renewal_date
+msgid ""
+"Date this add-on renews (synchronized with the base subscription billing "
+"date)."
+msgstr ""
+"Fecha en que se renueva este complemento (sincronizado con la fecha de facturación "
+"de la suscripción base)."
+
+#. module: saas_management
+#: model:ir.model.fields.selection,name:saas_management.selection__saas_subscription__state__deleted
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscriptions
+msgid "Deleted"
+msgstr "Eliminado"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__deletion_scheduled_date
+msgid "Deletion Scheduled"
+msgstr "Eliminación Programada"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__name
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__description
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code__description
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_plan_form
+msgid "Description"
+msgstr "Descripción"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code__discount_percentage
+msgid "Discount %"
+msgstr "Descuento %"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code__discount_amount
+msgid "Discount Amount (€)"
+msgstr "Importe del Descuento (€)"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__display_name
+#: model:ir.model.fields,field_description:saas_management.field_saas_limit_wizard__display_name
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__display_name
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code__display_name
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code_usage__display_name
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__display_name
+msgid "Display Name"
+msgstr "Nombre Mostrado"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__is_early_adopter
+#: model:ir.model.fields.selection,name:saas_management.selection__saas_promo_code__code_type__early_adopter
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_plan_form
+msgid "Early Adopter"
+msgstr "Primer Usuario"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__early_adopter_count
+msgid "Early Adopter Count (Global)"
+msgstr "Recuento de Primeros Usuarios (Global)"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__early_adopter_price
+msgid "Early Adopter Equivalent (€/month)"
+msgstr "Equivalente para Primer Usuario (€/mes)"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__early_adopter_limit
+msgid "Early Adopter Limit"
+msgstr "Límite de Primeros Usuarios"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__is_early_adopter
+msgid "Early Adopter Plan"
+msgstr "Plan para Primer Usuario"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__early_adopter_available
+msgid "Early Adopter Slots Available"
+msgstr "Plazas para Primer Usuario Disponibles"
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_subscription.py:0
+msgid "Early Adopter status cannot be removed once granted"
+msgstr "El estado de Primer Usuario no se puede eliminar una vez concedido"
+
+#. module: saas_management
+#: model:ir.model.fields.selection,name:saas_management.selection__saas_subscription__state__error
+msgid "Error"
+msgstr "Error"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__error_message
+msgid "Error Message"
+msgstr "Mensaje de Error"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__expiration_date
+msgid "Expiration Date"
+msgstr "Fecha de Caducidad"
+
+#. module: saas_management
+#: model:ir.model.fields.selection,name:saas_management.selection__saas_addon__state__expired
+msgid "Expired / Removed"
+msgstr "Caducado / Eliminado"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__extra_storage_gb
+#: model:ir.model.fields.selection,name:saas_management.selection__saas_addon__addon_type__storage
+msgid "Extra Storage (GB)"
+msgstr "Almacenamiento Extra (GB)"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__extra_users
+#: model:ir.model.fields.selection,name:saas_management.selection__saas_addon__addon_type__users
+msgid "Extra Users"
+msgstr "Usuarios Extra"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__features
+msgid "Features"
+msgstr "Características"
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_plan__is_early_adopter
+msgid "First 1000 customers get special pricing and benefits"
+msgstr "Los primeros 1000 clientes obtienen precios y beneficios especiales"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__message_follower_ids
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__message_partner_ids
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Contactos)"
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_subscription__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Icono Font Awesome ej. fa-tasks"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__total_monthly
+msgid "Full Monthly Total (€)"
+msgstr "Total Mensual Completo (€)"
+
+#. module: saas_management
+#: model:res.groups,comment:saas_management.group_saas_admin
+msgid "Full access to SaaS management including tenant deletion"
+msgstr "Acceso completo a la gestión de SaaS incluyendo la eliminación de clientes"
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_addon__annual_price
+msgid "Full annual price for this add-on package."
+msgstr "Precio anual completo para este paquete de complemento."
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_addon__monthly_price
+msgid "Full monthly price per unit for this add-on."
+msgstr "Precio mensual completo por unidad para este complemento."
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_subscription_upgrade
+msgid "GB"
+msgstr "GB"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid "GB base)"
+msgstr "GB base)"
+
+#. module: saas_management
+#: model:ir.model.fields.selection,name:saas_management.selection__saas_subscription__state__grace_period
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscriptions
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_subscription_form
+msgid "Grace Period"
+msgstr "Período de Gracia"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__grace_period_end
+msgid "Grace Period End"
+msgstr "Fin del Período de Gracia"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__grace_period_start
+msgid "Grace Period Start"
+msgstr "Inicio del Período de Gracia"
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_subscription.py:0
+msgid "Grace period ended. Subscription suspended."
+msgstr "Período de gracia finalizado. Suscripción suspendida."
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code__grant_early_adopter
+msgid "Grant Early Adopter Status"
+msgstr "Conceder Estado de Primer Usuario"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__has_message
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__has_message
+msgid "Has Message"
+msgstr "Tiene Mensaje"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__id
+#: model:ir.model.fields,field_description:saas_management.field_saas_limit_wizard__id
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__id
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code__id
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code_usage__id
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__id
+msgid "ID"
+msgstr "ID"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code_usage__ip_address
+msgid "IP Address"
+msgstr "Dirección IP"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__activity_exception_icon
+msgid "Icon"
+msgstr "Icono"
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_subscription__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icono para indicar una actividad de excepción."
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_addon__message_needaction
+#: model:ir.model.fields,help:saas_management.field_saas_subscription__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Si está marcado, los nuevos mensajes requieren su atención."
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_addon__message_has_error
+#: model:ir.model.fields,help:saas_management.field_saas_addon__message_has_sms_error
+#: model:ir.model.fields,help:saas_management.field_saas_subscription__message_has_error
+#: model:ir.model.fields,help:saas_management.field_saas_subscription__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si está marcado, algunos mensajes tienen error de entrega."
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__included_storage_gb
+msgid "Included Storage (GB)"
+msgstr "Almacenamiento Incluido (GB)"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__included_users
+msgid "Included Users"
+msgstr "Usuarios Incluidos"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__message_is_follower
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__message_is_follower
+msgid "Is Follower"
+msgstr "Es Seguidor"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__is_renewable
+msgid "Is Renewable"
+msgstr "Es Renovable"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__write_uid
+#: model:ir.model.fields,field_description:saas_management.field_saas_limit_wizard__write_uid
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__write_uid
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code__write_uid
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code_usage__write_uid
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__write_uid
+msgid "Last Updated by"
+msgstr "Última Actualización por"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__write_date
+#: model:ir.model.fields,field_description:saas_management.field_saas_limit_wizard__write_date
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__write_date
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code__write_date
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code_usage__write_date
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__write_date
+msgid "Last Updated on"
+msgstr "Última Actualización el"
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_promo_code__code
+msgid "Leave empty to auto-generate"
+msgstr "Dejar vacío para autogenerar"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__product_id
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__product_id
+msgid "Linked Product"
+msgstr "Producto Vinculado"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code__max_uses
+msgid "Maximum Uses"
+msgstr "Usos Máximos"
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_plan__early_adopter_limit
+msgid ""
+"Maximum number of early adopter subscriptions (global across all plans)"
+msgstr ""
+"Número máximo de suscripciones de primeros usuarios (global en todos los planes)"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__message_has_error
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__message_has_error
+msgid "Message Delivery error"
+msgstr "Error de Entrega de Mensaje"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__message_ids
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__module_names
+msgid "Module Technical Names"
+msgstr "Nombres Técnicos de Módulos"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_plan_form
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_subscription_form
+msgid "Modules"
+msgstr "Módulos"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__module_ids
+msgid "Modules to Install"
+msgstr "Módulos a Instalar"
+
+#. module: saas_management
+#: model:ir.model.fields.selection,name:saas_management.selection__saas_addon__billing_cycle__monthly
+#: model:ir.model.fields.selection,name:saas_management.selection__saas_plan__billing_cycle__monthly
+#: model:ir.model.fields.selection,name:saas_management.selection__saas_subscription__billing_cycle__monthly
+msgid "Monthly"
+msgstr "Mensual"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__monthly_price
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__price_monthly
+msgid "Monthly Price (€)"
+msgstr "Precio Mensual (€)"
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_subscription.py:0
+msgid ""
+"Monthly add-on renewal payment failed. Please check your payment method."
+msgstr ""
+"Error en el pago de renovación mensual del complemento. Por favor, compruebe su método de pago."
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_plan__early_adopter_price
+msgid ""
+"Monthly equivalent price for early adopters (e.g. €29.90 for annual plan at "
+"€358/yr)"
+msgstr ""
+"Precio mensual equivalente para primeros usuarios (ej. 29,90 € para plan anual de "
+"358 €/año)"
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_plan.py:0
+msgid "Monthly price must be greater than 0 for monthly billing"
+msgstr "El precio mensual debe ser mayor que 0 para la facturación mensual"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Mi Fecha Límite de Actividad"
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/controllers/portal.py:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_limit_wizard__new_limit
+msgid "New Limit"
+msgstr "Nuevo Límite"
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/controllers/portal.py:0
+msgid "Newest"
+msgstr "Más reciente"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Próximo Evento de Calendario"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Próxima Fecha Límite de Actividad"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__activity_summary
+msgid "Next Activity Summary"
+msgstr "Resumen de Próxima Actividad"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__activity_type_id
+msgid "Next Activity Type"
+msgstr "Tipo de Próxima Actividad"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__next_billing_date
+msgid "Next Billing Date"
+msgstr "Próxima Fecha de Facturación"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscriptions
+msgid "Next Invoice"
+msgstr "Próxima Factura"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid "Next Renewal"
+msgstr "Próxima Renovación"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__next_renewal_date
+msgid "Next Renewal Date"
+msgstr "Próxima Fecha de Renovación"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid "No add-ons on this subscription."
+msgstr "No hay complementos en esta suscripción."
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__message_needaction_counter
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de Acciones"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__message_has_error_counter
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de errores"
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_addon__message_needaction_counter
+#: model:ir.model.fields,help:saas_management.field_saas_subscription__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Número de mensajes que requieren acción"
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_addon__message_has_error_counter
+#: model:ir.model.fields,help:saas_management.field_saas_subscription__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Número de mensajes con error de entrega"
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_addon__quantity
+msgid "Number of users OR number of GB depending on add-on type."
+msgstr "Número de usuarios O número de GB dependiendo del tipo de complemento."
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_plan__features
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_plan_form
+msgid "One feature per line"
+msgstr "Una característica por línea"
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_addon.py:0
+msgid "Only active add-ons can be cancelled."
+msgstr "Solo los complementos activos pueden ser cancelados."
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_subscription.py:0
+msgid "Only active or suspended subscriptions can be cancelled"
+msgstr "Solo las suscripciones activas o suspendidas pueden ser canceladas"
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_addon.py:0
+msgid "Only cancelled add-ons can be reactivated."
+msgstr "Solo los complementos cancelados pueden ser reactivados."
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_subscription.py:0
+msgid "Only subscriptions in grace period can be reactivated"
+msgstr "Solo las suscripciones en período de gracia pueden ser reactivadas"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_subscription_form
+msgid "Open Tenant"
+msgstr "Abrir Cliente"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__order_line_id
+msgid "Order Line"
+msgstr "Línea de Pedido"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__payment_email_sent
+msgid "Payment Confirmation Sent"
+msgstr "Confirmación de Pago Enviada"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscriptions
+msgid "Pending"
+msgstr "Pendiente"
+
+#. module: saas_management
+#: model:ir.model.fields.selection,name:saas_management.selection__saas_subscription__state__pending_deletion
+msgid "Pending Deletion"
+msgstr "Eliminación Pendiente"
+
+#. module: saas_management
+#: model:ir.model.fields.selection,name:saas_management.selection__saas_subscription__state__pending
+msgid "Pending Provisioning"
+msgstr "Aprovisionamiento Pendiente"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_limit_wizard__plan_id
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__plan_id
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscriptions
+msgid "Plan"
+msgstr "Plan"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__name
+msgid "Plan Name"
+msgstr "Nombre del Plan"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__plan_type
+msgid "Plan Type"
+msgstr "Tipo de Plan"
+
+#. module: saas_management
+#: model:ir.ui.menu,name:saas_management.menu_saas_plans
+msgid "Plans"
+msgstr "Planes"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__access_url
+msgid "Portal Access URL"
+msgstr "URL de Acceso al Portal"
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_plan__product_id
+msgid "Product in shop that represents this plan"
+msgstr "Producto en la tienda que representa este plan"
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_subscription.py:0
+msgid ""
+"Product not found for plan \"%s\". Please configure the Linked Product on "
+"the Plan settings."
+msgstr ""
+"Producto no encontrado para el plan \"%s\". Por favor, configure el Producto Vinculado en "
+"la configuración del Plan."
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code_usage__promo_code_id
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_promo_code_form
+msgid "Promo Code"
+msgstr "Código Promocional"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code__name
+msgid "Promo Code Name"
+msgstr "Nombre del Código Promocional"
+
+#. module: saas_management
+#: model:ir.model,name:saas_management.model_saas_promo_code_usage
+msgid "Promo Code Usage History"
+msgstr "Historial de Uso de Códigos Promocionales"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__promo_code_id
+msgid "Promo Code Used"
+msgstr "Código Promocional Utilizado"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_promo_code_tree
+msgid "Promo Codes"
+msgstr "Códigos Promocionales"
+
+#. module: saas_management
+#: model:ir.model.constraint,message:saas_management.constraint_saas_promo_code_code_unique
+msgid "Promo code must be unique!"
+msgstr "¡El código promocional debe ser único!"
+
+#. module: saas_management
+#: model:ir.actions.act_window,name:saas_management.action_saas_promo_code
+#: model:ir.ui.menu,name:saas_management.menu_saas_promo_code
+msgid "Promotional Codes"
+msgstr "Códigos Promocionales"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.res_config_settings_view_form_saas
+msgid "Promotions"
+msgstr "Promociones"
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_subscription__is_early_adopter
+msgid "Protected status - cannot be changed once set"
+msgstr "Estado protegido - no se puede cambiar una vez establecido"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__purchase_date
+msgid "Purchase Date"
+msgstr "Fecha de Compra"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid "Qty"
+msgstr "Cant"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__quantity
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_subscription_form
+msgid "Quotas & Add-ons"
+msgstr "Cuotas y Complementos"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_plan_form
+msgid "Quotas & Limits"
+msgstr "Cuotas y Límites"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__rating_ids
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__rating_ids
+msgid "Ratings"
+msgstr "Calificaciones"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_addon_form
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_addon_list
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_subscription_form
+msgid "Reactivate"
+msgstr "Reactivar"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_res_config_settings__saas_promo_re_end
+msgid "Real Estate Promo End"
+msgstr "Fin de Promoción Inmobiliaria"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_res_config_settings__saas_promo_re_start
+msgid "Real Estate Promo Start"
+msgstr "Inicio de Promoción Inmobiliaria"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscriptions
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code__remaining_uses
+msgid "Remaining Uses"
+msgstr "Usos Restantes"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid "Removed"
+msgstr "Eliminado"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid "Renew"
+msgstr "Renovar"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid "Renew Now"
+msgstr "Renovar Ahora"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid "Renew Subscription"
+msgstr "Renovar Suscripción"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid "Resource Quotas"
+msgstr "Cuotas de Recursos"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__activity_user_id
+msgid "Responsible User"
+msgstr "Usuario Responsable"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__message_has_sms_error
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Error de Entrega SMS"
+
+#. module: saas_management
+#: model:ir.ui.menu,name:saas_management.menu_saas_root
+msgid "SaaS"
+msgstr "SaaS"
+
+#. module: saas_management
+#: model:res.groups,name:saas_management.group_saas_admin
+msgid "SaaS Administrator"
+msgstr "Administrador de SaaS"
+
+#. module: saas_management
+#: model:ir.model,name:saas_management.model_saas_subscription
+msgid "SaaS Customer Subscription"
+msgstr "Suscripción de Cliente SaaS"
+
+#. module: saas_management
+#: model:ir.model,name:saas_management.model_saas_limit_wizard
+msgid "SaaS Limit Management Wizard"
+msgstr "Asistente de Gestión de Límites SaaS"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.res_config_settings_view_form_saas
+msgid "SaaS Management"
+msgstr "Gestión de SaaS"
+
+#. module: saas_management
+#: model:res.groups,name:saas_management.group_saas_manager
+msgid "SaaS Manager"
+msgstr "Gestor de SaaS"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_plan_form
+msgid "SaaS Plan"
+msgstr "Plan SaaS"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_plan_tree
+msgid "SaaS Plans"
+msgstr "Planes SaaS"
+
+#. module: saas_management
+#: model:ir.model,name:saas_management.model_saas_promo_code
+msgid "SaaS Promotional Code"
+msgstr "Código Promocional SaaS"
+
+#. module: saas_management
+#: model:ir.model,name:saas_management.model_saas_addon
+msgid "SaaS Subscription Add-on"
+msgstr "Complemento de Suscripción SaaS"
+
+#. module: saas_management
+#: model:ir.model,name:saas_management.model_saas_plan
+msgid "SaaS Subscription Plan"
+msgstr "Plan de Suscripción SaaS"
+
+#. module: saas_management
+#: model:res.groups,name:saas_management.group_saas_user
+msgid "SaaS User"
+msgstr "Usuario de SaaS"
+
+#. module: saas_management
+#: model:ir.actions.server,name:saas_management.cron_auto_renew_addons_ir_actions_server
+msgid "SaaS: Auto Renew Monthly Add-ons"
+msgstr "SaaS: Renovación Automática de Complementos Mensuales"
+
+#. module: saas_management
+#: model:ir.actions.server,name:saas_management.cron_auto_renew_subscriptions_ir_actions_server
+msgid "SaaS: Auto Renew Subscriptions"
+msgstr "SaaS: Renovación Automática de Suscripciones"
+
+#. module: saas_management
+#: model:ir.actions.server,name:saas_management.cron_expire_cancelled_addons_ir_actions_server
+msgid "SaaS: Expire Cancelled Add-ons"
+msgstr "SaaS: Caducar Complementos Cancelados"
+
+#. module: saas_management
+#: model:ir.actions.server,name:saas_management.cron_grace_period_expiration_ir_actions_server
+msgid "SaaS: Process Grace Period Expiration"
+msgstr "SaaS: Procesar Caducidad del Período de Gracia"
+
+#. module: saas_management
+#: model:ir.actions.server,name:saas_management.cron_subscription_expiry_ir_actions_server
+msgid "SaaS: Process Subscription Expiry"
+msgstr "SaaS: Procesar Caducidad de Suscripciones"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__sale_order_id
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__order_id
+msgid "Sale Order"
+msgstr "Pedido de Venta"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.res_config_settings_view_form_saas
+msgid ""
+"Set date range for Real Estate promotion where it is free and bundled with "
+"Accounting"
+msgstr ""
+"Establecer rango de fechas para la promoción de Inmobiliaria donde es gratuita y se incluye con "
+"Contabilidad"
+
+#. module: saas_management
+#: model:ir.actions.act_window,name:saas_management.saas_config_settings_action
+#: model:ir.ui.menu,name:saas_management.menu_saas_general_settings
+msgid "Settings"
+msgstr "Configuración"
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/controllers/portal.py:0
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__state
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__state
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscriptions
+msgid "Status"
+msgstr "Estado"
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_subscription__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Estado basado en actividades\n"
+"Atrasada: La fecha de vencimiento ya pasó\n"
+"Hoy: La fecha de actividad es hoy\n"
+"Planificada: Actividades futuras."
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_subscription_form
+msgid "Storage"
+msgstr "Almacenamiento"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__subdomain
+msgid "Subdomain"
+msgstr "Subdominio"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__subscription_id
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code_usage__subscription_id
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_subscription_form
+msgid "Subscription"
+msgstr "Suscripción"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_addon_list
+msgid "Subscription Add-ons"
+msgstr "Complementos de Suscripción"
+
+#. module: saas_management
+#: model:ir.actions.act_window,name:saas_management.action_saas_plan
+#: model:ir.ui.menu,name:saas_management.menu_saas_plan
+msgid "Subscription Plans"
+msgstr "Planes de Suscripción"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__price
+msgid "Subscription Price (€)"
+msgstr "Precio de Suscripción (€)"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__name
+msgid "Subscription Reference"
+msgstr "Referencia de Suscripción"
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_subscription.py:0
+msgid "Subscription cancelled. Grace period ends on %s"
+msgstr "Suscripción cancelada. El período de gracia finaliza el %s"
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_subscription.py:0
+msgid "Subscription expired. Entering 7-day grace period."
+msgstr "Suscripción caducada. Entrando en período de gracia de 7 días."
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_subscription.py:0
+msgid "Subscription provisioned and activated."
+msgstr "Suscripción aprovisionada y activada."
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_subscription.py:0
+msgid "Subscription reactivated"
+msgstr "Suscripción reactivada"
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_subscription.py:0
+msgid "Subscription suspended"
+msgstr "Suscripción suspendida"
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_plan.py:0
+#: model:ir.actions.act_window,name:saas_management.action_saas_subscription
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__subscription_ids
+#: model:ir.ui.menu,name:saas_management.menu_saas_subscriptions
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_home_menu_subscription
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_home_subscription
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscriptions
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_subscription_tree
+msgid "Subscriptions"
+msgstr "Suscripciones"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_subscription_form
+msgid "Suspend"
+msgstr "Suspender"
+
+#. module: saas_management
+#: model:ir.model.fields.selection,name:saas_management.selection__saas_subscription__state__suspended
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscriptions
+msgid "Suspended"
+msgstr "Suspendido"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__tenant_url
+msgid "Tenant URL"
+msgstr "URL del Cliente"
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_subscription.py:0
+msgid "Tenant URL not available"
+msgstr "URL del cliente no disponible"
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_addon__product_id
+msgid "The specific product SKU associated with this add-on."
+msgstr "El SKU de producto específico asociado con este complemento."
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscriptions
+msgid "There are currently no subscriptions for your account."
+msgstr "Actualmente no hay suscripciones para su cuenta."
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_promo_code.py:0
+msgid "This promo code cannot be used"
+msgstr "Este código promocional no se puede utilizar"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__total_storage_gb
+msgid "Total Storage (GB)"
+msgstr "Almacenamiento Total (GB)"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_plan__subscription_count
+msgid "Total Subscriptions"
+msgstr "Total de Suscripciones"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__total_users
+msgid "Total Users"
+msgstr "Total de Usuarios"
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_subscription__extra_storage_gb
+msgid "Total active extra storage across all add-on records."
+msgstr "Almacenamiento extra activo total en todos los registros de complementos."
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_subscription__extra_users
+msgid "Total active extra users across all add-on records."
+msgstr "Usuarios extra activos totales en todos los registros de complementos."
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_addon_form
+msgid "Traceability"
+msgstr "Trazabilidad"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code__code_type
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid "Type"
+msgstr "Tipo"
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_subscription__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo de actividad de excepción en el registro."
+
+#. module: saas_management
+#: model:ir.actions.act_window,name:saas_management.action_saas_limit_wizard
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_plan_form
+msgid "Update Limits"
+msgstr "Actualizar Límites"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_subscription_upgrade
+msgid "Upgrade Subscription"
+msgstr "Mejorar Suscripción"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid "Upgrade Users/Add-ons"
+msgstr "Mejorar Usuarios/Complementos"
+
+#. module: saas_management
+#. odoo-python
+#: code:addons/saas_management/models/saas_promo_code.py:0
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code__usage_ids
+msgid "Usage History"
+msgstr "Historial de Uso"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code_usage__used_date
+msgid "Used Date"
+msgstr "Fecha de Uso"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code_usage__user_agent
+msgid "User Agent"
+msgstr "Agente de Usuario"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_subscription_form
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_promo_code_form
+msgid "Uses"
+msgstr "Usos"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code__valid_from
+msgid "Valid From"
+msgstr "Válido Desde"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_promo_code__valid_until
+msgid "Valid Until"
+msgstr "Válido Hasta"
+
+#. module: saas_management
+#: model:ir.model.fields,field_description:saas_management.field_saas_addon__website_message_ids
+#: model:ir.model.fields,field_description:saas_management.field_saas_subscription__website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes del Sitio Web"
+
+#. module: saas_management
+#: model:ir.model.fields,help:saas_management.field_saas_addon__website_message_ids
+#: model:ir.model.fields,help:saas_management.field_saas_subscription__website_message_ids
+msgid "Website communication history"
+msgstr "Historial de comunicación del sitio web"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.portal_my_subscription
+msgid "base)"
+msgstr "base)"
+
+#. module: saas_management
+#: model_terms:ir.ui.view,arch_db:saas_management.view_saas_plan_form
+msgid "e.g., crm,account"
+msgstr "ej., crm,account"

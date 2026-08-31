@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+        <!-- saas.addon — List View                                             -->
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+        <record id="view_saas_addon_list" model="ir.ui.view">
+            <field name="name">saas.addon.list</field>
+            <field name="model">saas.addon</field>
+            <field name="arch" type="xml">
+                <list string="Complementos de Suscripción"
+                      decoration-success="state=='active'"
+                      decoration-warning="state=='cancelled'"
+                      decoration-muted="state=='expired'">
+                    <field name="subscription_id"/>
+                    <field name="addon_type"/>
+                    <field name="quantity"/>
+                    <field name="monthly_price"/>
+                    <field name="total_monthly"/>
+                    <field name="purchase_date"/>
+                    <field name="next_renewal_date"/>
+                    <field name="state"/>
+                    <button name="action_cancel_addon"
+                            string="Cancelar"
+                            type="object"
+                            icon="fa-times-circle"
+                            invisible="state != 'active'"/>
+                    <button name="action_reactivate_addon"
+                            string="Reactivar"
+                            type="object"
+                            icon="fa-undo"
+                            invisible="state != 'cancelled'"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+        <!-- saas.addon — Form View                                             -->
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+        <record id="view_saas_addon_form" model="ir.ui.view">
+            <field name="name">saas.addon.form</field>
+            <field name="model">saas.addon</field>
+            <field name="arch" type="xml">
+                <form string="Complemento">
+                    <header>
+                        <button name="action_cancel_addon"
+                                string="Cancelar Complemento"
+                                type="object"
+                                class="btn-danger"
+                                invisible="state != 'active'"/>
+                        <button name="action_reactivate_addon"
+                                string="Reactivar"
+                                type="object"
+                                class="btn-success"
+                                invisible="state != 'cancelled'"/>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="active,cancelled,expired"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field name="name" readonly="1"/></h1>
+                        </div>
+                        <group>
+                            <group string="Detalles del Complemento">
+                                <field name="subscription_id"/>
+                                <field name="addon_type"/>
+                                <field name="quantity"/>
+                                <field name="monthly_price"/>
+                                <field name="total_monthly" readonly="1"/>
+                            </group>
+                            <group string="Contabilidad">
+                                <field name="purchase_date" readonly="1"/>
+                                <field name="next_renewal_date"/>
+                                <field name="cancel_date" readonly="1"
+                                       invisible="not cancel_date"/>
+                            </group>
+                        </group>
+                        <group string="Trazabilidad">
+                            <field name="sale_order_id" readonly="1"/>
+                            <field name="order_line_id" readonly="1"/>
+                        </group>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+        <!-- Action                                                             -->
+        <!-- ══════════════════════════════════════════════════════════════════ -->
+        <record id="action_saas_addon" model="ir.actions.act_window">
+            <field name="name">Complementos</field>
+            <field name="res_model">saas.addon</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem id="menu_saas_addon"
+                  name="All Add-ons"
+                  parent="menu_saas_subscriptions"
+                  action="action_saas_addon"
+                  sequence="20"/>
+
+    </data>
+</odoo>

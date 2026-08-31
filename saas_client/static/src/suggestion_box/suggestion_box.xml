@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="saas_client.SuggestionBox">
+        <div class="saas-suggestion-box-container">
+            <t t-if="state.isOpen">
+                <div class="saas-suggestion-popup shadow">
+                    <div class="saas-suggestion-header">
+                        <span>Enviar Sugerencia</span>
+                        <button class="btn-close btn-close-white" t-on-click="toggleBox" aria-label="Close"/>
+                    </div>
+                    <div class="saas-suggestion-body">
+                        <textarea class="form-control" rows="4" 
+                                  placeholder="¿Qué podemos mejorar?" 
+                                  t-model="state.suggestionText"
+                                  t-att-disabled="state.isSubmitting"/>
+                    </div>
+                    <div class="saas-suggestion-footer">
+                        <button class="btn btn-primary w-100" 
+                                t-on-click="submitSuggestion" 
+                                t-att-disabled="state.isSubmitting">
+                            <t t-if="state.isSubmitting">
+                                <i class="fa fa-spinner fa-spin"/> Enviando...
+                            </t>
+                            <t t-else="">
+                                <i class="fa fa-paper-plane"/> Enviar
+                            </t>
+                        </button>
+                    </div>
+                </div>
+            </t>
+            <button class="saas-suggestion-btn shadow" t-on-click="toggleBox">
+                <i class="fa fa-lightbulb-o"/> Sugerencias
+            </button>
+        </div>
+    </t>
+</templates>

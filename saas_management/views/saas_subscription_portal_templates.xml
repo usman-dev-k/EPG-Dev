@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_home_menu_subscription" name="Portal layout : subscription menu entries" inherit_id="portal.portal_breadcrumbs" priority="20">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'subscription' or subscription" t-attf-class="breadcrumb-item #{'active' if not subscription else ''}">
+                <a t-if="subscription" t-attf-href="/my/subscriptions?{{ keep_query() }}">Suscripciones</a>
+                <t t-else="">Suscripciones</t>
+            </li>
+            <li t-if="subscription" class="breadcrumb-item active">
+                <t t-esc="subscription.name"/>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_subscription" name="Show Subscriptions" customize_show="True" inherit_id="portal.portal_my_home" priority="20">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Suscripciones</t>
+                <t t-set="url" t-value="'/my/subscriptions'"/>
+                <t t-set="placeholder_count" t-value="'subscription_count'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_my_subscriptions" name="My Subscriptions">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Suscripciones</t>
+            </t>
+            <t t-if="not subscriptions">
+                <p>Actualmente no hay suscripciones para su cuenta.</p>
+            </t>
+            <t t-if="subscriptions" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Referencia</th>
+                        <th>Plan</th>
+                        <th class="text-end">Estado</th>
+                        <th class="text-end">Próxima Factura</th>
+                    </tr>
+                </thead>
+                <t t-foreach="subscriptions" t-as="subscription">
+                    <tr>
+                        <td><a t-att-href="subscription.get_portal_url()"><t t-esc="subscription.name"/></a></td>
+                        <td><span t-field="subscription.plan_id.name"/></td>
+                        <td class="text-end">
+                            <span t-if="subscription.state == 'active'" class="badge rounded-pill text-bg-success">Activo</span>
+                            <span t-if="subscription.state == 'trial'" class="badge rounded-pill text-bg-primary">Trial</span>
+                            <span t-if="subscription.state == 'pending'" class="badge rounded-pill text-bg-info">Pendiente</span>
+                            <span t-if="subscription.state == 'suspended'" class="badge rounded-pill text-bg-danger">Suspendido</span>
+                            <span t-if="subscription.state == 'grace_period'" class="badge rounded-pill text-bg-warning">Período de Gracia</span>
+                            <span t-if="subscription.state == 'deleted'" class="badge rounded-pill text-bg-warning">Eliminado</span>
+                        </td>
+                        <td class="text-end"><span t-field="subscription.expiration_date"/></td>
+                    </tr>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="portal_my_subscription" name="My Subscription">
+        <t t-call="portal.portal_layout">
+            <t t-set="o_portal_fullwidth_alert" groups="saas_management.group_saas_manager">
+                <!-- Administrative Alert if needed -->
+            </t>
+
+            <t t-set="wrapwrap_classes" t-value="'o_portal_bg_light'"/>
+
+            <div class="row mt16">
+                <!-- Sidebar -->
+                <div class="col-12 col-lg-3 d-print-none">
+                     <div class="card mb-3">
+                        <div class="card-header font-weight-bold">Acciones</div>
+                        <div class="card-body text-center">
+                            <a t-if="subscription.state in ['grace_period', 'suspended']"
+                               t-att-href="'/my/subscription/%s/renew' % subscription.id"
+                               class="btn btn-primary d-block mb-2">Renovar Suscripción</a>
+                               
+                            <a t-if="subscription.state == 'trial'"
+                               t-att-href="'/my/subscription/%s/renew' % subscription.id"
+                               class="btn btn-success d-block mb-2">Buy Subscription</a>
+                            
+                            <a t-if="subscription.state == 'active'"
+                               t-att-href="'/my/subscription/%s/upgrade' % subscription.id"
+                               class="btn btn-secondary d-block">Mejorar Usuarios/Complementos</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Main Content -->
+                <div class="col-12 col-lg-9">
+                    <div class="card pb-5">
+                        <div class="card-header bg-white pb-1">
+                            <h3>Subscription <t t-esc="subscription.name"/></h3>
+                        </div>
+                        <div class="card-body">
+                             <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <strong>Plan:</strong> <span t-field="subscription.plan_id.name"/><br/>
+                                        <strong>Cycle:</strong> <span t-field="subscription.billing_cycle"/><br/>
+                                        <strong>Precio:</strong> <span t-field="subscription.price" t-options='{"widget": "monetary", "display_currency": subscription.currency_id}'/>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <strong>Estado:</strong> <span t-field="subscription.state"/><br/>
+                                        <t t-if="subscription.state == 'trial'">
+                                            <strong>Trial Ends:</strong> <span t-field="subscription.trial_end_date"/><br/>
+                                        </t>
+                                        <t t-else="">
+                                            <strong>Expiration:</strong> <span t-field="subscription.expiration_date"/><br/>
+                                            <strong>Próxima Facturación:</strong> <span t-field="subscription.next_billing_date"/><br/>
+                                        </t>
+                                        <strong>Tenant URL:</strong> <a t-if="subscription.tenant_url" t-att-href="subscription.tenant_url" target="_blank"><t t-esc="subscription.tenant_url"/></a><br/><br/>
+                                        
+                                        <!-- Auto Renew Toggle -->
+                                        <form t-if="subscription.state != 'trial'" t-attf-action="/my/subscription/#{subscription.id}/toggle_auto_renew" method="post" class="d-flex align-items-center">
+                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                            <input type="hidden" name="access_token" t-att-value="subscription.access_token"/>
+                                            <strong>Auto-Renew:</strong>
+                                            <div class="form-check form-switch ms-2 mb-0">
+                                                <input class="form-check-input" type="checkbox" name="auto_renew" 
+                                                       t-att-checked="'checked' if subscription.auto_renew else None" 
+                                                       onChange="this.form.submit()"/>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <h5 class="mt-4">Cuotas de Recursos</h5>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <strong>Users:</strong> <span t-esc="subscription.total_users"/>
+                                        <small class="text-muted"> (incl. <span t-esc="subscription.plan_id.included_users"/> base)</small>
+                                    </div>
+                                    <div class="col-6">
+                                        <strong>Storage:</strong> <span t-esc="subscription.total_storage_gb"/> GB
+                                        <small class="text-muted"> (incl. <span t-esc="subscription.plan_id.included_storage_gb"/> GB base)</small>
+                                    </div>
+                                </div>
+
+                                <h5 class="mt-3">Complementos Activos</h5>
+                                <t t-if="subscription.addon_ids">
+                                    <table class="table table-sm table-bordered">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Tipo</th>
+                                                <th>Cant</th>
+                                                <!-- <th>Monthly Price</th> -->
+                                                <th>Próxima Renovación</th>
+                                                <th>Estado</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-foreach="subscription.addon_ids" t-as="addon">
+                                                <tr t-attf-class="#{addon.state == 'expired' and 'table-secondary text-muted' or addon.state == 'cancelled' and 'table-warning' or ''}">
+                                                    <td><span t-field="addon.addon_type"/></td>
+                                                    <td><span t-esc="addon.quantity"/></td>
+                                                    <!-- <td>€<span t-esc="'%.2f' % addon.total_monthly"/>/mo</td> -->
+                                                    <td><span t-field="addon.next_renewal_date"/></td>
+                                                    <td>
+                                                        <span t-if="addon.state == 'active'" class="badge rounded-pill text-bg-success">Activo</span>
+                                                        <span t-if="addon.state == 'cancelled'" class="badge rounded-pill text-bg-warning">Cancelado – funciona hasta la renovación</span>
+                                                        <span t-if="addon.state == 'expired'" class="badge rounded-pill text-bg-secondary">Eliminado</span>
+                                                    </td>
+                                                    <td>
+                                                        <t t-if="addon.state in ['active', 'cancelled']">
+                                                            <div class="d-flex gap-1">
+                                                                <!-- Show manual renew ONLY for monthly addons that are due, overdue, or cancelled -->
+                                                                <a t-if="addon.billing_cycle == 'monthly' and (addon.next_renewal_date &lt;= datetime.date.today() or addon.state == 'cancelled')"
+                                                                   t-attf-href="/my/button/addon/#{addon.id}/renew?access_token=#{subscription.access_token}" 
+                                                                   class="btn btn-sm btn-outline-primary" title="Renovar Ahora">Renovar</a>
+
+                                                                <form t-if="addon.state == 'active'" t-attf-action="/saas/addon/cancel" method="post" style="display:inline">
+                                                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                                                    <input type="hidden" name="addon_id" t-att-value="addon.id"/>
+                                                                    <input type="hidden" name="access_token" t-att-value="subscription.access_token"/>
+                                                                    <button type="submit" class="btn btn-sm btn-outline-danger"
+                                                                            onclick="return confirm('Cancel this add-on? It will remain active until the next renewal date.')" title="Cancelar Complemento">Cancelar</button>
+                                                                </form>
+                                                            </div>
+                                                        </t>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </t>
+                                <t t-else="">
+                                    <p class="text-muted">No hay complementos en esta suscripción.</p>
+                                </t>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chatter">
+                 <div class="oe_chatter">
+                     <t t-call="portal.message_thread">
+                        <t t-set="object" t-value="subscription"/>
+                     </t>
+                 </div>
+            </div>
+        </t>
+    </template>
+    <template id="portal_subscription_upgrade" name="Upgrade Subscription">
+        <t t-call="portal.portal_layout">
+            <div class="container mt-4">
+                <h3>Upgrade Subscription <t t-esc="subscription.name"/></h3>
+                <form action="/saas/upgrade" method="post">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <input type="hidden" name="subscription_id" t-att-value="subscription.id"/>
+                    <input type="hidden" name="access_token" t-att-value="subscription.access_token"/>
+                    
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+                            <div class="card h-100">
+                                <div class="card-header">Añadir Usuarios Extra</div>
+                                <div class="card-body">
+                                    <p>Current Extra Users: <span t-esc="subscription.extra_users"/></p>
+                                    <div class="form-group">
+                                        <label>Añadir Usuarios</label>
+                                        <input type="number" name="add_users" class="form-control" value="0" min="0"/>
+                                        <small class="text-muted">€7.00/user/month</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100">
+                                <div class="card-header">Añadir Almacenamiento Extra</div>
+                                <div class="card-body">
+                                    <p>Current Extra Storage: <span t-esc="subscription.extra_storage_gb"/> GB</p>
+                                    <div class="form-group">
+                                        <label>Añadir Paquete de Almacenamiento</label>
+                                        <select name="add_storage" class="form-control">
+                                            <option value="0">Ninguno</option>
+                                            <option value="5">5 GB (€5.00/mo)</option>
+                                            <option value="10">10 GB (€9.00/mo)</option>
+                                            <option value="25">25 GB (€19.00/mo)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <t t-if="not subscription.accounting_module and not subscription.is_early_adopter">
+                            <div class="col-md-4">
+                                <div class="card h-100 border-primary">
+                                    <div class="card-header bg-primary text-white">Add Accounting Module</div>
+                                    <div class="card-body">
+                                        <p>Enable full accounting features for your subscription.</p>
+                                        <div class="form-check form-switch mt-3">
+                                            <input class="form-check-input" type="checkbox" name="add_accounting" id="add_accounting"/>
+                                            <label class="form-check-label font-weight-bold" for="add_accounting">Enable Accounting</label>
+                                        </div>
+                                        <small class="text-muted d-block mt-2">
+                                            Price: €<t t-esc="15.00 if subscription.billing_cycle == 'monthly' else 150.00"/> / <t t-esc="'month' if subscription.billing_cycle == 'monthly' else 'year'"/>
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                        <div class="col-md-4">
+                            <div class="card h-100 border-info">
+                                <div class="card-header bg-info text-white">Add AI Assistant Credits</div>
+                                <div class="card-body">
+                                    <p>Buy extra AI messages (5000 per pack) for the AI Assistant.</p>
+                                    <div class="form-group mt-3">
+                                        <label class="font-weight-bold">Number of Packs</label>
+                                        <input type="number" name="add_ai_assistant" class="form-control" value="0" min="0"/>
+                                    </div>
+                                    <small class="text-muted d-block mt-2">
+                                        Price: €5.00 / pack (One-off payment)
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h5 class="card-title">Ciclo de Facturación del Complemento</h5>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="addon_cycle" id="cycle_monthly" value="monthly" checked="checked"/>
+                                        <label class="form-check-label" for="cycle_monthly">
+                                            <strong>Monthly Billing</strong> – Pay only 1 full month now. Renew every month.
+                                        </label>
+                                    </div>
+                                    <div class="form-check" t-if="subscription.billing_cycle == 'annual'">
+                                        <input class="form-check-input" type="radio" name="addon_cycle" id="cycle_align" value="align"/>
+                                        <label class="form-check-label" for="cycle_align">
+                                            <strong>Align with Plan</strong> – Pay for the remainder of the year (Prorated). Renew with your annual plan.
+                                        </label>
+                                    </div>
+                                    <t t-else="">
+                                        <input type="hidden" name="addon_cycle" value="monthly"/>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-primary">Crear Pedido de Mejora</button>
+                        <a t-att-href="'/my/subscription/%s' % subscription.id" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </t>
+    </template>
+</odoo>

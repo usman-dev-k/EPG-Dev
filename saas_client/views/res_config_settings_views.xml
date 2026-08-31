@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- <record id="res_config_settings_view_form_saas" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.saas</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="Suscripción SaaS" string="Suscripción SaaS" name="saas_client">
+                    <block title="Gestión de Suscripciones">
+                        <setting help="Gestione su suscripción, plan y límites de recursos.">
+                            <div class="row mt16">
+                                <div class="col-12">
+                                    <button name="action_open_subscription_portal" 
+                                            string="Gestionar Suscripción / Mejorar" 
+                                            type="object" 
+                                            class="btn-primary" 
+                                            icon="fa-rocket"/>
+                                </div>
+                            </div>
+                            <div class="mt8 text-muted">
+                                Click to view your plan details, invoices, and upgrade options.
+                            </div>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record> -->
+
+    <record id="res_config_settings_hide_url_block" model="ir.ui.view">
+        <field name="name">res.config.settings.hide.url.block</field>
+        <field name="model">res.config.settings</field>
+        <!-- ✅ Inherit from the view that ADDED the block, not from base -->
+        <field name="inherit_id" ref="odoo_url_replacer.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='url_replacement_setting_block']" position="replace">
+            </xpath>
+        </field>
+    </record>
+
+    <record id="res_config_settings_hide_yapily_block" model="ir.ui.view">
+        <field name="name">res.config.settings.hide.yapily.block</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account_bank_sync_yapily.res_config_settings_view_form_yapily"/>
+        <field name="arch" type="xml">
+            <xpath expr="//setting[@id='yapily_settings']" position="replace">
+            </xpath>
+        </field>
+    </record>
+
+    <!-- <record id="action_saas_client_config" model="ir.actions.act_window">
+        <field name="name">Opciones</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module': 'saas_client'}</field>
+    </record> -->
+
+    <!-- Apps App Removed -->
+    <record id="base.menu_management" model="ir.ui.menu">
+        <field name="active">False</field>
+    </record> 
+
+</odoo>

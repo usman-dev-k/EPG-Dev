@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_saas" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.saas</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="Gestión de SaaS" string="Gestión de SaaS" name="saas_management">
+                    <block title="Promociones" name="saas_promotions_setting_container">
+                        <setting id="saas_promo_re" help="Set date range for Real Estate promotion where it is free and bundled with Accounting">
+                            <field name="saas_promo_re_start"/>
+                            <field name="saas_promo_re_end"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="saas_config_settings_action" model="ir.actions.act_window">
+        <field name="name">Opciones</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module': 'saas_management', 'bin_size': False}</field>
+    </record>
+
+    <!-- <menuitem id="menu_saas_general_settings"
+              name="Settings"
+              parent="menu_saas_config"
+              sequence="0"
+              action="saas_config_settings_action"
+              groups="base.group_system"/> -->
+</odoo>

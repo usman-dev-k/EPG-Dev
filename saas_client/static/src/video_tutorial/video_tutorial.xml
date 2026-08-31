@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="saas_client.VideoTutorialSystray" owl="1">
+        <!-- Only render if the current app has a video -->
+        <div class="o_systray_item dropdown" t-if="isVisible">
+            <a class="dropdown-toggle btn btn-link epg-video-tutorial-btn" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="text-decoration: none;">
+                <i class="fa fa-play-circle fa-lg" style="color: #ef4444;"/>
+                <span class="epg-video-text d-none d-md-inline-block ms-1">Tutorial</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" role="menu" style="min-width: 200px; border-radius: 8px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                <li>
+                    <a class="dropdown-item epg-dropdown-item" href="#" t-on-click.prevent="() => this.openVideo('es')">
+                        <i class="fa fa-youtube-play me-2" style="color: #ef4444;"/>
+                        <span style="font-weight: 500;">Ver en Español</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item epg-dropdown-item" href="#" t-on-click.prevent="() => this.openVideo('en')">
+                        <i class="fa fa-youtube-play me-2" style="color: #ef4444;"/>
+                        <span style="font-weight: 500;">Watch in English</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </t>
+</templates>

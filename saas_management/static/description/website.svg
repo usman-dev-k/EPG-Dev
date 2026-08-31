@@ -1,0 +1,54 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+
+<linearGradient id="panelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#1A2F5A"/>
+<stop offset="100%" stop-color="#0A1633"/>
+</linearGradient>
+
+<linearGradient id="globeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#223D75"/>
+<stop offset="100%" stop-color="#132754"/>
+</linearGradient>
+
+<linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#35D0FF"/>
+<stop offset="100%" stop-color="#0A4DFF"/>
+</linearGradient>
+
+</defs>
+
+<!-- panel -->
+<rect x="10" y="10" width="80" height="80" rx="18"
+fill="url(#panelGrad)"/>
+
+<!-- globe -->
+<circle cx="50" cy="52" r="18"
+fill="url(#globeGrad)"
+stroke="url(#accentGrad)"
+stroke-width="1.4"/>
+
+<!-- latitude lines -->
+<path d="M32 52 H68" stroke="#35D0FF" stroke-width="1.2" opacity="0.8"/>
+<path d="M36 45 Q50 40 64 45" stroke="#35D0FF" stroke-width="1" opacity="0.6"/>
+<path d="M36 59 Q50 64 64 59" stroke="#35D0FF" stroke-width="1" opacity="0.6"/>
+
+<!-- longitude -->
+<path d="M50 34 Q44 52 50 70 Q56 52 50 34"
+stroke="#7FE6FF" stroke-width="1" opacity="0.7"/>
+
+<!-- orbit ring -->
+<ellipse cx="50" cy="52" rx="26" ry="10"
+fill="none"
+stroke="url(#accentGrad)"
+stroke-width="1.2"
+opacity="0.7"/>
+
+<!-- orbit node -->
+<circle cx="74" cy="52" r="3" fill="#35D0FF"/>
+
+<!-- glow accent -->
+<circle cx="68" cy="30" r="2.5" fill="#35D0FF"/>
+
+</svg>

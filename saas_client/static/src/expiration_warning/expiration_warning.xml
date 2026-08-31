@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="saas_client.ExpirationWarningSystray" owl="1">
+        <div class="o_systray_item" t-if="state.isVisible">
+            <a href="#" class="btn btn-link epg-warning-btn" style="text-decoration: none; display: flex; align-items: center;" title="Expiración de la base de datos">
+                <i class="fa fa-exclamation-triangle fa-lg me-1" style="color: #ef4444; animation: blink 1.5s infinite;"/>
+                <t t-if="state.daysLeft > 0">
+                    <span style="color: #ef4444; font-weight: bold; margin-left: 4px;">
+                        <t t-if="state.daysLeft == 1">1 Día Restante</t>
+                        <t t-else=""><t t-out="state.daysLeft"/> Días Restantes</t>
+                    </span>
+                </t>
+                <t t-else="">
+                    <span style="color: #ef4444; font-weight: bold; margin-left: 4px;">Prueba Expirada</span>
+                </t>
+            </a>
+            
+            <style>
+                @keyframes blink {
+                    0% { opacity: 1; }
+                    50% { opacity: 0.4; }
+                    100% { opacity: 1; }
+                }
+            </style>
+        </div>
+    </t>
+</templates>

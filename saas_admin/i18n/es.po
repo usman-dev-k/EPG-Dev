@@ -1,0 +1,159 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* saas_admin
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20260421\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-21 23:49+0000\n"
+"PO-Revision-Date: 2026-05-21 23:49+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: saas_admin
+#: model_terms:ir.ui.view,arch_db:saas_admin.view_saas_dashboard_kanban
+msgid ".abc.com"
+msgstr ".abc.com"
+
+#. module: saas_admin
+#: model_terms:ir.ui.view,arch_db:saas_admin.view_tenant_deletion_wizard_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: saas_admin
+#: model:ir.model.fields,field_description:saas_admin.field_saas_tenant_deletion_wizard__company_name
+msgid "Company Name"
+msgstr "Nombre de la Empresa"
+
+#. module: saas_admin
+#: model:ir.model.fields,field_description:saas_admin.field_saas_tenant_deletion_wizard__create_backup
+msgid "Create Backup Before Deletion"
+msgstr "Crear Copia de Seguridad Antes de Eliminar"
+
+#. module: saas_admin
+#: model:ir.model.fields,field_description:saas_admin.field_saas_tenant_deletion_wizard__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: saas_admin
+#: model:ir.model.fields,field_description:saas_admin.field_saas_tenant_deletion_wizard__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: saas_admin
+#: model:ir.model.fields,field_description:saas_admin.field_saas_tenant_deletion_wizard__database_name
+msgid "Database Name"
+msgstr "Nombre de la Base de Datos"
+
+#. module: saas_admin
+#: model:ir.actions.act_window,name:saas_admin.action_tenant_deletion_wizard
+#: model_terms:ir.ui.view,arch_db:saas_admin.view_saas_subscription_form_admin
+#: model_terms:ir.ui.view,arch_db:saas_admin.view_tenant_deletion_wizard_form
+msgid "Delete Tenant"
+msgstr "Eliminar Cliente"
+
+#. module: saas_admin
+#. odoo-python
+#: code:addons/saas_admin/wizard/tenant_deletion_wizard.py:0
+msgid "Deletion failed: %s"
+msgstr "Error al eliminar: %s"
+
+#. module: saas_admin
+#: model:ir.model.fields,field_description:saas_admin.field_saas_tenant_deletion_wizard__display_name
+msgid "Display Name"
+msgstr "Nombre Mostrado"
+
+#. module: saas_admin
+#: model_terms:ir.ui.view,arch_db:saas_admin.view_tenant_deletion_wizard_form
+msgid "Enter reason for deletion..."
+msgstr "Introduzca el motivo de la eliminación..."
+
+#. module: saas_admin
+#: model:ir.model.fields,field_description:saas_admin.field_saas_tenant_deletion_wizard__confirm_deletion
+msgid "I confirm this deletion"
+msgstr "Confirmo esta eliminación"
+
+#. module: saas_admin
+#: model_terms:ir.ui.view,arch_db:saas_admin.view_tenant_deletion_wizard_form
+msgid "I understand this action cannot be undone"
+msgstr "Entiendo que esta acción no se puede deshacer"
+
+#. module: saas_admin
+#: model:ir.model.fields,field_description:saas_admin.field_saas_tenant_deletion_wizard__id
+msgid "ID"
+msgstr "ID"
+
+#. module: saas_admin
+#: model:ir.model.fields,field_description:saas_admin.field_saas_tenant_deletion_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Última Actualización por"
+
+#. module: saas_admin
+#: model:ir.model.fields,field_description:saas_admin.field_saas_tenant_deletion_wizard__write_date
+msgid "Last Updated on"
+msgstr "Última Actualización el"
+
+#. module: saas_admin
+#. odoo-python
+#: code:addons/saas_admin/wizard/tenant_deletion_wizard.py:0
+msgid "Manual deletion. Reason: %s"
+msgstr "Eliminación manual. Motivo: %s"
+
+#. module: saas_admin
+#. odoo-python
+#: code:addons/saas_admin/wizard/tenant_deletion_wizard.py:0
+msgid "Please confirm the deletion by checking the confirmation box"
+msgstr "Por favor, confirme la eliminación marcando la casilla de confirmación"
+
+#. module: saas_admin
+#: model_terms:ir.ui.view,arch_db:saas_admin.view_saas_subscription_form_admin
+msgid "Provision Tenant"
+msgstr "Aprovisionar Cliente"
+
+#. module: saas_admin
+#: model:ir.model.fields,field_description:saas_admin.field_saas_tenant_deletion_wizard__deletion_reason
+msgid "Reason for Deletion"
+msgstr "Motivo de la Eliminación"
+
+#. module: saas_admin
+#: model:ir.ui.menu,name:saas_admin.menu_saas_admin
+msgid "SaaS Admin"
+msgstr "Administrador SaaS"
+
+#. module: saas_admin
+#: model:ir.model.fields,field_description:saas_admin.field_saas_tenant_deletion_wizard__subdomain
+msgid "Subdomain"
+msgstr "Subdominio"
+
+#. module: saas_admin
+#: model:ir.model.fields,field_description:saas_admin.field_saas_tenant_deletion_wizard__subscription_id
+msgid "Subscription"
+msgstr "Suscripción"
+
+#. module: saas_admin
+#. odoo-python
+#: code:addons/saas_admin/wizard/tenant_deletion_wizard.py:0
+msgid "Success"
+msgstr "Éxito"
+
+#. module: saas_admin
+#: model:ir.actions.act_window,name:saas_admin.action_saas_dashboard
+#: model:ir.ui.menu,name:saas_admin.menu_saas_dashboard
+msgid "Tenant Dashboard"
+msgstr "Panel de Clientes"
+
+#. module: saas_admin
+#: model:ir.model,name:saas_admin.model_saas_tenant_deletion_wizard
+msgid "Tenant Deletion Wizard"
+msgstr "Asistente de Eliminación de Clientes"
+
+#. module: saas_admin
+#. odoo-python
+#: code:addons/saas_admin/wizard/tenant_deletion_wizard.py:0
+msgid "Tenant deleted successfully"
+msgstr "Cliente eliminado correctamente"

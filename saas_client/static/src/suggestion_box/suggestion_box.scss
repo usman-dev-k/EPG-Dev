@@ -1,0 +1,92 @@
+.saas-suggestion-box-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .saas-suggestion-btn {
+        background-color: #0f172a;
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 8px 16px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            background-color: #1e293b;
+            transform: translateY(-2px);
+        }
+    }
+
+    .saas-suggestion-popup {
+        background: white;
+        border-radius: 8px;
+        width: 300px;
+        margin-bottom: 12px;
+        overflow: hidden;
+        border: 1px solid #e2e8f0;
+        animation: slideUp 0.3s ease-out;
+
+        .saas-suggestion-header {
+            background-color: #0f172a;
+            color: white;
+            padding: 10px 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            .btn-close-white {
+                filter: invert(1) grayscale(100%) brightness(200%);
+            }
+        }
+
+        .saas-suggestion-body {
+            padding: 15px;
+
+            textarea {
+                resize: none;
+                border: 1px solid #cbd5e1;
+                border-radius: 4px;
+                font-size: 14px;
+                &:focus {
+                    border-color: #0f172a;
+                    box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.2);
+                }
+            }
+        }
+
+        .saas-suggestion-footer {
+            padding: 0 15px 15px 15px;
+
+            .btn-primary {
+                background-color: #2563eb;
+                border-color: #2563eb;
+                
+                &:hover {
+                    background-color: #1d4ed8;
+                    border-color: #1d4ed8;
+                }
+            }
+        }
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

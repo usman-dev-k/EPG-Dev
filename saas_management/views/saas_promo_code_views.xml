@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Promo Code List View -->
+        <record id="view_saas_promo_code_tree" model="ir.ui.view">
+            <field name="name">saas.promo.code.tree</field>
+            <field name="model">saas.promo.code</field>
+            <field name="arch" type="xml">
+                <list string="Códigos Promocionales">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="code_type"/>
+                    <field name="grant_early_adopter"/>
+                    <field name="current_uses"/>
+                    <field name="max_uses"/>
+                    <field name="valid_until"/>
+                    <field name="active"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Promo Code Form View -->
+        <record id="view_saas_promo_code_form" model="ir.ui.view">
+            <field name="name">saas.promo.code.form</field>
+            <field name="model">saas.promo.code</field>
+            <field name="arch" type="xml">
+                <form string="Código Promocional">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_view_usage" type="object" class="oe_stat_button" icon="fa-history">
+                                <field name="current_uses" widget="statinfo" string="Usos"/>
+                            </button>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="code" placeholder="Auto-generated if left empty"/>
+                                <field name="code_type"/>
+                                <field name="active"/>
+                            </group>
+                            <group>
+                                <field name="max_uses"/>
+                                <field name="current_uses"/>
+                                <field name="remaining_uses"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="valid_from"/>
+                                <field name="valid_until"/>
+                            </group>
+                            <group>
+                                <field name="grant_early_adopter" invisible="code_type != 'early_adopter'"/>
+                                <field name="discount_percentage" invisible="code_type != 'discount'"/>
+                            </group>
+                        </group>
+                        <field name="description"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Promo Code Action -->
+        <record id="action_saas_promo_code" model="ir.actions.act_window">
+            <field name="name">Códigos Promocionales</field>
+            <field name="res_model">saas.promo.code</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- <menuitem id="menu_saas_promo_code"
+                  name="Promotional Codes"
+                  parent="menu_saas_config"
+                  action="action_saas_promo_code"
+                  sequence="10"/> -->
+
+    </data>
+</odoo>

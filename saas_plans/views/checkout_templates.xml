@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Add custom promo code UI to checkout page -->
+        <template id="custom_promo_code_ui" inherit_id="website_sale.checkout" priority="99">
+            <!-- Add custom promo code UI inside checkout -->
+            <xpath expr="//div[@id='shop_checkout']" position="inside">
+                <div class="saas-promo-code-section mb-4 mt-3">
+                    <div class="card border-primary">
+                        <div class="card-body p-3">
+                            <h6 class="card-title mb-3">
+                                <i class="fa fa-tag"/> Promo Code
+                            </h6>
+                            
+                            <!-- Show applied promo code -->
+                            <t t-if="website_sale_order and website_sale_order.promo_code_id">
+                                <div class="promo-applied-display">
+                                    <div class="alert alert-success mb-2">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <strong><i class="fa fa-check-circle"/> <span t-esc="website_sale_order.promo_code_id.code"/></strong>
+                                                <br/>
+                                                <small class="text-muted">
+                                                    Type: <span t-esc="website_sale_order.promo_code_id.code_type.replace('_', ' ').title()"/>
+                                                </small>
+                                                <br/>
+                                                <small class="text-success">
+                                                    Discount: -€<span t-esc="'%.2f' % website_sale_order.promo_code_discount"/>
+                                                </small>
+                                            </div>
+                                            <button type="button" class="btn btn-sm btn-outline-danger remove-promo-btn">
+                                                <i class="fa fa-times"/> Remove
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                            
+                            <!-- Show promo code input form -->
+                            <t t-if="website_sale_order and not website_sale_order.promo_code_id">
+                                <div class="promo-input-form">
+                                    <div class="input-group">
+                                        <input type="text" 
+                                               class="form-control promo-code-input" 
+                                               placeholder="Enter promo code..." 
+                                               id="saas_promo_input"/>
+                                        <button type="button" class="btn btn-primary apply-promo-btn">
+                                            <i class="fa fa-check"/> Apply
+                                        </button>
+                                    </div>
+                                    <div class="promo-message mt-2" style="display: none;"></div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+        
+        <!-- Display SaaS Info in Sale Order Portal View -->
+        <template id="saas_order_info" inherit_id="sale.sale_order_portal_content">
+            <xpath expr="." position="inside">
+                <t t-if="sale_order.saas_plan_id and sale_order.saas_company_name">
+                    <div class="alert alert-info mb-3">
+                        <h5 class="alert-heading">
+                            <i class="fa fa-cloud"/> SaaS Subscription Details
+                        </h5>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <strong>Plan:</strong> <span t-esc="sale_order.saas_plan_id.name"/>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Billing:</strong> <span t-esc="sale_order.saas_billing_cycle.title()"/>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-12">
+                                <strong>Company Name:</strong> <span t-esc="sale_order.saas_company_name"/>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-12">
+                                <strong>Your Subdomain:</strong> 
+                                <span class="badge bg-primary">
+                                    <t t-set="subdomain" t-value="sale_order.saas_company_name.lower().replace(' ', '')"/>
+                                    <span t-esc="subdomain"/>.abc.com
+                                </span>
+                            </div>
+                        </div>
+                        <small class="text-muted mt-2 d-block">
+                            <i class="fa fa-info-circle"/> After payment, your tenant will be automatically provisioned at this subdomain.
+                        </small>
+                    </div>
+                </t>
+            </xpath>
+        </template>
+        
+        <!-- Add custom promo code UI to payment page -->
+        <template id="custom_promo_code_ui_payment" inherit_id="website_sale.payment" priority="99">
+            <!-- Add custom promo code UI inside payment page -->
+            <xpath expr="//div[@id='payment_method']" position="before">
+                <div class="saas-promo-code-section mb-4 mt-3">
+                    <div class="card border-primary">
+                        <div class="card-body p-3">
+                            <h6 class="card-title mb-3">
+                                <i class="fa fa-tag"/> Promo Code
+                            </h6>
+                            
+                            <!-- Show applied promo code (read-only on payment page) -->
+                            <t t-if="website_sale_order and website_sale_order.promo_code_id">
+                                <div class="promo-applied-display">
+                                    <div class="alert alert-success mb-2">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <strong><i class="fa fa-check-circle"/> <span t-esc="website_sale_order.promo_code_id.code"/></strong>
+                                                <br/>
+                                                <small class="text-muted">
+                                                    Type: <span t-esc="website_sale_order.promo_code_id.code_type.replace('_', ' ').title()"/>
+                                                </small>
+                                                <br/>
+                                                <small class="text-success">
+                                                    Discount: -€<span t-esc="'%.2f' % website_sale_order.promo_code_discount"/>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <small class="text-muted">
+                                        <i class="fa fa-info-circle"/> Return to checkout to remove or change promo code
+                                    </small>
+                                </div>
+                            </t>
+                            
+                            <!-- Show message if no promo code applied -->
+                            <t t-if="website_sale_order and not website_sale_order.promo_code_id">
+                                <div class="alert alert-info mb-0">
+                                    <small>
+                                        <i class="fa fa-info-circle"/> No promo code applied. 
+                                        <a href="/shop/checkout" class="alert-link">Volver al pago</a> to add one.
+                                    </small>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+        
+    </data>
+</odoo>

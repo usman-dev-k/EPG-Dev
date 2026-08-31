@@ -1,0 +1,397 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* saas_provisioning
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20260421\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-21 23:52+0000\n"
+"PO-Revision-Date: 2026-05-21 23:52+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: saas_provisioning
+#: model:mail.template,body_html:saas_provisioning.email_template_saas_welcome
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <p>Hello <t t-out=\"object.partner_id.name or ''\"/>,</p>\n"
+"\n"
+"                    <p>We confirm that your subscription to EPG CRM has been successfully activated.</p>\n"
+"                    <p>Your account has been adhered to the following commercial condition:</p>\n"
+"                    <p>Preferential launch condition limited to the first 1,000 customers.</p>\n"
+"                    <p>This condition keeps its advantages active as long as your subscription remains active and up to date with payments.</p>\n"
+"                    <p>Access to your platform:</p>\n"
+"\n"
+"                    <ul>\n"
+"                        <li><strong>Database:</strong> <t t-out=\"object.database_name or ''\"/></li>\n"
+"                        <li><strong>URL:</strong> https://<t t-out=\"object.subdomain or ''\"/>.yourdomain.com</li>\n"
+"                        <li><strong>Username:</strong> admin</li>\n"
+"                        <li><strong>Password:</strong> <t t-out=\"ctx.get('admin_password', '')\"/></li>\n"
+"\n"
+"                        <li>For security, we recommend changing your password after the first login.</li>\n"
+"                        <li>Active conditions in your account:</li>\n"
+"                        <li>50% permanent discount on the official price</li>\n"
+"                        <li>Complete CRM (clients and commercial management)</li>\n"
+"                        <li>Accounting/management module included at no cost</li>\n"
+"                        <li>24/7 cloud access</li>\n"
+"                    </ul>\n"
+"                    <p><strong>Support:</strong> soporte@epgcrm.com</p>\n"
+"                    <p>Thank you for trusting EPG CRM.</p>\n"
+"                    <p>EPG CRM.</p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <p>Hola <t t-out=\"object.partner_id.name or ''\"/>,</p>\n"
+"\n"
+"                    <p>Le confirmamos que su suscripción a EPG CRM ha sido activada correctamente.</p>\n"
+"                    <p>Su cuenta se ha acogido a la siguiente condición comercial:</p>\n"
+"                    <p>Condición preferencial de lanzamiento limitada a los primeros 1.000 clientes.</p>\n"
+"                    <p>Esta condición mantiene sus ventajas activas mientras su suscripción permanezca activa y al día con los pagos.</p>\n"
+"                    <p>Acceso a su plataforma:</p>\n"
+"\n"
+"                    <ul>\n"
+"                        <li><strong>Base de datos:</strong> <t t-out=\"object.database_name or ''\"/></li>\n"
+"                        <li><strong>URL:</strong> https://<t t-out=\"object.subdomain or ''\"/>.sudominio.com</li>\n"
+"                        <li><strong>Usuario:</strong> admin</li>\n"
+"                        <li><strong>Contraseña:</strong> <t t-out=\"ctx.get('admin_password', '')\"/></li>\n"
+"\n"
+"                        <li>Por seguridad, recomendamos cambiar su contraseña después del primer inicio de sesión.</li>\n"
+"                        <li>Condiciones activas en su cuenta:</li>\n"
+"                        <li>50% de descuento permanente sobre el precio oficial</li>\n"
+"                        <li>CRM completo (clientes y gestión comercial)</li>\n"
+"                        <li>Módulo de contabilidad/gestión incluido sin coste adicional</li>\n"
+"                        <li>Acceso cloud 24/7</li>\n"
+"                    </ul>\n"
+"                    <p><strong>Soporte:</strong> soporte@epgcrm.com</p>\n"
+"                    <p>Gracias por confiar en EPG CRM.</p>\n"
+"                    <p>EPG CRM.</p>\n"
+"                </div>\n"
+"            "
+
+#. module: saas_provisioning
+#: model:mail.template,body_html:saas_provisioning.email_template_saas_invoice_payment_confirmation
+msgid ""
+"<div style=\"margin: 0px; padding: 20px; font-family: Arial, sans-serif; color: #333333;\">\n"
+"\n"
+"                    <!-- Greeting -->\n"
+"                    <p>Hello <t t-out=\"object.partner_id.name or ''\"/>,</p>\n"
+"\n"
+"                    <p>\n"
+"                        We have successfully received the payment corresponding to your\n"
+"                        <strong>EPG CRM</strong> subscription.\n"
+"                    </p>\n"
+"\n"
+"                    <!-- Resolve linked subscription and sale order -->\n"
+"                    <t t-set=\"subscription\" t-value=\"object.invoice_line_ids.mapped('sale_line_ids.order_id.saas_subscription_id')[:1]\"/>\n"
+"                    <t t-set=\"sale_order\" t-value=\"object.invoice_line_ids.mapped('sale_line_ids.order_id')[:1]\"/>\n"
+"\n"
+"                    <!-- Billing cycle label: Annual or Monthly -->\n"
+"                    <t t-set=\"billing_cycle_raw\" t-value=\"(subscription.billing_cycle if subscription and subscription.billing_cycle else (sale_order.saas_billing_cycle if sale_order and sale_order.saas_billing_cycle else 'monthly'))\"/>\n"
+"                    <t t-set=\"billing_cycle_label\" t-value=\"'Annual' if billing_cycle_raw == 'annual' else 'Monthly'\"/>\n"
+"\n"
+"                    <!-- Plan name -->\n"
+"                    <t t-set=\"plan_name\" t-value=\"(subscription.plan_id.name if subscription and subscription.plan_id else (sale_order.saas_plan_id.name if sale_order and sale_order.saas_plan_id else (object.invoice_line_ids[:1].name or 'EPG CRM')))\"/>\n"
+"\n"
+"                    <!-- Next renewal date -->\n"
+"                    <t t-set=\"next_renewal\" t-value=\"subscription.expiration_date if subscription and subscription.expiration_date else False\"/>\n"
+"\n"
+"                    <!-- Operation Details -->\n"
+"                    <p><strong>Operation details:</strong></p>\n"
+"                    <table style=\"width: 100%; border-collapse: collapse; margin-bottom: 20px;\">\n"
+"                        <tr style=\"border-bottom: 1px solid #eeeeee;\">\n"
+"                            <td style=\"padding: 8px 12px; width: 40%; color: #666666; font-weight: bold;\">Plan:</td>\n"
+"                            <td style=\"padding: 8px 12px;\"><t t-out=\"plan_name\"/></td>\n"
+"                        </tr>\n"
+"                        <tr style=\"border-bottom: 1px solid #eeeeee;\">\n"
+"                            <td style=\"padding: 8px 12px; color: #666666; font-weight: bold;\">Billed period:</td>\n"
+"                            <td style=\"padding: 8px 12px;\"><t t-out=\"billing_cycle_label\"/></td>\n"
+"                        </tr>\n"
+"                        <tr style=\"border-bottom: 1px solid #eeeeee;\">\n"
+"                            <td style=\"padding: 8px 12px; color: #666666; font-weight: bold;\">Amount:</td>\n"
+"                            <td style=\"padding: 8px 12px;\"><t t-out=\"format_amount(object.amount_total, object.currency_id)\"/></td>\n"
+"                        </tr>\n"
+"                        <tr style=\"border-bottom: 1px solid #eeeeee;\">\n"
+"                            <td style=\"padding: 8px 12px; color: #666666; font-weight: bold;\">Invoice number:</td>\n"
+"                            <td style=\"padding: 8px 12px;\"><t t-out=\"object.name or ''\"/></td>\n"
+"                        </tr>\n"
+"                        <tr style=\"border-bottom: 1px solid #eeeeee;\">\n"
+"                            <td style=\"padding: 8px 12px; color: #666666; font-weight: bold;\">Issue date:</td>\n"
+"                            <td style=\"padding: 8px 12px;\"><t t-out=\"object.invoice_date or ''\"/></td>\n"
+"                        </tr>\n"
+"                    </table>\n"
+"\n"
+"                    <!-- Invoice Download Link -->\n"
+"                    <p>Your invoice is attached below.</p>\n"
+"                    <!-- <p>\n"
+"                        <a t-attf-href=\"{{ object.get_portal_url() }}\"\n"
+"                           style=\"display: inline-block; background-color: #1a73e8; color: #ffffff; padding: 10px 20px; text-decoration: none; border-radius: 4px; font-weight: bold;\">\n"
+"                            Download Invoice\n"
+"                        </a>\n"
+"                    </p> -->\n"
+"\n"
+"                    <!-- Next Renewal (only shown if we have the date) -->\n"
+"                    <t t-if=\"next_renewal\">\n"
+"                        <p>\n"
+"                            <strong>Next renewal scheduled:</strong>\n"
+"                            <t t-out=\"next_renewal.strftime('%d/%m/%Y')\"/>\n"
+"                        </p>\n"
+"                    </t>\n"
+"\n"
+"                    <br/>\n"
+"                    <p>Thank you for your trust.</p>\n"
+"\n"
+"                    <!-- Signature -->\n"
+"                    <p>\n"
+"                        <strong>EPG CRM</strong><br/>\n"
+"                        Eficiencia y Productividad Global S.L.\n"
+"                    </p>\n"
+"\n"
+"                    <!-- Legal Footer -->\n"
+"                    <hr style=\"border: none; border-top: 1px solid #dddddd; margin: 20px 0;\"/>\n"
+"                    <p style=\"font-size: 11px; color: #999999; line-height: 1.5;\">\n"
+"                        This email is sent automatically by EPG CRM (Eficiencia y Productividad Global S.L.).\n"
+"                        The information contained in this message is confidential and intended solely for the\n"
+"                        addressee. If you have received this email in error, please notify us immediately and\n"
+"                        delete it. This communication does not constitute a legally binding contract unless\n"
+"                        explicitly stated. For questions about your subscription, please contact us at\n"
+"                        <t t-out=\"object.company_id.email or object.env.company.email or 'soporte@epgcrm.com'\"/>.\n"
+"                    </p>\n"
+"\n"
+"                </div>\n"
+"            "
+msgstr ""
+"<div style=\"margin: 0px; padding: 20px; font-family: Arial, sans-serif; color: #333333;\">\n"
+"\n"
+"                    <!-- Saludo -->\n"
+"                    <p>Hola <t t-out=\"object.partner_id.name or ''\"/>,</p>\n"
+"\n"
+"                    <p>\n"
+"                        Hemos recibido correctamente el pago correspondiente a su\n"
+"                        <strong>EPG CRM</strong> suscripción.\n"
+"                    </p>\n"
+"\n"
+"                    <!-- Resolver suscripción y pedido vinculados -->\n"
+"                    <t t-set=\"subscription\" t-value=\"object.invoice_line_ids.mapped('sale_line_ids.order_id.saas_subscription_id')[:1]\"/>\n"
+"                    <t t-set=\"sale_order\" t-value=\"object.invoice_line_ids.mapped('sale_line_ids.order_id')[:1]\"/>\n"
+"\n"
+"                    <!-- Etiqueta del ciclo de facturación: Anual o Mensual -->\n"
+"                    <t t-set=\"billing_cycle_raw\" t-value=\"(subscription.billing_cycle if subscription and subscription.billing_cycle else (sale_order.saas_billing_cycle if sale_order and sale_order.saas_billing_cycle else 'monthly'))\"/>\n"
+"                    <t t-set=\"billing_cycle_label\" t-value=\"'Anual' if billing_cycle_raw == 'annual' else 'Mensual'\"/>\n"
+"\n"
+"                    <!-- Nombre del plan -->\n"
+"                    <t t-set=\"plan_name\" t-value=\"(subscription.plan_id.name if subscription and subscription.plan_id else (sale_order.saas_plan_id.name if sale_order and sale_order.saas_plan_id else (object.invoice_line_ids[:1].name or 'EPG CRM')))\"/>\n"
+"\n"
+"                    <!-- Próxima fecha de renovación -->\n"
+"                    <t t-set=\"next_renewal\" t-value=\"subscription.expiration_date if subscription and subscription.expiration_date else False\"/>\n"
+"\n"
+"                    <!-- Detalles de la operación -->\n"
+"                    <p><strong>Detalles de la operación:</strong></p>\n"
+"                    <table style=\"width: 100%; border-collapse: collapse; margin-bottom: 20px;\">\n"
+"                        <tr style=\"border-bottom: 1px solid #eeeeee;\">\n"
+"                            <td style=\"padding: 8px 12px; width: 40%; color: #666666; font-weight: bold;\">Plan:</td>\n"
+"                            <td style=\"padding: 8px 12px;\"><t t-out=\"plan_name\"/></td>\n"
+"                        </tr>\n"
+"                        <tr style=\"border-bottom: 1px solid #eeeeee;\">\n"
+"                            <td style=\"padding: 8px 12px; color: #666666; font-weight: bold;\">Período facturado:</td>\n"
+"                            <td style=\"padding: 8px 12px;\"><t t-out=\"billing_cycle_label\"/></td>\n"
+"                        <tr>\n"
+"                        <tr style=\"border-bottom: 1px solid #eeeeee;\">\n"
+"                            <td style=\"padding: 8px 12px; color: #666666; font-weight: bold;\">Importe:</td>\n"
+"                            <td style=\"padding: 8px 12px;\"><t t-out=\"format_amount(object.amount_total, object.currency_id)\"/></td>\n"
+"                        </tr>\n"
+"                        <tr style=\"border-bottom: 1px solid #eeeeee;\">\n"
+"                            <td style=\"padding: 8px 12px; color: #666666; font-weight: bold;\">Número de factura:</td>\n"
+"                            <td style=\"padding: 8px 12px;\"><t t-out=\"object.name or ''\"/></td>\n"
+"                        </tr>\n"
+"                        <tr style=\"border-bottom: 1px solid #eeeeee;\">\n"
+"                            <td style=\"padding: 8px 12px; color: #666666; font-weight: bold;\">Fecha de emisión:</td>\n"
+"                            <td style=\"padding: 8px 12px;\"><t t-out=\"object.invoice_date or ''\"/></td>\n"
+"                        </tr>\n"
+"                    </table>\n"
+"\n"
+"                    <!-- Enlace de descarga de factura -->\n"
+"                    <p>Su factura se adjunta a continuación.</p>\n"
+"                    <!-- <p>\n"
+"                        <a t-attf-href=\"{{ object.get_portal_url() }}\"\n"
+"                           style=\"display: inline-block; background-color: #1a73e8; color: #ffffff; padding: 10px 20px; text-decoration: none; border-radius: 4px; font-weight: bold;\">\n"
+"                            Descargar Factura\n"
+"                        </a>\n"
+"                    </p> -->\n"
+"\n"
+"                    <!-- Próxima Renovación (solo se muestra si tenemos la fecha) -->\n"
+"                    <t t-if=\"next_renewal\">\n"
+"                        <p>\n"
+"                            <strong>Próxima renovación programada:</strong>\n"
+"                            <t t-out=\"next_renewal.strftime('%d/%m/%Y')\"/>\n"
+"                        </p>\n"
+"                    </t>\n"
+"\n"
+"                    <br/>\n"
+"                    <p>Gracias por su confianza.</p>\n"
+"\n"
+"                    <!-- Firma -->\n"
+"                    <p>\n"
+"                        <strong>EPG CRM</strong><br/>\n"
+"                        Eficiencia y Productividad Global S.L.\n"
+"                    </p>\n"
+"\n"
+"                    <!-- Pie de página legal -->\n"
+"                    <hr style=\"border: none; border-top: 1px solid #dddddd; margin: 20px 0;\"/>\n"
+"                    <p style=\"font-size: 11px; color: #999999; line-height: 1.5;\">\n"
+"                        Este correo electrónico se envía automáticamente por EPG CRM (Eficiencia y Productividad Global S.L.).\n"
+"                        La información contenida en este mensaje es confidencial y está destinada exclusivamente al\n"
+"                        destinatario. Si ha recibido este correo por error, le rogamos que nos lo notifique inmediatamente y\n"
+"                        lo elimine. Esta comunicación no constituye un contrato legalmente vinculante a menos que\n"
+"                        se indique explícitamente. Para cualquier pregunta sobre su suscripción, póngase en contacto con nosotros en\n"
+"                        <t t-out=\"object.company_id.email or object.env.company.email or 'soporte@epgcrm.com'\"/>.\n"
+"                    </p>\n"
+"\n"
+"                </div>\n"
+"            "
+
+#. module: saas_provisioning
+#: model:ir.model.fields,field_description:saas_provisioning.field_saas_subscription__admin_password
+msgid "Admin Password"
+msgstr "Contraseña de Administrador"
+
+#. module: saas_provisioning
+#. odoo-python
+#: code:addons/saas_provisioning/models/saas_subscription_extend.py:0
+msgid "Company name is required for provisioning"
+msgstr "El nombre de la empresa es necesario para el aprovisionamiento"
+
+#. module: saas_provisioning
+#: model:ir.model.fields.selection,name:saas_provisioning.selection__saas_subscription__provisioning_status__completed
+msgid "Completed"
+msgstr "Completado"
+
+#. module: saas_provisioning
+#. odoo-python
+#: code:addons/saas_provisioning/services/database_service.py:0
+msgid "Database %s already exists"
+msgstr "La base de datos %s ya existe"
+
+#. module: saas_provisioning
+#. odoo-python
+#: code:addons/saas_provisioning/services/database_service.py:0
+msgid "Database creation failed: %s"
+msgstr "Error al crear la base de datos: %s"
+
+#. module: saas_provisioning
+#. odoo-python
+#: code:addons/saas_provisioning/services/database_service.py:0
+msgid "Database deletion failed: %s"
+msgstr "Error al eliminar la base de datos: %s"
+
+#. module: saas_provisioning
+#: model:ir.actions.server,name:saas_provisioning.action_saas_invoice_payment_confirmation
+msgid "Execute Code"
+msgstr "Ejecutar Código"
+
+#. module: saas_provisioning
+#: model:ir.model.fields.selection,name:saas_provisioning.selection__saas_subscription__provisioning_status__failed
+msgid "Failed"
+msgstr "Fallido"
+
+#. module: saas_provisioning
+#: model:ir.model.fields.selection,name:saas_provisioning.selection__saas_subscription__provisioning_status__in_progress
+msgid "In Progress"
+msgstr "En Progreso"
+
+#. module: saas_provisioning
+#: model:ir.model.fields,help:saas_provisioning.field_saas_subscription__admin_password
+msgid "Initial admin password for the tenant database"
+msgstr "Contraseña de administrador inicial para la base de datos del cliente"
+
+#. module: saas_provisioning
+#: model:ir.model.fields.selection,name:saas_provisioning.selection__saas_subscription__provisioning_status__not_started
+msgid "Not Started"
+msgstr "No Iniciado"
+
+#. module: saas_provisioning
+#: model:mail.template,subject:saas_provisioning.email_template_saas_invoice_payment_confirmation
+msgid "Payment confirmation — EPG CRM"
+msgstr "Confirmación de pago — EPG CRM"
+
+#. module: saas_provisioning
+#: model:ir.model.fields,field_description:saas_provisioning.field_saas_subscription__provisioning_error
+msgid "Provisioning Error"
+msgstr "Error de Aprovisionamiento"
+
+#. module: saas_provisioning
+#. odoo-python
+#: code:addons/saas_provisioning/models/saas_subscription_extend.py:0
+msgid "Provisioning Started"
+msgstr "Aprovisionamiento Iniciado"
+
+#. module: saas_provisioning
+#: model:ir.model.fields,field_description:saas_provisioning.field_saas_subscription__provisioning_status
+msgid "Provisioning Status"
+msgstr "Estado del Aprovisionamiento"
+
+#. module: saas_provisioning
+#: model:ir.model,name:saas_provisioning.model_saas_subscription
+msgid "SaaS Customer Subscription"
+msgstr "Suscripción de Cliente SaaS"
+
+#. module: saas_provisioning
+#: model:ir.model,name:saas_provisioning.model_saas_database_service
+msgid "SaaS Database Management Service"
+msgstr "Servicio de Gestión de Bases de Datos SaaS"
+
+#. module: saas_provisioning
+#: model:base.automation,name:saas_provisioning.auto_saas_invoice_payment_confirmation
+msgid "SaaS Invoice: Send Payment Confirmation on Post"
+msgstr "Factura SaaS: Enviar Confirmación de Pago al Publicar"
+
+#. module: saas_provisioning
+#: model:mail.template,name:saas_provisioning.email_template_saas_invoice_payment_confirmation
+msgid "SaaS Payment Confirmation"
+msgstr "Confirmación de Pago SaaS"
+
+#. module: saas_provisioning
+#: model:ir.model,name:saas_provisioning.model_saas_provisioning_service
+msgid "SaaS Tenant Provisioning Service"
+msgstr "Servicio de Aprovisionamiento de Clientes SaaS"
+
+#. module: saas_provisioning
+#: model:mail.template,name:saas_provisioning.email_template_saas_welcome
+msgid "SaaS Welcome Email"
+msgstr "Correo de Bienvenida SaaS"
+
+#. module: saas_provisioning
+#. odoo-python
+#: code:addons/saas_provisioning/services/provisioning_service.py:0
+msgid "Subscription not found"
+msgstr "Suscripción no encontrada"
+
+#. module: saas_provisioning
+#. odoo-python
+#: code:addons/saas_provisioning/models/saas_subscription_extend.py:0
+msgid "Tenant already provisioned. Database: %s"
+msgstr "Cliente ya aprovisionado. Base de datos: %s"
+
+#. module: saas_provisioning
+#. odoo-python
+#: code:addons/saas_provisioning/services/provisioning_service.py:0
+msgid "Tenant deleted. Database: %s. Backup: %s"
+msgstr "Cliente eliminado. Base de datos: %s. Copia de seguridad: %s"
+
+#. module: saas_provisioning
+#. odoo-python
+#: code:addons/saas_provisioning/models/saas_subscription_extend.py:0
+msgid ""
+"Tenant is being provisioned in the background. This may take a few minutes."
+msgstr ""
+"El cliente se está aprovisionando en segundo plano. Esto puede tardar unos minutos."
+
+#. module: saas_provisioning
+#: model:mail.template,subject:saas_provisioning.email_template_saas_welcome
+msgid "Welcome to EPG CRM - Access successfully activated 🎉"
+msgstr "Bienvenido a EPG CRM - Acceso activado correctamente 🎉"

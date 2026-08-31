@@ -1,0 +1,291 @@
+/* Modern Dark Blue Theme for SaaS Plans */
+.saas-plans-page {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    min-height: 100vh;
+    padding: 60px 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.saas-plans-header {
+    text-align: center;
+    margin-bottom: 50px;
+    color: white;
+}
+
+.saas-plans-header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    background: linear-gradient(90deg, #60a5fa, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.saas-plans-header p {
+    font-size: 1.2rem;
+    color: #94a3b8;
+}
+
+/* Early Adopter Counter Banner */
+.ea-counter-banner {
+    background: linear-gradient(90deg, rgba(251, 191, 36, 0.15), rgba(245, 158, 11, 0.05));
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    border-radius: 12px;
+    padding: 15px 25px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.ea-counter-banner .ea-badge {
+    display: inline-block;
+    background: #fbbf24;
+    color: #0f172a;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-right: 12px;
+}
+
+.ea-counter-banner .ea-text {
+    color: #fbbf24;
+    font-weight: 600;
+}
+
+/* Section Titles */
+.section-title {
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(100, 116, 139, 0.3);
+}
+
+.section-title.early-adopter {
+    border-color: rgba(251, 191, 36, 0.4);
+}
+
+/* Plan Cards */
+.plan-card {
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(100, 116, 139, 0.3);
+    border-radius: 16px;
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.plan-card:hover {
+    transform: translateY(-5px);
+    border-color: #60a5fa;
+    box-shadow: 0 20px 40px rgba(96, 165, 250, 0.2);
+}
+
+.plan-card.early-adopter {
+    border-color: #fbbf24;
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(30, 41, 59, 0.8));
+}
+
+.plan-card.early-adopter:hover {
+    border-color: #f59e0b;
+    box-shadow: 0 20px 40px rgba(251, 191, 36, 0.2);
+}
+
+.plan-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #fbbf24;
+    color: #0f172a;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.plan-name {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.plan-price {
+    color: #60a5fa;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.plan-card.early-adopter .plan-price {
+    color: #fbbf24;
+}
+
+.plan-price-period {
+    color: #94a3b8;
+    font-size: 1rem;
+}
+
+.plan-price-equiv {
+    color: #10b981;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: 5px;
+}
+
+.plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+    flex-grow: 1;
+}
+
+.plan-features li {
+    color: #cbd5e1;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(100, 116, 139, 0.2);
+    font-size: 0.95rem;
+}
+
+.plan-features li:last-child {
+    border-bottom: none;
+}
+
+.plan-features i {
+    color: #10b981;
+    margin-right: 10px;
+    width: 16px;
+}
+
+.plan-features .highlight {
+    color: #fbbf24;
+    font-weight: 600;
+}
+
+/* Plan Button */
+.plan-btn {
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    width: 100%;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.plan-btn:hover:not(:disabled) {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+    color: white;
+    text-decoration: none;
+}
+
+.plan-btn:disabled {
+    background: #475569;
+    color: #94a3b8;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.plan-card.early-adopter .plan-btn {
+    background: linear-gradient(90deg, #fbbf24, #f59e0b);
+    color: #0f172a;
+}
+
+.plan-card.early-adopter .plan-btn:hover:not(:disabled) {
+    box-shadow: 0 10px 25px rgba(251, 191, 36, 0.4);
+    color: #0f172a;
+}
+
+/* Add-ons Section */
+.addons-section {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(100, 116, 139, 0.3);
+}
+
+.addon-card {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(100, 116, 139, 0.2);
+    border-radius: 12px;
+    padding: 24px;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.addon-card:hover {
+    border-color: #60a5fa;
+    transform: translateY(-3px);
+}
+
+.addon-card h4 {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.addon-price {
+    color: #60a5fa;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.addon-price small {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+.addon-desc {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.price-lock-note {
+    color: #10b981;
+    font-size: 0.85rem;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Form Styling */
+.form-label {
+    color: #cbd5e1;
+    font-weight: 500;
+}
+
+.form-control {
+    background: rgba(15, 23, 42, 0.5) !important;
+    border-color: #475569 !important;
+    color: white !important;
+}
+
+.form-control:focus {
+    background: rgba(30, 41, 59, 0.8) !important;
+    border-color: #60a5fa !important;
+    box-shadow: 0 0 0 0.25rem rgba(96, 165, 250, 0.25) !important;
+}
+
+.form-check-label {
+    color: #cbd5e1;
+}
+
+/* Subdomain Check Message */
+#subdomain_check span {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.9rem;
+}

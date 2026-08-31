@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Dashboard View (Kanban) -->
+        <record id="view_saas_dashboard_kanban" model="ir.ui.view">
+            <field name="name">saas.dashboard.kanban</field>
+            <field name="model">saas.subscription</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_dashboard">
+                    <field name="name"/>
+                    <field name="company_name"/>
+                    <field name="plan_id"/>
+                    <field name="state"/>
+                    <field name="database_name"/>
+                    <field name="subdomain"/>
+                    <field name="activation_date"/>
+                    <field name="provisioning_status"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings">
+                                        <strong class="o_kanban_record_title"><field name="company_name"/></strong>
+                                        <br/>
+                                        <span class="o_kanban_record_subtitle"><field name="subdomain"/>.abc.com</span>
+                                    </div>
+                                    <div class="o_kanban_record_top_right">
+                                        <field name="state" widget="label_selection" options="{'classes': {'active': 'success', 'suspended': 'danger', 'grace_period': 'warning'}}"/>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_record_body">
+                                    <field name="plan_id"/>
+                                    <br/>
+                                    <field name="database_name"/>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <field name="provisioning_status" widget="label_selection"/>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <field name="activation_date" widget="date"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        
+        <!-- Dashboard Action -->
+        <record id="action_saas_dashboard" model="ir.actions.act_window">
+            <field name="name">Panel de Clientes</field>
+            <field name="res_model">saas.subscription</field>
+            <field name="view_mode">kanban,list,form</field>
+            <field name="domain">[('state', 'in', ['active', 'pending', 'suspended', 'trial'])]</field>
+        </record>
+        
+        <!-- Deletion Wizard Action -->
+        <record id="action_tenant_deletion_wizard" model="ir.actions.act_window">
+            <field name="name">Eliminar Cliente</field>
+            <field name="res_model">saas.tenant.deletion.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="saas_management.model_saas_subscription"/>
+            <field name="binding_view_types">form</field>
+        </record>
+        <!-- Extend Subscription Form with Admin Actions -->
+        <record id="view_saas_subscription_form_admin" model="ir.ui.view">
+            <field name="name">saas.subscription.form.admin</field>
+            <field name="model">saas.subscription</field>
+            <field name="inherit_id" ref="saas_management.view_saas_subscription_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="action_provision_tenant" string="Aprovisionar Cliente" type="object" class="btn-success" invisible="database_name or provisioning_status != 'not_started'" groups="saas_management.group_saas_admin"/>
+                    <button name="%(saas_admin.action_tenant_deletion_wizard)d" string="Eliminar Cliente" type="action" class="btn-danger" invisible="state in ('deleted', 'error')" groups="saas_management.group_saas_admin"/>
+                </xpath>
+                <xpath expr="//field[@name='expiration_date']" position="after">
+                    <field name="provisioning_status"/>
+                    <field name="provisioning_error" invisible="not provisioning_error"/>
+                    <field name="admin_password" password="False" invisible="not admin_password" groups="saas_management.group_saas_admin"/>
+                </xpath>
+            </field>
+        </record>
+        
+        
+    </data>
+</odoo>

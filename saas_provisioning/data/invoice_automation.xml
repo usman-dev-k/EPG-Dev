@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<!-- ============================================================
+			 SaaS Invoice Posted → Payment Confirmation Email
+			 Fires only when the invoice is linked to a SaaS subscription.
+			 Regular (non-SaaS) invoices are NOT affected.
+			 ============================================================ -->
+
+		<record id="action_saas_invoice_payment_confirmation" model="ir.actions.server">
+			<field name="name">SaaS: Send Payment Confirmation Email</field>
+			<field name="model_id" ref="account.model_account_move"/>
+			<field name="state">code</field>
+			<field name="code"><![CDATA[
+# Navigate: invoice -> invoice lines -> sale order lines -> sale order -> saas_subscription_id
+subscription = False
+for line in record.invoice_line_ids:
+	for sale_line in line.sale_line_ids:
+		if sale_line.order_id and sale_line.order_id.saas_subscription_id:
+			subscription = sale_line.order_id.saas_subscription_id
+			break
+	if subscription:
+		break
+
+# Guard: prevent duplicate send across multiple invoices for the same transaction.
+if subscription and not subscription.payment_email_sent and record.partner_id.email:
+	template = env.ref(
+		'saas_provisioning.email_template_saas_invoice_payment_confirmation',
+		raise_if_not_found=False
+	)
+	if template:
+		template.send_mail(record.id, force_send=True)
+		record.message_post(
+			body="System: SaaS payment confirmation email sent to %s." % record.partner_id.email
+		)
+		# Write True to subscription so subsequent invoices don't trigger it again
+		subscription.write({
+			'payment_email_sent': True
+		})
+]]></field>
+		</record>
+
+		<record id="auto_saas_invoice_payment_confirmation" model="base.automation">
+			<field name="name">Factura SaaS: Enviar Confirmación de Pago al Publicar</field>
+			<field name="model_id" ref="account.model_account_move"/>
+			<field name="trigger">on_write</field>
+			<field name="trigger_field_ids" eval="[(6, 0, [ref('account.field_account_move__state')])]"/>
+			<field name="filter_pre_domain">[('state', '=', 'draft')]</field>
+			<field name="filter_domain">[('state', '=', 'posted'), ('move_type', '=', 'out_invoice')]</field>
+			<field name="action_server_ids" eval="[(4, ref('action_saas_invoice_payment_confirmation'))]"/>
+			<field name="active">True</field>
+		</record>
+
+	</data>
+</odoo>

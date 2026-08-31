@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_home_menu_saas" name="Portal layout : SaaS Subscription" inherit_id="portal.portal_breadcrumbs" priority="20">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'subscription'" class="breadcrumb-item active">
+                My Subscription
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_saas" name="Show SaaS Subscription" inherit_id="portal.portal_my_home" priority="20">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Mi Suscripción</t>
+                <t t-set="url" t-value="'/my/subscription'"/>
+                <t t-set="placeholder_count" t-value="'1'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_my_subscription" name="My Subscription">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <div class="card">
+                <div class="card-header bg-white pb-0">
+                    <div class="row">
+                        <div class="col-12 col-md-8">
+                            <h3 class="d-flex mb-1 mb-md-0 row">
+                                <span t-field="subscription.name" class="col-9 text-truncate"/>
+                                <small class="text-muted d-none d-md-inline col-3 text-end">
+                                    <span t-field="subscription.state" class="badge rounded-pill bg-info"/>
+                                </small>
+                            </h3>
+                        </div>
+                        <div class="col-12 col-md-4 text-end">
+                             <a t-if="subscription.tenant_url" t-att-href="subscription.tenant_url" target="_blank" class="btn btn-primary d-block d-md-inline-block mb-2">
+                                <i class="fa fa-external-link"/> Access Database
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-12 col-md-6 mb-4 mb-md-0">
+                            <h5 class="border-bottom pb-2">Detalles de la Suscripción</h5>
+                            <div class="row">
+                                <div class="col-6 text-muted">Plan:</div>
+                                <div class="col-6"><span t-field="subscription.plan_id.name"/></div>
+                                
+                                <div class="col-6 text-muted">Estado:</div>
+                                <div class="col-6"><span t-field="subscription.state"/></div>
+                                
+                                <div class="col-6 text-muted">Próxima Facturación:</div>
+                                <div class="col-6"><span t-field="subscription.next_billing_date"/></div>
+                                
+                                <div class="col-6 text-muted">Precio:</div>
+                                <div class="col-6"><span t-field="subscription.price" t-options='{"widget": "monetary", "display_currency": subscription.currency_id}'/></div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 text-center text-md-end">
+                             <button type="button" class="btn btn-secondary w-100 w-md-auto mt-3" data-bs-toggle="modal" data-bs-target="#upgradeModal">
+                                <i class="fa fa-rocket"/> Upgrade / Add-ons
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-12 col-md-6">
+                            <div class="card bg-light border-0">
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary"><i class="fa fa-users"/> Users</h5>
+                                    <h2 class="display-6">
+                                        <span t-esc="subscription.total_users"/>
+                                    </h2>
+                                    <p class="card-text text-muted small">
+                                        Included: <span t-field="subscription.plan_id.included_users"/><br/>
+                                        Extra: <span t-field="subscription.extra_users"/>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 mt-3 mt-md-0">
+                             <div class="card bg-light border-0">
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary"><i class="fa fa-hdd-o"/> Storage</h5>
+                                    <h2 class="display-6">
+                                        <span t-esc="subscription.total_storage_gb"/> <small class="fs-6">GB</small>
+                                    </h2>
+                                    <p class="card-text text-muted small">
+                                        Included: <span t-field="subscription.plan_id.included_storage_gb"/> GB<br/>
+                                        Extra: <span t-field="subscription.extra_storage_gb"/> GB
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upgrade Modal -->
+            <div class="modal fade" id="upgradeModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form action="/saas/upgrade" method="POST">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <input type="hidden" name="subscription_id" t-att-value="subscription.id"/>
+                            <input type="hidden" name="access_token" t-att-value="subscription.access_token"/>
+                            
+                            <div class="modal-header">
+                                <h5 class="modal-title">Mejorar Suscripción</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="text-muted">Añada más recursos a su suscripción inmediatamente.</p>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">Añadir Usuarios Extra</label>
+                                    <div class="input-group">
+                                        <input type="number" name="add_users" class="form-control" value="0" min="0"/>
+                                        <span class="input-group-text">+€12/user/mo</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">Añadir Almacenamiento</label>
+                                    <select name="add_storage" class="form-select">
+                                        <option value="0">No change</option>
+                                        <option value="5">+5 GB (€10/mo)</option>
+                                        <option value="10">+10 GB (€18/mo)</option>
+                                        <option value="25">+25 GB (€40/mo)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrado</button>
+                                <button type="submit" class="btn btn-primary">Proceder al Pago</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

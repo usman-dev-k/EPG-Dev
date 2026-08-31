@@ -1,0 +1,17 @@
+Searching 14 files for "action_view_subscriptions"
+
+~/Desktop/odoo/odoo18/saas_modules/saas_management/models/saas_plan.py:
+  126                  raise ValidationError(_('Annual price must be greater than 0 for annual billing'))
+  127      
+  128:     def action_view_subscriptions(self):
+  129          """Open subscriptions for this plan"""
+  130          return {
+
+~/Desktop/odoo/odoo18/saas_modules/saas_management/views/saas_plan_views.xml:
+   31                      <sheet>
+   32                          <div class="oe_button_box" name="button_box">
+   33:                             <button name="action_view_subscriptions" type="object" class="oe_stat_button" icon="fa-users">
+   34                                  <field name="active_subscription_count" widget="statinfo" string="Active"/>
+   35                              </button>
+
+2 matches across 2 files

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Replace "Powered by Odoo" with "Powered by EPG" across the web and portal -->
+    <template id="brand_promotion_message_epg" inherit_id="web.brand_promotion_message">
+        <xpath expr="//t[@t-set='odoo_logo']" position="replace">
+            <t t-set="odoo_logo">
+                <a target="_blank"
+                    href="https://epgcrm.com"
+                    class="badge text-bg-light">
+                    <span style="font-weight: bold; color: #1a2f5a;">EPG</span>
+                </a>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- Replace "Powered by Odoo" in the sidebar of portal records (Invoices, Sales Orders) -->
+    <template id="portal_record_sidebar_inherit_epg" inherit_id="portal.portal_record_sidebar">
+        <xpath expr="//div[hasclass('d-none', 'd-lg-block', 'mt-5', 'small', 'text-center', 'text-muted')]" position="replace">
+            <div class="d-none d-lg-block mt-5 small text-center text-muted">
+                Powered by <strong style="color: #0b5b67;">EPG</strong>
+            </div>
+        </xpath>
+    </template>
+</odoo>

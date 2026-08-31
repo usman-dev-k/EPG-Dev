@@ -1,0 +1,33 @@
+.epg-video-tutorial-btn {
+    color: #94a3b8 !important; /* Default slate color for systray */
+    transition: all 0.2s ease;
+    
+    &:hover {
+        color: #ef4444 !important; /* YouTube Red on hover */
+        transform: scale(1.05);
+    }
+    
+    .epg-video-text {
+        font-weight: 500;
+        font-size: 13px;
+    }
+}
+
+.epg-dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    
+    span {
+        color: #334155;
+    }
+    
+    &:hover {
+        background-color: rgba(239, 68, 68, 0.05);
+        span {
+            color: #ef4444;
+        }
+    }
+}

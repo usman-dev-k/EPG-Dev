@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Tenant Deletion Wizard Form -->
+        <record id="view_tenant_deletion_wizard_form" model="ir.ui.view">
+            <field name="name">saas.tenant.deletion.wizard.form</field>
+            <field name="model">saas.tenant.deletion.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Eliminar Cliente">
+                    <group>
+                        <group>
+                            <field name="subscription_id" invisible="1"/>
+                            <field name="company_name"/>
+                            <field name="database_name"/>
+                            <field name="subdomain"/>
+                        </group>
+                        <group>
+                            <field name="create_backup"/>
+                        </group>
+                    </group>
+                    
+                    <group>
+                        <field name="deletion_reason" placeholder="Enter reason for deletion..."/>
+                    </group>
+                    
+                    <group>
+                        <field name="confirm_deletion"/>
+                        <label for="confirm_deletion" string="Entiendo que esta acción no se puede deshacer"/>
+                    </group>
+                    
+                    <footer>
+                        <button string="Eliminar Cliente" name="action_delete_tenant" type="object" class="btn-danger"/>
+                        <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        
+    </data>
+</odoo>

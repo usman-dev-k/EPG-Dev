@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Admin Menu -->
+        <menuitem id="menu_saas_admin"
+                  name="SaaS Admin"
+                  parent="saas_management.menu_saas_root"
+                  sequence="1"
+                  groups="saas_management.group_saas_admin"/>
+        
+        <menuitem id="menu_saas_dashboard"
+                  name="Tenant Dashboard"
+                  parent="menu_saas_admin"
+                  action="action_saas_dashboard"
+                  sequence="10"/>
+        
+    </data>
+</odoo>

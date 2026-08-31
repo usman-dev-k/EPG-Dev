@@ -1,0 +1,107 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* saas_client
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-21 21:07+0000\n"
+"PO-Revision-Date: 2026-05-21 21:07+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: saas_client
+#: model:ir.model,name:saas_client.model_ir_attachment
+msgid "Attachment"
+msgstr "Archivo adjunto"
+
+#. module: saas_client
+#: model_terms:ir.ui.view,arch_db:saas_client.res_config_settings_view_form_saas
+msgid "Click to view your plan details, invoices, and upgrade options."
+msgstr "Haga clic para ver los detalles de su plan, facturas y opciones de mejora."
+
+#. module: saas_client
+#: model:ir.model,name:saas_client.model_res_config_settings
+msgid "Config Settings"
+msgstr "Ajustes de configuración"
+
+#. module: saas_client
+#: model:ir.model,name:saas_client.model_ir_http
+msgid "HTTP Routing"
+msgstr "Enrutamiento HTTP"
+
+#. module: saas_client
+#: model_terms:ir.ui.view,arch_db:saas_client.res_config_settings_view_form_saas
+msgid "Manage Subscription / Upgrade"
+msgstr "Gestionar Suscripción / Mejorar"
+
+#. module: saas_client
+#: model_terms:ir.ui.view,arch_db:saas_client.res_config_settings_view_form_saas
+msgid "Manage your subscription, plan, and resource limits."
+msgstr "Gestione su suscripción, plan y límites de recursos."
+
+#. module: saas_client
+#: model:ir.model.fields,field_description:saas_client.field_res_config_settings__saas_manager_url
+msgid "Manager URL"
+msgstr "URL del Administrador"
+
+#. module: saas_client
+#: model_terms:ir.ui.view,arch_db:saas_client.res_config_settings_view_form_saas
+msgid "SaaS Subscription"
+msgstr "Suscripción SaaS"
+
+#. module: saas_client
+#: model:ir.model.fields,field_description:saas_client.field_res_config_settings__saas_subscription_token
+msgid "SaaS Token"
+msgstr "Token SaaS"
+
+#. module: saas_client
+#: model:ir.model.fields,field_description:saas_client.field_res_config_settings__saas_client_installed
+msgid "Saas Client Installed"
+msgstr "Cliente SaaS Instalado"
+
+#. module: saas_client
+#: model:ir.actions.act_window,name:saas_client.action_saas_client_config
+msgid "Settings"
+msgstr "Configuración"
+
+#. module: saas_client
+#: model_terms:ir.ui.view,arch_db:saas_client.res_config_settings_view_form_saas
+msgid "Subscription Management"
+msgstr "Gestión de Suscripciones"
+
+#. module: saas_client
+#. odoo-python
+#: code:addons/saas_client/models/res_config_settings.py:0
+msgid "Subscription connection details not found. Please contact support."
+msgstr "No se encontraron los detalles de conexión de la suscripción. Por favor, contacte con soporte."
+
+#. module: saas_client
+#: model:ir.model,name:saas_client.model_res_users
+msgid "User"
+msgstr "Usuario"
+
+#. module: saas_client
+#. odoo-python
+#: code:addons/saas_client/models/res_users.py:0
+msgid ""
+"You have reached the maximum number of users allowed for your subscription "
+"plan (%s users). Please upgrade your plan to add more users."
+msgstr ""
+"Ha alcanzado el número máximo de usuarios permitidos para su plan de "
+"suscripción (%s usuarios). Por favor, mejore su plan para añadir más usuarios."
+
+#. module: saas_client
+#. odoo-python
+#: code:addons/saas_client/models/ir_attachment.py:0
+msgid ""
+"You have reached the maximum storage allowed for your subscription plan (%s "
+"MB). Please upgrade your plan to add more storage."
+msgstr ""
+"Ha alcanzado el almacenamiento máximo permitido para su plan de "
+"suscripción (%s MB). Por favor, mejore su plan para añadir más almacenamiento."

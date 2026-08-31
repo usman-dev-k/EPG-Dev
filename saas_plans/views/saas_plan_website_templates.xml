@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- CSS for Modern Dark Blue UI -->
+        <template id="saas_plans_assets" name="SaaS Plans Assets">
+            <xpath expr="." position="inside">
+            </xpath>
+        </template>
+        
+        <!-- SaaS Plans Page -->
+        <template id="saas_plans_page" name="SaaS Subscription Plans">
+            <t t-call="website.layout">
+                <t t-set="additional_title">Elige Tu Plan</t>
+                <div class="saas-plans-page">
+                    <div class="container">
+                        <div class="saas-plans-header">
+                            <h1>Elige Tu Plan de CRM</h1>
+                            <p>Plataforma de CRM potente para hacer crecer su negocio</p>
+                        </div>
+                        
+                        <!-- Early Adopter Counter Banner -->
+                        <t t-if="ea_remaining > 0">
+                            <div class="ea-counter-banner">
+                                <span class="ea-badge">🔥 LIMITADO</span>
+                                <span class="ea-text">
+                                    ¡Solo quedan <strong t-esc="ea_remaining"/> de <t t-esc="ea_limit"/> plazas de Pionero disponibles!
+                                </span>
+                            </div>
+                        </t>
+                        
+                        <!-- Early Adopter Plans -->
+                        <t t-if="early_plans and ea_remaining > 0">
+                            <h2 class="section-title early-adopter">
+                                ⭐ Promoción de Lanzamiento — Primeros 1,000 Clientes
+                            </h2>
+                            <div class="row g-4 mb-5">
+                                <t t-foreach="early_plans" t-as="plan">
+                                    <div class="col-lg-6">
+                                        <div class="plan-card early-adopter">
+                                            <span class="plan-badge">Pionero</span>
+                                            <h3 class="plan-name" t-esc="plan.name"/>
+                                            <div class="plan-price">
+                                                €<t t-if="plan.billing_cycle == 'monthly'" t-esc="'%.2f' % plan.price_monthly"/>
+                                                <t t-if="plan.billing_cycle == 'annual'" t-esc="'%.2f' % plan.price_annual"/>
+                                                <span class="plan-price-period">
+                                                    /<t t-if="plan.billing_cycle == 'monthly'">mes</t>
+                                                    <t t-if="plan.billing_cycle == 'annual'">año</t>
+                                                </span>
+                                            </div>
+                                            <t t-if="plan.billing_cycle == 'annual'">
+                                                <p class="plan-price-equiv">
+                                                    Equivalente a €29.80/mes
+                                                </p>
+                                            </t>
+                                            <ul class="plan-features">
+                                                <li><i class="fa fa-users"/> <t t-esc="plan.included_users"/> Usuarios incluidos</li>
+                                                <li><i class="fa fa-database"/> <t t-esc="plan.included_storage_gb"/> GB Almacenamiento Base</li>
+                                                <li><i class="fa fa-check"/> Módulo CRM</li>
+                                                <li><i class="fa fa-check"/> <span class="highlight">Módulo de Contabilidad / Gestión incluido de por vida</span></li>
+                                                <li><i class="fa fa-check"/> Copias de Seguridad Diarias Automáticas</li>
+                                                <li><i class="fa fa-shield"/> Soporte Prioritario</li>
+                                                <li><i class="fa fa-lock"/> <span class="highlight">Precio bloqueado mientras esté activo</span></li>
+                                            </ul>
+                                            <a t-attf-href="/saas/plan/#{plan.id}/subscribe" class="plan-btn">
+                                                Empezar — <t t-if="plan.billing_cycle == 'monthly'">Mensual</t><t t-if="plan.billing_cycle == 'annual'">Anual</t>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </t>
+
+                        <!-- Official Plans -->
+                        <h2 class="section-title">Precios Oficiales</h2>
+                        <div class="row g-4 mb-5">
+                            <t t-foreach="official_plans" t-as="plan">
+                                <div class="col-lg-6">
+                                    <div class="plan-card">
+                                        <h3 class="plan-name" t-esc="plan.name"/>
+                                        <div class="plan-price">
+                                            €<t t-if="plan.billing_cycle == 'monthly'" t-esc="'%.2f' % plan.price_monthly"/>
+                                            <t t-if="plan.billing_cycle == 'annual'" t-esc="'%.2f' % plan.price_annual"/>
+                                            <span class="plan-price-period">
+                                                /<t t-if="plan.billing_cycle == 'monthly'">mes</t>
+                                                <t t-if="plan.billing_cycle == 'annual'">año</t>
+                                            </span>
+                                        </div>
+                                        <ul class="plan-features">
+                                            <li><i class="fa fa-users"/> <t t-esc="plan.included_users"/> Usuarios incluidos</li>
+                                            <li><i class="fa fa-database"/> <t t-esc="plan.included_storage_gb"/> GB Almacenamiento Base</li>
+                                            <li><i class="fa fa-check"/> Módulo CRM</li>
+                                            <li><i class="fa fa-check"/> Copias de Seguridad Diarias Automáticas</li>
+                                            <li><i class="fa fa-headphones"/> Soporte Estándar</li>
+                                        </ul>
+                                        <a t-attf-href="/saas/plan/#{plan.id}/subscribe" class="plan-btn">
+                                            Empezar — <t t-if="plan.billing_cycle == 'monthly'">Mensual</t><t t-if="plan.billing_cycle == 'annual'">Anual</t>
+                                        </a>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+
+                        <!-- Add-on Modules and Extras -->
+                        <div class="addons-section">
+                            <h2 class="section-title">Complementos y Extras</h2>
+                            <div class="row g-4">
+                                
+                                <!-- Accounting Module -->
+                                <div class="col-lg-4">
+                                    <div class="addon-card">
+                                        <h4>📊 Contabilidad / Gestión</h4>
+                                        <div class="addon-price">
+                                            €14<small>/mes</small> · €120<small>/año</small>
+                                        </div>
+                                        <p class="addon-desc">
+                                            Herramientas avanzadas de contabilidad y gestión.
+                                        </p>
+                                        <p class="price-lock-note">
+                                            ✨ Incluido GRATIS de por vida para Pioneros
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Additional Users -->
+                                <div class="col-lg-4">
+                                    <div class="addon-card">
+                                        <h4>👥 Usuarios Adicionales</h4>
+                                        <div class="addon-price">
+                                            €7<small>/mes por usuario</small>
+                                        </div>
+                                        <p class="addon-desc">
+                                            Añada más miembros al equipo más allá de los 3 incluidos.
+                                            Cada usuario adicional suma un bono de +1 GB de almacenamiento.
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <!-- AI Assistant -->
+                                <div class="col-lg-4">
+                                    <div class="addon-card border-info">
+                                        <h4>🤖 Asistente de IA</h4>
+                                        <div class="addon-price">
+                                            €5<small>/paquete</small>
+                                        </div>
+                                        <p class="addon-desc">
+                                            Paquete de 5000 mensajes interactivos. Obtenga ayuda inteligente de ventas, CRM y facturación. (Pago único)
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Storage Expansions -->
+                                <div class="col-lg-4">
+                                    <div class="addon-card">
+                                        <h4>💾 Almacenamiento +5 GB</h4>
+                                        <div class="addon-price">€5<small>/mes</small></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-4">
+                                    <div class="addon-card">
+                                        <h4>💾 Almacenamiento +10 GB</h4>
+                                        <div class="addon-price">€9<small>/mes</small></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-4">
+                                    <div class="addon-card">
+                                        <h4>💾 Almacenamiento +25 GB</h4>
+                                        <div class="addon-price">€19<small>/mes</small></div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </t>
+        </template>
+        
+        <!-- Subscribe Form -->
+        <template id="subscribe_form" name="Subscribe to Plan">
+            <t t-call="website.layout">
+                <t t-set="additional_title">Suscribirse</t>
+                <div class="saas-plans-page">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6">
+                                <div class="plan-card" t-attf-class="plan-card #{plan.is_early_adopter and 'early-adopter' or ''}">
+                                    <t t-if="plan.is_early_adopter">
+                                        <span class="plan-badge">Pionero</span>
+                                    </t>
+                                    <h2 class="plan-name text-center mb-4">Suscripción a <span t-esc="plan.name"/></h2>
+                                    
+                                    <div class="text-center mb-4">
+                                        <div class="plan-price">
+                                            €<t t-if="plan.billing_cycle == 'monthly'" t-esc="'%.2f' % plan.price_monthly"/>
+                                            <t t-if="plan.billing_cycle == 'annual'" t-esc="'%.2f' % plan.price_annual"/>
+                                            <span class="plan-price-period">
+                                                /<t t-if="plan.billing_cycle == 'monthly'">mes</t>
+                                                <t t-if="plan.billing_cycle == 'annual'">año</t>
+                                            </span>
+                                        </div>
+                                        <t t-if="plan.billing_cycle == 'annual' and plan.early_adopter_price > 0">
+                                            <p class="plan-price-equiv" style="margin-top: 5px;">
+                                                ≈ €<t t-esc="'%.2f' % plan.early_adopter_price"/>/mes
+                                            </p>
+                                        </t>
+                                    </div>
+                                    
+                                    <form action="/saas/plan/checkout" method="post" id="subscribe_form">
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                        <input type="hidden" name="plan_id" t-att-value="plan.id"/>
+                                        <input type="hidden" name="billing_cycle" t-att-value="plan.billing_cycle"/>
+                                        
+                                        <div class="mb-3">
+                                            <label for="company_name" class="form-label" style="color: #cbd5e1;">Nombre de la Empresa</label>
+                                            <input type="text" 
+                                                   class="form-control" 
+                                                   id="company_name" 
+                                                   name="company_name" 
+                                                   required="required"
+                                                   placeholder="Introduzca el nombre de su empresa"
+                                                   style="background: rgba(15, 23, 42, 0.5); border-color: #475569; color: white;"/>
+                                            <div id="subdomain_check" class="mt-2" style="color: #94a3b8;"></div>
+                                        </div>
+                                        
+                                        <div class="mb-3 form-check">
+                                            <input type="checkbox" 
+                                                   class="form-check-input" 
+                                                   id="auto_renew" 
+                                                   name="auto_renew"
+                                                   value="1"
+                                                   checked="checked"/>
+                                            <label class="form-check-label" for="auto_renew" style="color: #cbd5e1;">
+                                                Renovar mi suscripción automáticamente
+                                            </label>
+                                        </div>
+
+                                        <hr style="border-color: #475569; margin: 2rem 0;"/>
+                                        
+                                        <h4 class="mb-3" style="color: white;">Complementos y Extras</h4>
+                                        
+                                        <!-- Accounting / Management Module -->
+                                        <div class="mb-3  saas-addon-item">
+                                            <t t-if="not plan.is_early_adopter">
+                                                <div class="form-check">
+                                                    <input type="checkbox" 
+                                                           class="form-check-input" 
+                                                           id="addon_accounting" 
+                                                           name="addon_accounting"
+                                                           value="1"/>
+                                                    <label class="form-check-label" for="addon_accounting" style="color: #cbd5e1;">
+                                                        <strong>Módulo de Contabilidad / Gestión</strong>
+                                                        <div style="color: #cbd5e1 !important;" class="text-muted small">
+                                                                +€<t t-if="plan.billing_cycle == 'monthly'">14.00/mes</t><t t-else="">120.00/año</t>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </t>
+                                            <!-- Hidden input to force 'true' submission if disabled -->
+                                            <t t-else="">
+                                                <div>
+                                                    <strong style="color: #cbd5e1;">Módulo de Contabilidad / Gestión</strong>
+                                                    <div style="color: #cbd5e1 !important;" class="text-muted small">
+                                                        <span class="badge bg-success">INCLUIDO GRATIS</span> para Pioneros
+                                                    </div>
+                                                </div>
+                                            </t>
+                                        </div>
+                                        
+
+                                        
+                                        <!-- Additional Users -->
+                                        <div class="mb-3">
+                                            <label for="extra_users" class="form-label" style="color: #cbd5e1;">
+                                                <strong>Usuarios Adicionales</strong>
+                                                <t t-if="plan.billing_cycle == 'monthly'"> (+€7.00/mes/usu)</t>
+                                                <t t-else=""> (+€84.00/año/usu)</t>
+                                            </label>
+                                            <div class="input-group">
+                                                <span class="input-group-text" style="background: #334155; border-color: #475569; color: white;">
+                                                    <i class="fa fa-users"></i>
+                                                </span>
+                                                <input type="number" 
+                                                       class="form-control" 
+                                                       id="extra_users" 
+                                                       name="extra_users" 
+                                                       value="0"
+                                                       min="0"
+                                                       style="background: rgba(15, 23, 42, 0.5); border-color: #475569; color: white;"/>
+                                            </div>
+                                            <div class="form-text" style="color: #94a3b8;">
+                                                3 usuarios incluidos en el plan base. +1GB extra de almacenamiento por usuario adicional.
+                                            </div>
+                                        </div>
+
+                                        <!-- AI Assistant -->
+                                        <div class="mb-3">
+                                            <label for="ai_assistant_qty" class="form-label" style="color: #cbd5e1;">
+                                                <strong>Mensajes de IA Adicionales</strong>
+                                                 (+€5.00 por paquete de 5000)
+                                            </label>
+                                            <div class="input-group">
+                                                <span class="input-group-text" style="background: #334155; border-color: #475569; color: white;">
+                                                    <i class="fa fa-robot"></i>
+                                                </span>
+                                                <input type="number" 
+                                                       class="form-control" 
+                                                       id="ai_assistant_qty" 
+                                                       name="ai_assistant_qty" 
+                                                       value="0"
+                                                       min="0"
+                                                       style="background: rgba(15, 23, 42, 0.5); border-color: #475569; color: white;"/>
+                                            </div>
+                                            <div class="form-text" style="color: #94a3b8;">
+                                                <strong>¡Gratis!</strong> 5000 mensajes de IA ya vienen incluidos en tu suscripción base de forma gratuita. Usa esta casilla solo si deseas comprar paquetes adicionales de 5000 mensajes.
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Add-on Billing Cycle (Only for Annual Plans) -->
+                                        <div t-if="plan.billing_cycle == 'annual'" class="mb-4">
+                                            <label class="form-label" style="color: #cbd5e1;"><strong>Ciclo de Facturación para Complementos</strong></label>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="addon_cycle" id="addon_cycle_monthly" value="monthly" checked="checked"/>
+                                                        <label class="form-check-label text-white small" for="addon_cycle_monthly">
+                                                            <strong>Mensual</strong><br/>
+                                                            <span style="color: #94a3b8;">Pagar mensualmente por separado</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="addon_cycle" id="addon_cycle_annual" value="annual"/>
+                                                        <label class="form-check-label text-white small" for="addon_cycle_annual">
+                                                            <strong>Anual</strong><br/>
+                                                            <span style="color: #94a3b8;">Pagar 12 meses ahora</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input t-else="" type="hidden" name="addon_cycle" value="monthly"/>
+                                        
+                                        <!-- Storage Expansion -->
+                                        <div class="mb-4">
+                                            <label class="form-label d-block" style="color: #cbd5e1;"><strong>Expansión de Almacenamiento</strong></label>
+                                            <div class="btn-group w-100" role="group">
+                                                <input type="radio" class="btn-check" name="storage_expansion" id="storage_0" value="0" checked="checked" autocomplete="off"/>
+                                                <label class="btn btn-outline-secondary" for="storage_0">Ninguno</label>
+                                                
+                                                <input type="radio" class="btn-check" name="storage_expansion" id="storage_5" value="5" autocomplete="off"/>
+                                                <label style="color: gray !important;" class="btn btn-outline-secondary" for="storage_5">+5GB (5 €)</label>
+                                                
+                                                <input type="radio" class="btn-check" name="storage_expansion" id="storage_10" value="10" autocomplete="off"/>
+                                                <label style="color: gray !important;" class="btn btn-outline-secondary" for="storage_10">+10GB (9 €)</label>
+                                                
+                                                <input type="radio" class="btn-check" name="storage_expansion" id="storage_25" value="25" autocomplete="off"/>
+                                                <label style="color: gray !important;" class="btn btn-outline-secondary" for="storage_25">+25GB (19 €)</label>
+                                            </div>
+                                            <div class="form-text" style="color: #94a3b8;">
+                                                3GB incluidos en el plan base.
+                                            </div>
+                                        </div>
+                                        
+                                        <t t-if="request.env.user._is_public()">
+                                            <div class="mb-3">
+                                                <label for="customer_name" class="form-label" style="color: #cbd5e1;">Su Nombre / Your Name</label>
+                                                <input type="text" class="form-control" id="customer_name" name="customer_name" required="required" placeholder="Introduzca su nombre" style="background: rgba(15, 23, 42, 0.5); border-color: #475569; color: white;"/>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="customer_email" class="form-label" style="color: #cbd5e1;">Correo Electrónico / Email</label>
+                                                <input type="email" class="form-control" id="customer_email" name="customer_email" required="required" placeholder="Introduzca su correo electrónico" style="background: rgba(15, 23, 42, 0.5); border-color: #475569; color: white;"/>
+                                                <div id="email_check" class="mt-2" style="color: #94a3b8;"></div>
+                                            </div>
+                                        </t>
+                                        
+                                        <div id="epg-custom-logic-container" class="mt-4">
+                                            <style>
+                                                #epg-custom-logic-container .form-check-input:checked {
+                                                    background-color: #4FA3D1 !important;
+                                                    border-color: #4FA3D1 !important;
+                                                }
+                                                #epg-custom-logic-container .form-check-input:focus {
+                                                    border-color: #4FA3D1;
+                                                    box-shadow: 0 0 0 0.25rem rgba(79, 163, 209, 0.25);
+                                                }
+                                            </style>
+
+                                            <div class="form-check mb-2 text-start">
+                                                <input type="checkbox" id="epg-privacy-check" class="form-check-input" style="cursor: pointer;"/>
+                                                <label for="epg-privacy-check" class="form-check-label small" style="cursor: pointer; color: #cbd5e1;">
+                                                    He leído y acepto la <a href="/politica-de-privacidad" target="_blank" style="color: #4FA3D1;">Política de Privacidad</a>. <span class="text-danger">*</span>
+                                                </label>
+                                            </div>
+
+                                            <div class="form-check mb-3 text-start">
+                                                <input type="checkbox" id="epg-commercial-check" class="form-check-input" name="commercial_consent" style="cursor: pointer;"/>
+                                                <label for="epg-commercial-check" class="form-check-label small" style="cursor: pointer; color: #cbd5e1;">
+                                                    Acepto recibir información comercial.
+                                                </label>
+                                            </div>
+
+                                            <div id="epg-recaptcha-element" class="mb-4 d-flex justify-content-center"></div>
+                                        </div>
+
+                                        <div class="d-grid gap-2 mt-2">
+                                            <button type="submit" name="checkout_action" value="trial" class="plan-btn" style="background: #475569; color: white;" id="trial_btn" disabled="disabled">
+                                                Prueba gratuita (5 días)
+                                            </button>
+                                            <button type="submit" name="checkout_action" value="pay" class="plan-btn" id="continue_btn" disabled="disabled">
+                                                Pagar ahora
+                                            </button>
+                                        </div>
+                                    </form>
+                                    
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+        
+        <!-- Override Website Sale Checkout Accordion -->
+        <template id="checkout_layout_auto_expand" inherit_id="website_sale.checkout_layout">
+            <xpath expr="//button[@data-bs-target='#o_wsale_accordion_item']" position="attributes">
+                <attribute name="class" separator=" " remove="collapsed"/>
+                <attribute name="aria-expanded">true</attribute>
+            </xpath>
+            <xpath expr="//div[@id='o_wsale_accordion_item']" position="attributes">
+                <attribute name="class" separator=" " add="show"/>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_saas_database_service_user,saas.database.service.user,model_saas_database_service,base.group_user,1,0,0,0
+access_saas_database_service_manager,saas.database.service.manager,model_saas_database_service,saas_management.group_saas_manager,1,1,1,1
+access_saas_provisioning_service_user,saas.provisioning.service.user,model_saas_provisioning_service,base.group_user,1,0,0,0
+access_saas_provisioning_service_manager,saas.provisioning.service.manager,model_saas_provisioning_service,saas_management.group_saas_manager,1,1,1,1
