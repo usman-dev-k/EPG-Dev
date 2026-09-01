@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="account_payment_method_redsys" model="account.payment.method">
+        <field name="name">Redsys</field>
+        <field name="code">redsys</field>
+        <field name="payment_type">inbound</field>
+    </record>
+    <record id="account_payment_method_redsys_bizum" model="account.payment.method">
+        <field name="name">Bizum</field>
+        <field name="code">bizum</field>
+        <field name="payment_type">inbound</field>
+    </record>
+    <record id="payment_method_redsys" model="payment.method">
+        <field name="name">Redsys</field>
+        <field name="code">redsys</field>
+        <field name="image" type="base64" file="redsys_integration/static/src/img/redsys.png"/>
+        <field name="support_tokenization">True</field>
+        <field name="support_express_checkout">False</field>
+        <field name="support_refund">none</field>
+    </record>
+    <record id="payment_method_redsys_bizum" model="payment.method">
+        <field name="name">Bizum</field>
+        <field name="code">bizum</field>
+        <field name="image" type="base64" file="redsys_integration/static/src/img/Bizum.png"/>
+        <field name="support_tokenization">False</field>
+        <field name="support_express_checkout">False</field>
+        <field name="support_refund">none</field>
+    </record>
+    
+    <record id="payment_provider_redsys" model="payment.provider">
+        <field name="name">Redsys</field>
+        <field name="code">redsys</field>
+        <field name="allow_tokenization">True</field>
+        <!-- <field name="display_as">Redsys</field> -->
+        <field name="module_id" ref="base.module_redsys_integration"/>
+        <field name="state">test</field>
+        <field name="pre_msg"><![CDATA[
+        <p></p>]]></field>
+        
+        <field name="redsys_merchant_name">Nombre del Comercio</field>
+        <field name="redsys_merchant_code">1234</field>
+        <field name="redsys_merchant_description">Pedido</field>
+        <field name="redsys_secret_key">Clave encriptada en SHA256</field>
+        <field name="image_128" type="base64" file="redsys_integration/static/src/img/redsys.png"/>
+        <field name="redirect_form_view_id"  ref="redirect_form" />
+
+         <field name="payment_method_ids"
+               eval="[Command.set([
+                         ref('redsys_integration.payment_method_redsys'),
+                     ])]"
+        />
+    </record>
+    
+    <record id="payment_provider_redsys_bizum" model="payment.provider">
+        <field name="name">Bizum</field>
+        <field name="code">bizum</field>
+        <field name="module_id" ref="base.module_redsys_integration"/>
+        <field name="state">test</field>
+        <field name="pre_msg"><![CDATA[
+        <p></p>]]></field>
+
+        <field name="redsys_merchant_name">Nombre del Comercio</field>
+        <field name="redsys_merchant_code">1234</field>
+        <field name="redsys_merchant_description">Pedido</field>
+        <field name="redsys_secret_key">Clave encriptada en SHA256</field>
+        <field name="image_128" type="base64" file="redsys_integration/static/src/img/Bizum.png"/>
+        <field name="redsys_pay_method">z</field>
+
+        <field name="payment_method_ids"
+               eval="[Command.set([
+                         ref('redsys_integration.payment_method_redsys_bizum'),
+                     ])]"
+        />
+
+        <field name="redirect_form_view_id"  ref="redirect_form" />
+    </record>
+</odoo>
